@@ -33,6 +33,19 @@ Bản prototype này đã hiện thực hóa toàn bộ art direction, animation
 
 ---
 
+
+### 🎮 Phím Tắt & Tính Năng V1:
+* **Di chuyển:** WASD hoặc các phím mũi tên ↑ ← ↓ → (hướng 4 chiều, chuẩn hóa tốc độ chéo).
+* **Quay mặt thông minh:** Khi đi lên (Up) mà dừng lại, nhân vật tự động quay về nhìn xuống (Down) để lộ đôi mắt tròn cute.
+* **Camera Zoom mượt mà:** Lăn chuột hoặc bấm I (zoom gần) / O (zoom xa) từ 2.0 đến 7.5.
+* **Ngoại trang (Cosmetics):**
+  * [H]: Bật / Tắt Mũ phù thủy (Witch Hat).
+  * [J]: Bật / Tắt Cánh bướm đêm (Moth Wings).
+  * [K]: Bật / Tắt 2 bàn tay tròn đen cute (Paws) - đồng bộ 4 hướng và động tác quẫy tay khi đi.
+* **Vệt bụi ma (Dust Trail):** Nằm chính giữa đáy/đuôi con ma, hiển thị ở lớp dưới thân (Sorting Order -5) với hạt tròn mờ ảo dịu mắt.
+* **Độ phân giải HD:** Toàn bộ sprite atlas được render từ SVG gốc ở kích thước 2048x1024 (256x256 mỗi ô, PPU=256), zoom sát không bị nhòe vỡ hạt.
+* **Màu sắc đồng bộ:** Màu đen tuyền của nhân vật và 2 tay được cân chỉnh chuẩn theo sắc độ đen mực (#101016) của quái bóng đêm Shade Stalker, mắt trắng sáng tương phản rõ nét.
+
 ## 📂 3. Danh Sách Các Tài Nguyên & Script Đã Tạo
 
 ### 📜 Scripts C# (`Assets/_Game/Scripts/`)

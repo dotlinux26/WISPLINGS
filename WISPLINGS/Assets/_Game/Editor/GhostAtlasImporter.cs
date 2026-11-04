@@ -17,7 +17,9 @@ namespace GhostSurvival.Editor
     /// Automated setup tool for Ghost Survival / W1SPL1NGS prototype.
     /// Runs automatically via [InitializeOnLoad] and via Unity Tools menu.
     /// Imports and slices sprite atlases, generates animation clips, Animator Controllers,
-    /// prefabs, and the ArtSandbox test scene with exact 128x128 specs and custom pivots.
+    /// prefabs, and the ArtSandbox test scene with exact specs and custom pivots.
+    /// Supports HD 256x256 slicing (PPU=256) across all assets, cosmetic Hands layer,
+    /// and multi-path animation curve bindings.
     /// </summary>
     [InitializeOnLoad]
     public static class GhostAtlasImporter
@@ -35,9 +37,9 @@ namespace GhostSurvival.Editor
 
         private static void AutoRunSetupOnce()
         {
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v3", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v5", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v3", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v5", true);
                 SetupAll();
             }
         }
@@ -45,7 +47,7 @@ namespace GhostSurvival.Editor
         [MenuItem("Tools/W1SPL1NGS/1. Setup All (Slice, Clips, Prefabs, Scene)")]
         public static void SetupAll()
         {
-            Debug.Log("[W1SPL1NGS] Starting complete prototype setup v3...");
+            Debug.Log("[W1SPL1NGS] Starting complete prototype setup v5 (All HD + Animation Fix)...");
             EnsureMaterials();
             SliceAllAtlases();
 
@@ -59,7 +61,7 @@ namespace GhostSurvival.Editor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            Debug.Log("[W1SPL1NGS] Complete prototype setup v3 finished successfully!");
+            Debug.Log("[W1SPL1NGS] Complete prototype setup v5 finished successfully!");
         }
 
         public static Material GetOrCreateParticleMaterial()
@@ -67,18 +69,25 @@ namespace GhostSurvival.Editor
             EnsureDirectory(MaterialsDir);
             string matPath = $"{MaterialsDir}/M_URP_Particle.mat";
             Material mat = AssetDatabase.LoadAssetAtPath<Material>(matPath);
+            Shader shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Unlit-Default");
+            if (shader == null) shader = Shader.Find("Sprites/Default");
+
             if (mat == null)
             {
-                Shader shader = Shader.Find("Universal Render Pipeline/Particles/Unlit");
-                if (shader == null) shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Unlit-Default");
-                if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit");
-                if (shader == null) shader = Shader.Find("Sprites/Default");
-
                 mat = new Material(shader);
-                if (mat.HasProperty("_Surface")) mat.SetFloat("_Surface", 1);
-                if (mat.HasProperty("_Blend")) mat.SetFloat("_Blend", 0);
                 AssetDatabase.CreateAsset(mat, matPath);
             }
+            else
+            {
+                mat.shader = shader;
+            }
+
+            Texture2D dotTex = AssetDatabase.LoadAssetAtPath<Texture2D>("Assets/_Game/Art/Sprites/fx_particle_soft_dot.png");
+            if (dotTex != null)
+            {
+                mat.mainTexture = dotTex;
+            }
+            EditorUtility.SetDirty(mat);
             return mat;
         }
 
@@ -90,27 +99,29 @@ namespace GhostSurvival.Editor
         [MenuItem("Tools/W1SPL1NGS/2. Slice Atlases Only")]
         public static void SliceAllAtlases()
         {
-            SliceAtlas($"{SpritesDir}/ghost_main_8x4.png", 8, 4, 128, 128, new Vector2(0.5f, 0.18f), "Ghost", true);
-            SliceAtlas($"{SpritesDir}/cosmetic_hat_witch_8x4.png", 8, 4, 128, 128, new Vector2(0.5f, 0.18f), "Hat_Witch", true);
-            SliceAtlas($"{SpritesDir}/cosmetic_wings_moth_8x4.png", 8, 4, 128, 128, new Vector2(0.5f, 0.18f), "Wings_Moth", true);
-            SliceAtlas($"{SpritesDir}/soul_collectible_6x1.png", 6, 1, 128, 128, new Vector2(0.5f, 0.5f), "Soul", false);
-            SliceAtlas($"{SpritesDir}/shade_stalker_4x4.png", 4, 4, 128, 128, new Vector2(0.5f, 0.18f), "Stalker", false);
+            // All atlases rendered at HD 256x256 per cell with PPU=256
+            SliceAtlas($"{SpritesDir}/ghost_main_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Ghost", true, 256);
+            SliceAtlas($"{SpritesDir}/cosmetic_hat_witch_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Hat_Witch", true, 256);
+            SliceAtlas($"{SpritesDir}/cosmetic_wings_moth_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Wings_Moth", true, 256);
+            SliceAtlas($"{SpritesDir}/cosmetic_hands_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Hands", true, 256);
+            SliceAtlas($"{SpritesDir}/shade_stalker_4x4.png", 4, 4, 256, 256, new Vector2(0.5f, 0.18f), "Stalker", false, 256);
+            SliceAtlas($"{SpritesDir}/soul_collectible_6x1.png", 6, 1, 256, 256, new Vector2(0.5f, 0.5f), "Soul", false, 256);
 
-            Debug.Log("[W1SPL1NGS] All 5 atlases sliced with exact dimensions and pivots.");
+            Debug.Log("[W1SPL1NGS] All 6 atlases sliced with exact HD dimensions and pivots.");
         }
 
-        private static void SliceAtlas(string assetPath, int cols, int rows, int cellW, int cellH, Vector2 pivot, string prefix, bool isGhostLayout)
+        private static void SliceAtlas(string assetPath, int cols, int rows, int cellW, int cellH, Vector2 pivot, string prefix, bool isGhostLayout, int ppu)
         {
             TextureImporter importer = AssetImporter.GetAtPath(assetPath) as TextureImporter;
             if (importer == null)
             {
-                Debug.LogError($"[W1SPL1NGS] Failed to find TextureImporter at {assetPath}");
+                Debug.LogWarning($"[W1SPL1NGS] TextureImporter not found yet at {assetPath}, skipping slice.");
                 return;
             }
 
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Multiple;
-            importer.spritePixelsPerUnit = 128;
+            importer.spritePixelsPerUnit = ppu;
             importer.filterMode = FilterMode.Bilinear;
             importer.textureCompression = TextureImporterCompression.Uncompressed;
             importer.mipmapEnabled = false;
@@ -138,11 +149,7 @@ namespace GhostSurvival.Editor
                     }
                     else if (prefix == "Stalker")
                     {
-                        frameName = $"{prefix}_{dir}_Chase_{c}";
-                    }
-                    else if (prefix == "Soul")
-                    {
-                        frameName = $"{prefix}_Hover_{c}";
+                        frameName = $"{prefix}_Chase_{dir}_{c}";
                     }
                     else
                     {
@@ -165,61 +172,70 @@ namespace GhostSurvival.Editor
             importer.SaveAndReimport();
         }
 
-        [MenuItem("Tools/W1SPL1NGS/3. Create Animation Clips")]
+        [MenuItem("Tools/W1SPL1NGS/3. Create Animation Clips Only")]
         public static void CreateAnimationClips()
         {
             EnsureDirectory(AnimationsDir);
-
-            // Frame rate reduced to 6 FPS for soft, calm and floaty ghost animation
-            const float ghostFps = 6f;
+            var ghostSprites = LoadSprites($"{SpritesDir}/ghost_main_8x4.png");
+            var stalkerSprites = LoadSprites($"{SpritesDir}/shade_stalker_4x4.png");
+            var soulSprites = LoadSprites($"{SpritesDir}/soul_collectible_6x1.png");
 
             string[] directions = { "Down", "Left", "Right", "Up" };
-            string ghostAtlasPath = $"{SpritesDir}/ghost_main_8x4.png";
-            Dictionary<string, Sprite> ghostSprites = LoadSprites(ghostAtlasPath);
+
+            // 1. Ghost Clips: 4 Idle, 4 Walk at 6 FPS for soft pace
+            // Bind both "BodyRenderer" (relative to VisualRoot Animator) and "" as well as "VisualRoot/BodyRenderer"
+            string[] ghostPaths = new string[] { "BodyRenderer", "", "VisualRoot/BodyRenderer" };
 
             foreach (var dir in directions)
             {
-                Sprite[] idleFrames = new Sprite[4];
-                for (int i = 0; i < 4; i++)
+                CreateClip($"{AnimationsDir}/Ghost_Idle_{dir}.anim", 6f, new Sprite[]
                 {
-                    ghostSprites.TryGetValue($"Ghost_{dir}_Idle_{i}", out idleFrames[i]);
-                }
-                BuildSpriteClip($"{AnimationsDir}/Ghost_Idle_{dir}.anim", idleFrames, ghostFps, true);
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_0"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_2"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_3")
+                }, ghostPaths);
 
-                Sprite[] walkFrames = new Sprite[4];
-                for (int i = 0; i < 4; i++)
+                CreateClip($"{AnimationsDir}/Ghost_Walk_{dir}.anim", 6f, new Sprite[]
                 {
-                    ghostSprites.TryGetValue($"Ghost_{dir}_Walk_{i}", out walkFrames[i]);
-                }
-                BuildSpriteClip($"{AnimationsDir}/Ghost_Walk_{dir}.anim", walkFrames, ghostFps, true);
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Walk_0"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Walk_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Walk_2"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Walk_3")
+                }, ghostPaths);
             }
 
-            string stalkerAtlasPath = $"{SpritesDir}/shade_stalker_4x4.png";
-            Dictionary<string, Sprite> stalkerSprites = LoadSprites(stalkerAtlasPath);
-
+            // 2. ShadeStalker Clips: 4 Chase clips (Animator on stalker root -> path "")
             foreach (var dir in directions)
             {
-                Sprite[] chaseFrames = new Sprite[4];
-                for (int i = 0; i < 4; i++)
+                CreateClip($"{AnimationsDir}/Stalker_Chase_{dir}.anim", 6f, new Sprite[]
                 {
-                    stalkerSprites.TryGetValue($"Stalker_{dir}_Chase_{i}", out chaseFrames[i]);
-                }
-                BuildSpriteClip($"{AnimationsDir}/Stalker_Chase_{dir}.anim", chaseFrames, 6f, true);
+                    GetSprite(stalkerSprites, $"Stalker_Chase_{dir}_0"),
+                    GetSprite(stalkerSprites, $"Stalker_Chase_{dir}_1"),
+                    GetSprite(stalkerSprites, $"Stalker_Chase_{dir}_2"),
+                    GetSprite(stalkerSprites, $"Stalker_Chase_{dir}_3")
+                }, new string[] { "" });
             }
 
-            string soulAtlasPath = $"{SpritesDir}/soul_collectible_6x1.png";
-            Dictionary<string, Sprite> soulSprites = LoadSprites(soulAtlasPath);
-            Sprite[] hoverFrames = new Sprite[6];
+            // 3. Soul Collectible Clip: 6 frames hover (Animator on soul root -> path "")
+            Sprite[] soulFrames = new Sprite[6];
             for (int i = 0; i < 6; i++)
             {
-                soulSprites.TryGetValue($"Soul_Hover_{i}", out hoverFrames[i]);
+                soulFrames[i] = GetSprite(soulSprites, $"Soul_Hover_{i}");
             }
-            BuildSpriteClip($"{AnimationsDir}/Soul_Hover.anim", hoverFrames, 6f, true);
+            CreateClip($"{AnimationsDir}/Soul_Hover.anim", 6f, soulFrames, new string[] { "" });
 
-            Debug.Log("[W1SPL1NGS] Animation clips regenerated at relaxed frame rate (6 FPS).");
+            Debug.Log("[W1SPL1NGS] Generated 13 Animation Clips at 6 FPS with multi-path bindings.");
         }
 
-        private static void BuildSpriteClip(string clipPath, Sprite[] sprites, float frameRate, bool loop)
+        private static Sprite GetSprite(Dictionary<string, Sprite> dict, string name)
+        {
+            if (dict.TryGetValue(name, out Sprite s)) return s;
+            Debug.LogWarning($"[W1SPL1NGS] Missing sprite: {name}");
+            return null;
+        }
+
+        private static void CreateClip(string clipPath, float frameRate, Sprite[] frames, string[] targetPaths)
         {
             AnimationClip clip = AssetDatabase.LoadAssetAtPath<AnimationClip>(clipPath);
             if (clip == null)
@@ -227,209 +243,197 @@ namespace GhostSurvival.Editor
                 clip = new AnimationClip();
                 AssetDatabase.CreateAsset(clip, clipPath);
             }
+
             clip.frameRate = frameRate;
 
-            EditorCurveBinding binding = new EditorCurveBinding
-            {
-                type = typeof(SpriteRenderer),
-                path = "VisualRoot/BodyRenderer",
-                propertyName = "m_Sprite"
-            };
-
-            ObjectReferenceKeyframe[] keyframes = new ObjectReferenceKeyframe[sprites.Length];
-            for (int i = 0; i < sprites.Length; i++)
+            ObjectReferenceKeyframe[] keyframes = new ObjectReferenceKeyframe[frames.Length];
+            for (int i = 0; i < frames.Length; i++)
             {
                 keyframes[i] = new ObjectReferenceKeyframe
                 {
                     time = i / frameRate,
-                    value = sprites[i]
+                    value = frames[i]
                 };
             }
 
-            AnimationUtility.SetObjectReferenceCurve(clip, binding, keyframes);
+            foreach (var p in targetPaths)
+            {
+                EditorCurveBinding binding = new EditorCurveBinding
+                {
+                    type = typeof(SpriteRenderer),
+                    path = p,
+                    propertyName = "m_Sprite"
+                };
+                AnimationUtility.SetObjectReferenceCurve(clip, binding, keyframes);
+            }
 
             AnimationClipSettings settings = AnimationUtility.GetAnimationClipSettings(clip);
-            settings.loopTime = loop;
+            settings.loopTime = true;
             AnimationUtility.SetAnimationClipSettings(clip, settings);
 
             EditorUtility.SetDirty(clip);
         }
 
-        [MenuItem("Tools/W1SPL1NGS/4. Create Animator Controllers")]
+        [MenuItem("Tools/W1SPL1NGS/4. Create Animator Controllers Only")]
         public static void CreateAnimatorControllers()
         {
             EnsureDirectory(AnimationsDir);
 
+            // 1. Ghost Controller
             string ghostCtrlPath = $"{AnimationsDir}/GhostAnimatorController.controller";
-            AnimatorController ghostCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(ghostCtrlPath);
-            if (ghostCtrl == null)
+            AnimatorController ghostCtrl = AnimatorController.CreateAnimatorControllerAtPath(ghostCtrlPath);
+            ghostCtrl.parameters = new AnimatorControllerParameter[0];
+            ghostCtrl.AddParameter("Direction", AnimatorControllerParameterType.Int);
+            ghostCtrl.AddParameter("IsMoving", AnimatorControllerParameterType.Bool);
+
+            var rootSm = ghostCtrl.layers[0].stateMachine;
+
+            string[] dirs = { "Down", "Left", "Right", "Up" };
+            AnimatorState[] idleStates = new AnimatorState[4];
+            AnimatorState[] walkStates = new AnimatorState[4];
+
+            for (int i = 0; i < 4; i++)
             {
-                ghostCtrl = AnimatorController.CreateAnimatorControllerAtPath(ghostCtrlPath);
+                string dir = dirs[i];
+                AnimationClip idleClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Idle_{dir}.anim");
+                AnimationClip walkClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Walk_{dir}.anim");
+
+                idleStates[i] = rootSm.AddState($"Idle_{dir}");
+                idleStates[i].motion = idleClip;
+
+                walkStates[i] = rootSm.AddState($"Walk_{dir}");
+                walkStates[i].motion = walkClip;
             }
 
-            if (!HasParameter(ghostCtrl, "Direction"))
-                ghostCtrl.AddParameter("Direction", AnimatorControllerParameterType.Int);
-            if (!HasParameter(ghostCtrl, "IsMoving"))
-                ghostCtrl.AddParameter("IsMoving", AnimatorControllerParameterType.Bool);
+            rootSm.defaultState = idleStates[0]; // Default Idle_Down
 
-            var ghostRootSm = ghostCtrl.layers[0].stateMachine;
-            string[] directions = { "Down", "Left", "Right", "Up" };
-
-            Dictionary<string, AnimatorState> states = new Dictionary<string, AnimatorState>();
-
-            var childStates = ghostRootSm.states;
-            foreach (var cs in childStates)
+            for (int i = 0; i < 4; i++)
             {
-                ghostRootSm.RemoveState(cs.state);
+                var idleToWalk = idleStates[i].AddTransition(walkStates[i]);
+                idleToWalk.AddCondition(AnimatorConditionMode.If, 0, "IsMoving");
+                idleToWalk.AddCondition(AnimatorConditionMode.Equals, i, "Direction");
+                idleToWalk.hasExitTime = false;
+                idleToWalk.duration = 0f;
+
+                var walkToIdle = walkStates[i].AddTransition(idleStates[i]);
+                walkToIdle.AddCondition(AnimatorConditionMode.IfNot, 0, "IsMoving");
+                walkToIdle.hasExitTime = false;
+                walkToIdle.duration = 0f;
+
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == j) continue;
+
+                    var anyWalk = walkStates[i].AddTransition(walkStates[j]);
+                    anyWalk.AddCondition(AnimatorConditionMode.If, 0, "IsMoving");
+                    anyWalk.AddCondition(AnimatorConditionMode.Equals, j, "Direction");
+                    anyWalk.hasExitTime = false;
+                    anyWalk.duration = 0f;
+
+                    var anyIdle = idleStates[i].AddTransition(idleStates[j]);
+                    anyIdle.AddCondition(AnimatorConditionMode.IfNot, 0, "IsMoving");
+                    anyIdle.AddCondition(AnimatorConditionMode.Equals, j, "Direction");
+                    anyIdle.hasExitTime = false;
+                    anyIdle.duration = 0f;
+                }
             }
-
-            for (int d = 0; d < 4; d++)
-            {
-                string dir = directions[d];
-                var idleClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Idle_{dir}.anim");
-                var walkClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Walk_{dir}.anim");
-
-                var idleState = ghostRootSm.AddState($"Idle_{dir}");
-                idleState.motion = idleClip;
-                states[$"Idle_{d}"] = idleState;
-
-                var walkState = ghostRootSm.AddState($"Walk_{dir}");
-                walkState.motion = walkClip;
-                states[$"Walk_{d}"] = walkState;
-
-                if (d == 0) ghostRootSm.defaultState = idleState;
-            }
-
-            for (int d = 0; d < 4; d++)
-            {
-                var idleTrans = ghostRootSm.AddAnyStateTransition(states[$"Idle_{d}"]);
-                idleTrans.canTransitionToSelf = false;
-                idleTrans.duration = 0f;
-                idleTrans.hasExitTime = false;
-                idleTrans.AddCondition(AnimatorConditionMode.Equals, d, "Direction");
-                idleTrans.AddCondition(AnimatorConditionMode.IfNot, 0, "IsMoving");
-
-                var walkTrans = ghostRootSm.AddAnyStateTransition(states[$"Walk_{d}"]);
-                walkTrans.canTransitionToSelf = false;
-                walkTrans.duration = 0f;
-                walkTrans.hasExitTime = false;
-                walkTrans.AddCondition(AnimatorConditionMode.Equals, d, "Direction");
-                walkTrans.AddCondition(AnimatorConditionMode.If, 0, "IsMoving");
-            }
-
-            string stalkerCtrlPath = $"{AnimationsDir}/ShadeStalkerController.controller";
-            AnimatorController stalkerCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(stalkerCtrlPath);
-            if (stalkerCtrl == null)
-            {
-                stalkerCtrl = AnimatorController.CreateAnimatorControllerAtPath(stalkerCtrlPath);
-            }
-            if (!HasParameter(stalkerCtrl, "Direction"))
-                stalkerCtrl.AddParameter("Direction", AnimatorControllerParameterType.Int);
-            if (!HasParameter(stalkerCtrl, "IsChasing"))
-                stalkerCtrl.AddParameter("IsChasing", AnimatorControllerParameterType.Bool);
-
-            var stalkerSm = stalkerCtrl.layers[0].stateMachine;
-            var stalkerChildStates = stalkerSm.states;
-            foreach (var cs in stalkerChildStates)
-            {
-                stalkerSm.RemoveState(cs.state);
-            }
-
-            for (int d = 0; d < 4; d++)
-            {
-                string dir = directions[d];
-                var chaseClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Stalker_Chase_{dir}.anim");
-                var chaseState = stalkerSm.AddState($"Chase_{dir}");
-                chaseState.motion = chaseClip;
-
-                if (d == 0) stalkerSm.defaultState = chaseState;
-
-                var trans = stalkerSm.AddAnyStateTransition(chaseState);
-                trans.canTransitionToSelf = false;
-                trans.duration = 0f;
-                trans.hasExitTime = false;
-                trans.AddCondition(AnimatorConditionMode.Equals, d, "Direction");
-            }
-
-            string soulCtrlPath = $"{AnimationsDir}/SoulController.controller";
-            AnimatorController soulCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(soulCtrlPath);
-            if (soulCtrl == null)
-            {
-                soulCtrl = AnimatorController.CreateAnimatorControllerAtPath(soulCtrlPath);
-            }
-            var soulSm = soulCtrl.layers[0].stateMachine;
-            var hoverClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Soul_Hover.anim");
-            var soulChildStates = soulSm.states;
-            foreach (var cs in soulChildStates)
-            {
-                soulSm.RemoveState(cs.state);
-            }
-            var hoverState = soulSm.AddState("Soul_Hover");
-            hoverState.motion = hoverClip;
-            soulSm.defaultState = hoverState;
 
             EditorUtility.SetDirty(ghostCtrl);
-            EditorUtility.SetDirty(stalkerCtrl);
-            EditorUtility.SetDirty(soulCtrl);
-        }
 
-        private static bool HasParameter(AnimatorController ctrl, string paramName)
-        {
-            foreach (var p in ctrl.parameters)
+            // 2. ShadeStalker Controller
+            string stalkerCtrlPath = $"{AnimationsDir}/ShadeStalkerController.controller";
+            AnimatorController stalkerCtrl = AnimatorController.CreateAnimatorControllerAtPath(stalkerCtrlPath);
+            stalkerCtrl.parameters = new AnimatorControllerParameter[0];
+            stalkerCtrl.AddParameter("Direction", AnimatorControllerParameterType.Int);
+
+            var stalkerSm = stalkerCtrl.layers[0].stateMachine;
+            AnimatorState[] chaseStates = new AnimatorState[4];
+
+            for (int i = 0; i < 4; i++)
             {
-                if (p.name == paramName) return true;
+                string dir = dirs[i];
+                AnimationClip chaseClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Stalker_Chase_{dir}.anim");
+                chaseStates[i] = stalkerSm.AddState($"Chase_{dir}");
+                chaseStates[i].motion = chaseClip;
             }
-            return false;
+            stalkerSm.defaultState = chaseStates[0];
+
+            for (int i = 0; i < 4; i++)
+            {
+                for (int j = 0; j < 4; j++)
+                {
+                    if (i == j) continue;
+                    var t = chaseStates[i].AddTransition(chaseStates[j]);
+                    t.AddCondition(AnimatorConditionMode.Equals, j, "Direction");
+                    t.hasExitTime = false;
+                    t.duration = 0f;
+                }
+            }
+            EditorUtility.SetDirty(stalkerCtrl);
+
+            // 3. Soul Controller
+            string soulCtrlPath = $"{AnimationsDir}/SoulController.controller";
+            AnimatorController soulCtrl = AnimatorController.CreateAnimatorControllerAtPath(soulCtrlPath);
+            var soulSm = soulCtrl.layers[0].stateMachine;
+            AnimationClip hoverClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Soul_Hover.anim");
+            var hoverState = soulSm.AddState("Hover");
+            hoverState.motion = hoverClip;
+            soulSm.defaultState = hoverState;
+            EditorUtility.SetDirty(soulCtrl);
+
+            Debug.Log("[W1SPL1NGS] Generated 3 Animator Controllers.");
         }
 
-        [MenuItem("Tools/W1SPL1NGS/5. Create Prefabs")]
+        [MenuItem("Tools/W1SPL1NGS/5. Create Prefabs Only")]
         public static void CreatePrefabs()
         {
             EnsureDirectory(PrefabsDir);
 
-            Material particleMat = GetOrCreateParticleMaterial();
-
             var ghostSprites = LoadSpritesList($"{SpritesDir}/ghost_main_8x4.png");
             var hatSprites = LoadSpritesList($"{SpritesDir}/cosmetic_hat_witch_8x4.png");
             var wingsSprites = LoadSpritesList($"{SpritesDir}/cosmetic_wings_moth_8x4.png");
+            var handsSprites = LoadSpritesList($"{SpritesDir}/cosmetic_hands_8x4.png");
             var stalkerSprites = LoadSpritesList($"{SpritesDir}/shade_stalker_4x4.png");
             var soulSprites = LoadSpritesList($"{SpritesDir}/soul_collectible_6x1.png");
 
             var ghostCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"{AnimationsDir}/GhostAnimatorController.controller");
             var stalkerCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"{AnimationsDir}/ShadeStalkerController.controller");
             var soulCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"{AnimationsDir}/SoulController.controller");
+            var particleMat = GetOrCreateParticleMaterial();
 
             // 1. GhostPlayer Prefab
-            // GhostPlayer
-            // └── VisualRoot (Bobs and breathes with hover effect, moving body, hat, wings in perfect unison)
-            //     ├── Shadow
-            //     ├── WingsRenderer
-            //     ├── BodyRenderer
-            //     ├── HatRenderer (Positioned higher, above the eyes)
-            //     └── EffectRenderer (URP particle material)
             GameObject ghostRoot = new GameObject("GhostPlayer");
-            ghostRoot.AddComponent<SortingGroup>();
+            var rb = ghostRoot.AddComponent<Rigidbody2D>();
+            rb.gravityScale = 0f;
+            rb.freezeRotation = true;
+            rb.collisionDetectionMode = CollisionDetectionMode2D.Continuous;
+            rb.interpolation = RigidbodyInterpolation2D.Interpolate;
+
+            var col = ghostRoot.AddComponent<CircleCollider2D>();
+            col.radius = 0.38f;
+            col.offset = new Vector2(0f, 0.2f);
+
+            var sortingGroup = ghostRoot.AddComponent<SortingGroup>();
+            sortingGroup.sortingOrder = 0;
+
             var controller = ghostRoot.AddComponent<GhostController>();
             var ghostAnim = ghostRoot.AddComponent<GhostAnimator>();
             var loadout = ghostRoot.AddComponent<CosmeticLoadout>();
             var syncer = ghostRoot.AddComponent<CosmeticSynchronizer>();
-            var col2d = ghostRoot.AddComponent<CircleCollider2D>();
-            col2d.radius = 0.35f;
-            col2d.offset = new Vector2(0f, 0.15f);
-            var ghostAnimatorComp = ghostRoot.AddComponent<Animator>();
-            ghostAnimatorComp.runtimeAnimatorController = ghostCtrl;
 
-            // VisualRoot
+            // Single moving VisualRoot
             GameObject visualRootGo = new GameObject("VisualRoot");
             visualRootGo.transform.SetParent(ghostRoot.transform, false);
 
-            // Shadow
+            var ghostAnimatorComp = visualRootGo.AddComponent<Animator>();
+            ghostAnimatorComp.runtimeAnimatorController = ghostCtrl;
+
+            // Shadow (Sorting Order -20)
             GameObject shadowGo = new GameObject("Shadow");
             shadowGo.transform.SetParent(visualRootGo.transform, false);
-            shadowGo.transform.localPosition = Vector3.zero;
+            shadowGo.transform.localPosition = new Vector3(0f, -0.05f, 0f);
             var shadowSr = shadowGo.AddComponent<SpriteRenderer>();
             shadowSr.sortingOrder = -20;
-            shadowSr.color = new Color(0f, 0f, 0f, 0.45f);
 
             // WingsRenderer (Sorting Order -10)
             GameObject wingsGo = new GameObject("WingsRenderer");
@@ -439,6 +443,13 @@ namespace GhostSurvival.Editor
             wingsSr.sortingOrder = -10;
             if (wingsSprites.Count > 0) wingsSr.sprite = wingsSprites[0];
 
+            // Dust Trail: EffectRenderer (Sorting Order -5: UNDER the character body)
+            // Placed at center (x: 0) and at the bottom/tail "đít" of the ghost body (y: -0.05)
+            GameObject effectGo = new GameObject("EffectRenderer");
+            effectGo.transform.SetParent(visualRootGo.transform, false);
+            effectGo.transform.localPosition = new Vector3(0f, -0.05f, 0f);
+            CreateWispParticleSystem(effectGo, particleMat);
+
             // BodyRenderer (Sorting Order 0)
             GameObject bodyGo = new GameObject("BodyRenderer");
             bodyGo.transform.SetParent(visualRootGo.transform, false);
@@ -446,19 +457,21 @@ namespace GhostSurvival.Editor
             bodySr.sortingOrder = 0;
             if (ghostSprites.Count > 0) bodySr.sprite = ghostSprites[0];
 
-            // HatRenderer (Sorting Order +10) - Positioned higher (y = 0.22)
+            // Cute Hands Renderer (Sorting Order 2: ON TOP of the body silhouette)
+            GameObject handsGo = new GameObject("HandsRenderer");
+            handsGo.transform.SetParent(visualRootGo.transform, false);
+            handsGo.transform.localPosition = Vector3.zero;
+            var handsSr = handsGo.AddComponent<SpriteRenderer>();
+            handsSr.sortingOrder = 2;
+            if (handsSprites.Count > 0) handsSr.sprite = handsSprites[0];
+
+            // HatRenderer (Sorting Order 10)
             GameObject hatGo = new GameObject("HatRenderer");
             hatGo.transform.SetParent(visualRootGo.transform, false);
             hatGo.transform.localPosition = new Vector3(0f, 0.22f, 0f);
             var hatSr = hatGo.AddComponent<SpriteRenderer>();
             hatSr.sortingOrder = 10;
             if (hatSprites.Count > 0) hatSr.sprite = hatSprites[0];
-
-            // EffectRenderer (Sorting Order +15) with URP particle material
-            GameObject effectGo = new GameObject("EffectRenderer");
-            effectGo.transform.SetParent(visualRootGo.transform, false);
-            effectGo.transform.localPosition = new Vector3(0.3f, 0.3f, 0f);
-            CreateWispParticleSystem(effectGo, particleMat);
 
             // Wire components
             var soController = new SerializedObject(controller);
@@ -468,20 +481,29 @@ namespace GhostSurvival.Editor
             var soGhostAnim = new SerializedObject(ghostAnim);
             soGhostAnim.FindProperty("animator").objectReferenceValue = ghostAnimatorComp;
             soGhostAnim.FindProperty("bodyRenderer").objectReferenceValue = bodySr;
+            var propBodySprites = soGhostAnim.FindProperty("bodySprites");
+            propBodySprites.arraySize = ghostSprites.Count;
+            for (int i = 0; i < ghostSprites.Count; i++)
+            {
+                propBodySprites.GetArrayElementAtIndex(i).objectReferenceValue = ghostSprites[i];
+            }
             soGhostAnim.ApplyModifiedProperties();
 
             var soLoadout = new SerializedObject(loadout);
             soLoadout.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soLoadout.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
+            soLoadout.FindProperty("handsRenderer").objectReferenceValue = handsSr;
             soLoadout.ApplyModifiedProperties();
 
-            // Wire and serialize all 32 sprite lookups for Hat and Wings into CosmeticSynchronizer
+            // Wire and serialize all 32 sprite lookups for Hat, Wings, and Hands
             var soSyncer = new SerializedObject(syncer);
             soSyncer.FindProperty("bodyRenderer").objectReferenceValue = bodySr;
             soSyncer.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soSyncer.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
+            soSyncer.FindProperty("handsRenderer").objectReferenceValue = handsSr;
             soSyncer.FindProperty("hatOffset").vector3Value = new Vector3(0f, 0.22f, 0f);
             soSyncer.FindProperty("wingsOffset").vector3Value = new Vector3(0f, 0.05f, 0f);
+            soSyncer.FindProperty("handsOffset").vector3Value = Vector3.zero;
 
             var propHats = soSyncer.FindProperty("hatSprites");
             propHats.arraySize = hatSprites.Count;
@@ -495,6 +517,13 @@ namespace GhostSurvival.Editor
             for (int i = 0; i < wingsSprites.Count; i++)
             {
                 propWings.GetArrayElementAtIndex(i).objectReferenceValue = wingsSprites[i];
+            }
+
+            var propHands = soSyncer.FindProperty("handsSprites");
+            propHands.arraySize = handsSprites.Count;
+            for (int i = 0; i < handsSprites.Count; i++)
+            {
+                propHands.GetArrayElementAtIndex(i).objectReferenceValue = handsSprites[i];
             }
             soSyncer.ApplyModifiedProperties();
 
@@ -518,10 +547,6 @@ namespace GhostSurvival.Editor
             stalkerAnimator.runtimeAnimatorController = stalkerCtrl;
 
             var stalkerComp = stalkerGo.AddComponent<ShadeStalker>();
-            var soStalker = new SerializedObject(stalkerComp);
-            soStalker.FindProperty("animator").objectReferenceValue = stalkerAnimator;
-            soStalker.FindProperty("spriteRenderer").objectReferenceValue = stalkerSr;
-            soStalker.ApplyModifiedProperties();
 
             PrefabUtility.SaveAsPrefabAsset(stalkerGo, $"{PrefabsDir}/ShadeStalker.prefab");
             GameObject.DestroyImmediate(stalkerGo);
@@ -529,7 +554,7 @@ namespace GhostSurvival.Editor
             // 3. SoulCollectible Prefab
             GameObject soulGo = new GameObject("SoulCollectible");
             var soulSr = soulGo.AddComponent<SpriteRenderer>();
-            soulSr.sortingOrder = 5;
+            soulSr.sortingOrder = 0;
             if (soulSprites.Count > 0) soulSr.sprite = soulSprites[0];
 
             var soulAnimator = soulGo.AddComponent<Animator>();
@@ -537,7 +562,7 @@ namespace GhostSurvival.Editor
 
             var soulCol = soulGo.AddComponent<CircleCollider2D>();
             soulCol.isTrigger = true;
-            soulCol.radius = 0.5f;
+            soulCol.radius = 0.35f; // Exact physical touch radius
 
             soulGo.AddComponent<SoulCollectible>();
 
@@ -548,7 +573,7 @@ namespace GhostSurvival.Editor
             PrefabUtility.SaveAsPrefabAsset(soulGo, $"{PrefabsDir}/SoulCollectible.prefab");
             GameObject.DestroyImmediate(soulGo);
 
-            Debug.Log("[W1SPL1NGS] Prefabs regenerated with unified VisualRoot, synchronized 32 frames for hat/wings, and URP materials.");
+            Debug.Log("[W1SPL1NGS] Prefabs regenerated with HD sprites, multi-path animation clips, and exact collider sizes.");
         }
 
         private static ParticleSystem CreateWispParticleSystem(GameObject parent, Material particleMat)
@@ -557,17 +582,17 @@ namespace GhostSurvival.Editor
             var main = ps.main;
             main.loop = true;
             main.startLifetime = 0.8f;
-            main.startSpeed = 0.2f;
-            main.startSize = new ParticleSystem.MinMaxCurve(0.1f, 0.25f);
-            main.startColor = new ParticleSystem.MinMaxGradient(new Color(0.75f, 0.91f, 1f, 0.8f), new Color(0.78f, 0.76f, 1f, 0.6f));
+            main.startSpeed = 0.15f;
+            main.startSize = new ParticleSystem.MinMaxCurve(0.08f, 0.2f);
+            main.startColor = new ParticleSystem.MinMaxGradient(new Color(0.75f, 0.91f, 1f, 0.7f), new Color(0.78f, 0.76f, 1f, 0.5f));
             main.simulationSpace = ParticleSystemSimulationSpace.World;
 
             var emission = ps.emission;
-            emission.rateOverTime = 12f;
+            emission.rateOverTime = 10f;
 
             var shape = ps.shape;
             shape.shapeType = ParticleSystemShapeType.Sphere;
-            shape.radius = 0.08f;
+            shape.radius = 0.06f;
 
             var sol = ps.sizeOverLifetime;
             sol.enabled = true;
@@ -578,17 +603,17 @@ namespace GhostSurvival.Editor
             Gradient grad = new Gradient();
             grad.SetKeys(
                 new[] { new GradientColorKey(new Color(0.75f, 0.91f, 1f), 0f), new GradientColorKey(new Color(0.78f, 0.76f, 1f), 1f) },
-                new[] { new GradientAlphaKey(0.8f, 0f), new GradientAlphaKey(0f, 1f) }
+                new[] { new GradientAlphaKey(0.7f, 0f), new GradientAlphaKey(0f, 1f) }
             );
             col.color = grad;
 
             var noise = ps.noise;
             noise.enabled = true;
-            noise.strength = 0.4f;
+            noise.strength = 0.3f;
             noise.frequency = 0.8f;
 
             var psr = parent.GetComponent<ParticleSystemRenderer>();
-            psr.sortingOrder = 15;
+            psr.sortingOrder = -5; // Behind the character body (which is 0)
             if (particleMat != null) psr.material = particleMat;
 
             return ps;
@@ -601,68 +626,70 @@ namespace GhostSurvival.Editor
             main.loop = true;
             main.startLifetime = 1.0f;
             main.startSpeed = 0.1f;
-            main.startSize = new ParticleSystem.MinMaxCurve(0.15f, 0.35f);
+            main.startSize = new ParticleSystem.MinMaxCurve(0.12f, 0.25f);
             main.startColor = color;
+            main.simulationSpace = ParticleSystemSimulationSpace.World;
 
             var emission = ps.emission;
             emission.rateOverTime = 6f;
 
             var shape = ps.shape;
             shape.shapeType = ParticleSystemShapeType.Sphere;
-            shape.radius = 0.1f;
-
-            var sol = ps.sizeOverLifetime;
-            sol.enabled = true;
-            sol.size = new ParticleSystem.MinMaxCurve(1f, AnimationCurve.EaseInOut(0f, 0.8f, 1f, 0f));
+            shape.radius = 0.15f;
 
             var psr = parent.GetComponent<ParticleSystemRenderer>();
-            psr.sortingOrder = 4;
+            psr.sortingOrder = -1;
             if (particleMat != null) psr.material = particleMat;
 
             return ps;
         }
 
-        [MenuItem("Tools/W1SPL1NGS/6. Build ArtSandbox Scene")]
+        [MenuItem("Tools/W1SPL1NGS/6. Build ArtSandbox Scene Only")]
         public static void BuildSandboxScene()
         {
             EnsureDirectory(ScenesDir);
             string scenePath = $"{ScenesDir}/ArtSandbox.unity";
-
-            Material particleMat = GetOrCreateParticleMaterial();
 
             var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(
                 UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,
                 UnityEditor.SceneManagement.NewSceneMode.Single
             );
 
-            // 1. Camera with smooth follow & Zoom support (Scrollwheel, I, O)
+            var particleMat = GetOrCreateParticleMaterial();
+
+            // 1. Main Camera with CameraFollow
             GameObject camGo = new GameObject("Main Camera");
             camGo.tag = "MainCamera";
             var cam = camGo.AddComponent<Camera>();
             cam.orthographic = true;
             cam.orthographicSize = 4.0f;
-            cam.backgroundColor = new Color(0.08f, 0.08f, 0.10f, 1f);
             cam.clearFlags = CameraClearFlags.SolidColor;
+            cam.backgroundColor = new Color(0.08f, 0.08f, 0.10f, 1.0f); // Atmospheric dark ground
             camGo.transform.position = new Vector3(0f, 0f, -10f);
-            camGo.AddComponent<AudioListener>();
+
             var camFollow = camGo.AddComponent<CameraFollow>();
+            camGo.AddComponent<AudioListener>();
 
-            // 2. Clean Environment Ground Marker (2D, no broken 3D Quad mesh)
-            GameObject groundGo = new GameObject("Environment_Ground");
-            groundGo.AddComponent<SandboxGround>();
+            // 2. Global 2D Light
+            GameObject lightGo = new GameObject("Global Light 2D");
+            var light2D = lightGo.AddComponent<UnityEngine.Rendering.Universal.Light2D>();
+            light2D.lightType = UnityEngine.Rendering.Universal.Light2D.LightType.Global;
+            light2D.color = new Color(0.90f, 0.90f, 0.96f, 1.0f);
+            light2D.intensity = 1.0f;
 
-            // 3. Subtle Fog System with valid URP particle material
+            // 3. Atmospheric Particle Fog
             GameObject fogGo = new GameObject("Environment_Fog");
+            fogGo.transform.position = Vector3.zero;
             var fogPs = fogGo.AddComponent<ParticleSystem>();
             var fMain = fogPs.main;
             fMain.loop = true;
             fMain.startLifetime = 6.0f;
             fMain.startSpeed = 0.15f;
-            fMain.startSize = new ParticleSystem.MinMaxCurve(3.0f, 6.0f);
-            fMain.startColor = new Color(0.2f, 0.2f, 0.25f, 0.08f);
+            fMain.startSize = new ParticleSystem.MinMaxCurve(2.0f, 4.0f);
+            fMain.startColor = new Color(0.15f, 0.15f, 0.20f, 0.08f);
             fMain.simulationSpace = ParticleSystemSimulationSpace.World;
             var fEmission = fogPs.emission;
-            fEmission.rateOverTime = 15f;
+            fEmission.rateOverTime = 12f;
             var fShape = fogPs.shape;
             fShape.shapeType = ParticleSystemShapeType.Box;
             fShape.scale = new Vector3(30f, 30f, 1f);

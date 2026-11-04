@@ -21,6 +21,21 @@ AnimationClip:
   - serializedVersion: 2
     curve:
     - time: 0
+      value: {fileID: 3211289777978259432, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - time: 0.16666667
+      value: {fileID: 1063206885933814152, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - time: 0.33333334
+      value: {fileID: -5458835489497266071, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - time: 0.5
+      value: {fileID: -8274402888047811929, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    attribute: m_Sprite
+    path: 
+    classID: 212
+    script: {fileID: 0}
+    flags: 2
+  - serializedVersion: 2
+    curve:
+    - time: 0
       value: {fileID: -5583870752013076569, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
     - time: 0.16666667
       value: {fileID: 3931297599999117779, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
@@ -29,7 +44,7 @@ AnimationClip:
     - time: 0.5
       value: {fileID: -6737648762017020212, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
     attribute: m_Sprite
-    path: 
+    path: VisualRoot/BodyRenderer
     classID: 212
     script: {fileID: 0}
     flags: 2
@@ -50,7 +65,21 @@ AnimationClip:
       isIntCurve: 0
       isSerializeReferenceCurve: 0
       metaData: 0
+    - serializedVersion: 2
+      path: 702662172
+      attribute: 0
+      script: {fileID: 0}
+      typeID: 212
+      customType: 23
+      isPPtrCurve: 1
+      isIntCurve: 0
+      isSerializeReferenceCurve: 0
+      metaData: 0
     pptrCurveMapping:
+    - {fileID: 3211289777978259432, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - {fileID: 1063206885933814152, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - {fileID: -5458835489497266071, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+    - {fileID: -8274402888047811929, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
     - {fileID: -5583870752013076569, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
     - {fileID: 3931297599999117779, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
     - {fileID: 9142114397106625441, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}

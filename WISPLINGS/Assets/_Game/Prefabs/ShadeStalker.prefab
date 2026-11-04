@@ -59,7 +59,7 @@ Rigidbody2D:
   m_ExcludeLayers:
     serializedVersion: 2
     m_Bits: 0
-  m_Interpolate: 1
+  m_Interpolate: 0
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
@@ -148,7 +148,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 411597634257391708, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
+  m_Sprite: {fileID: -8314581217531517, guid: 53d8d37f1f162d9418e183da7c024857, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -198,5 +198,5 @@ MonoBehaviour:
   chaseSpeed: 2.2
   attackDamage: 15
   attackCooldown: 1.2
-  animator: {fileID: 7838739620439576112}
-  spriteRenderer: {fileID: 8520255282745319782}
+  animator: {fileID: 0}
+  spriteRenderer: {fileID: 0}

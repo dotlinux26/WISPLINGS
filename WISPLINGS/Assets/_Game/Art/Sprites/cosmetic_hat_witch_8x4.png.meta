@@ -240,7 +240,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 128
+  spritePixelsToUnits: 256
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -308,9 +308,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 384
-        width: 128
-        height: 128
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -329,10 +329,10 @@ TextureImporter:
       name: Hat_Witch_Down_Idle_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 384
-        width: 128
-        height: 128
+        x: 256
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -351,10 +351,10 @@ TextureImporter:
       name: Hat_Witch_Down_Idle_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 384
-        width: 128
-        height: 128
+        x: 512
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -373,10 +373,10 @@ TextureImporter:
       name: Hat_Witch_Down_Idle_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 384
-        width: 128
-        height: 128
+        x: 768
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -395,10 +395,10 @@ TextureImporter:
       name: Hat_Witch_Down_Walk_0
       rect:
         serializedVersion: 2
-        x: 512
-        y: 384
-        width: 128
-        height: 128
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -417,10 +417,10 @@ TextureImporter:
       name: Hat_Witch_Down_Walk_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 384
-        width: 128
-        height: 128
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -439,10 +439,10 @@ TextureImporter:
       name: Hat_Witch_Down_Walk_2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 384
-        width: 128
-        height: 128
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -461,10 +461,10 @@ TextureImporter:
       name: Hat_Witch_Down_Walk_3
       rect:
         serializedVersion: 2
-        x: 896
-        y: 384
-        width: 128
-        height: 128
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -484,9 +484,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 256
-        width: 128
-        height: 128
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -505,10 +505,10 @@ TextureImporter:
       name: Hat_Witch_Left_Idle_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 256
-        width: 128
-        height: 128
+        x: 256
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -527,10 +527,10 @@ TextureImporter:
       name: Hat_Witch_Left_Idle_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 256
-        width: 128
-        height: 128
+        x: 512
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -549,10 +549,10 @@ TextureImporter:
       name: Hat_Witch_Left_Idle_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 256
-        width: 128
-        height: 128
+        x: 768
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -571,10 +571,10 @@ TextureImporter:
       name: Hat_Witch_Left_Walk_0
       rect:
         serializedVersion: 2
-        x: 512
-        y: 256
-        width: 128
-        height: 128
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -593,10 +593,10 @@ TextureImporter:
       name: Hat_Witch_Left_Walk_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 256
-        width: 128
-        height: 128
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -615,10 +615,10 @@ TextureImporter:
       name: Hat_Witch_Left_Walk_2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 256
-        width: 128
-        height: 128
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -637,10 +637,10 @@ TextureImporter:
       name: Hat_Witch_Left_Walk_3
       rect:
         serializedVersion: 2
-        x: 896
-        y: 256
-        width: 128
-        height: 128
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -660,9 +660,9 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 128
-        width: 128
-        height: 128
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -681,10 +681,10 @@ TextureImporter:
       name: Hat_Witch_Right_Idle_1
       rect:
         serializedVersion: 2
-        x: 128
-        y: 128
-        width: 128
-        height: 128
+        x: 256
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -703,10 +703,10 @@ TextureImporter:
       name: Hat_Witch_Right_Idle_2
       rect:
         serializedVersion: 2
-        x: 256
-        y: 128
-        width: 128
-        height: 128
+        x: 512
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -725,10 +725,10 @@ TextureImporter:
       name: Hat_Witch_Right_Idle_3
       rect:
         serializedVersion: 2
-        x: 384
-        y: 128
-        width: 128
-        height: 128
+        x: 768
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -747,10 +747,10 @@ TextureImporter:
       name: Hat_Witch_Right_Walk_0
       rect:
         serializedVersion: 2
-        x: 512
-        y: 128
-        width: 128
-        height: 128
+        x: 1024
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -769,10 +769,10 @@ TextureImporter:
       name: Hat_Witch_Right_Walk_1
       rect:
         serializedVersion: 2
-        x: 640
-        y: 128
-        width: 128
-        height: 128
+        x: 1280
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -791,10 +791,10 @@ TextureImporter:
       name: Hat_Witch_Right_Walk_2
       rect:
         serializedVersion: 2
-        x: 768
-        y: 128
-        width: 128
-        height: 128
+        x: 1536
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -813,10 +813,10 @@ TextureImporter:
       name: Hat_Witch_Right_Walk_3
       rect:
         serializedVersion: 2
-        x: 896
-        y: 128
-        width: 128
-        height: 128
+        x: 1792
+        y: 256
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -837,8 +837,8 @@ TextureImporter:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -857,10 +857,10 @@ TextureImporter:
       name: Hat_Witch_Up_Idle_1
       rect:
         serializedVersion: 2
-        x: 128
+        x: 256
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -879,10 +879,10 @@ TextureImporter:
       name: Hat_Witch_Up_Idle_2
       rect:
         serializedVersion: 2
-        x: 256
+        x: 512
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -901,10 +901,10 @@ TextureImporter:
       name: Hat_Witch_Up_Idle_3
       rect:
         serializedVersion: 2
-        x: 384
+        x: 768
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -923,10 +923,10 @@ TextureImporter:
       name: Hat_Witch_Up_Walk_0
       rect:
         serializedVersion: 2
-        x: 512
+        x: 1024
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -945,10 +945,10 @@ TextureImporter:
       name: Hat_Witch_Up_Walk_1
       rect:
         serializedVersion: 2
-        x: 640
+        x: 1280
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -967,10 +967,10 @@ TextureImporter:
       name: Hat_Witch_Up_Walk_2
       rect:
         serializedVersion: 2
-        x: 768
+        x: 1536
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -989,10 +989,10 @@ TextureImporter:
       name: Hat_Witch_Up_Walk_3
       rect:
         serializedVersion: 2
-        x: 896
+        x: 1792
         y: 0
-        width: 128
-        height: 128
+        width: 256
+        height: 256
       alignment: 9
       pivot: {x: 0.5, y: 0.18}
       border: {x: 0, y: 0, z: 0, w: 0}

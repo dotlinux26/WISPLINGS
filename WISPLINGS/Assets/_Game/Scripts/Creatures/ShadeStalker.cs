@@ -143,12 +143,32 @@ namespace GhostSurvival.Creatures
             }
         }
 
+        private bool hasParamIsChasingChecked = false;
+        private bool hasParamIsChasing = false;
+
         private void UpdateAnimator()
         {
             if (animator != null && animator.runtimeAnimatorController != null)
             {
                 animator.SetInteger(ParamDirection, (int)facingDirection);
-                animator.SetBool(ParamIsChasing, isChasing);
+
+                if (!hasParamIsChasingChecked)
+                {
+                    hasParamIsChasingChecked = true;
+                    foreach (var param in animator.parameters)
+                    {
+                        if (param.nameHash == ParamIsChasing)
+                        {
+                            hasParamIsChasing = true;
+                            break;
+                        }
+                    }
+                }
+
+                if (hasParamIsChasing)
+                {
+                    animator.SetBool(ParamIsChasing, isChasing);
+                }
             }
         }
 

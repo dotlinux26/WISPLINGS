@@ -6,20 +6,18 @@ namespace GhostSurvival.Environment
 {
     /// <summary>
     /// Represents a collectible spirit/soul in the world.
-    /// Pulses, bobs, and gets absorbed when a player enters its collection radius.
+    /// Pulses, bobs, and gets absorbed when the player physically touches / collides with it.
     /// </summary>
+    [RequireComponent(typeof(Collider2D))]
     public class SoulCollectible : MonoBehaviour
     {
         [Header("Collection Settings")]
-        [Tooltip("Distance at which the player collects this soul.")]
-        [SerializeField] private float collectRadius = 1.2f;
-
         [Tooltip("Soul value granted upon collection.")]
         [SerializeField] private int soulValue = 1;
 
         [Header("Visual Effects")]
         [SerializeField] private float bobSpeed = 3.0f;
-        [SerializeField] private float bobHeight = 0.15f;
+        [SerializeField] private float bobHeight = 0.12f;
         [SerializeField] private GameObject collectionEffectPrefab;
 
         // Static event for game managers to listen to
@@ -28,12 +26,17 @@ namespace GhostSurvival.Environment
 
         private Vector3 startPosition;
         private bool isCollected = false;
-        private Transform playerTransform;
 
         private void Start()
         {
             startPosition = transform.position;
-            FindPlayer();
+
+            // Ensure collider is a trigger
+            var col = GetComponent<Collider2D>();
+            if (col != null)
+            {
+                col.isTrigger = true;
+            }
         }
 
         private void Update()
@@ -43,29 +46,16 @@ namespace GhostSurvival.Environment
             // Subtle vertical floating
             float newY = startPosition.y + Mathf.Sin(Time.time * bobSpeed) * bobHeight;
             transform.position = new Vector3(transform.position.x, newY, transform.position.z);
-
-            // Proximity detection
-            if (playerTransform == null)
-            {
-                FindPlayer();
-            }
-
-            if (playerTransform != null)
-            {
-                float distSqr = (transform.position - playerTransform.position).sqrMagnitude;
-                if (distSqr <= collectRadius * collectRadius)
-                {
-                    Collect();
-                }
-            }
         }
 
-        private void FindPlayer()
+        private void OnTriggerEnter2D(Collider2D other)
         {
-            var player = FindFirstObjectByType<GhostController>();
-            if (player != null)
+            if (isCollected) return;
+
+            // Collect only when player physically touches the soul
+            if (other.GetComponent<GhostController>() != null || other.GetComponentInParent<GhostController>() != null)
             {
-                playerTransform = player.transform;
+                Collect();
             }
         }
 
@@ -77,22 +67,14 @@ namespace GhostSurvival.Environment
             OnCollected?.Invoke(this);
             OnAnySoulCollected?.Invoke(soulValue);
 
-            Debug.Log($"[SoulCollectible] Collected soul (+{soulValue}) at {transform.position}");
+            Debug.Log($"[SoulCollectible] Collected soul (+{soulValue}) on direct touch at {transform.position}");
 
             if (collectionEffectPrefab != null)
             {
                 Instantiate(collectionEffectPrefab, transform.position, Quaternion.identity);
             }
 
-            // Disable or destroy object
-            Destroy(gameObject, 0.05f);
-        }
-
-        private void OnDrawGizmosSelected()
-        {
-            Gizmos.color = new Color(0.75f, 0.9f, 1f, 0.35f);
-            Gizmos.DrawWireSphere(transform.position, collectRadius);
+            Destroy(gameObject);
         }
     }
 }
-

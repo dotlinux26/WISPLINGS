@@ -128,7 +128,15 @@ namespace GhostSurvival.Characters
 
         private void UpdateFacingDirection()
         {
-            if (!isMoving) return;
+            if (!isMoving)
+            {
+                // Khi dừng di chuyển: nếu trước đó đang đi lên (Up), quay về Idle_Down để lộ mặt cute theo yêu cầu
+                if (facingDirection == GhostDirection.Up)
+                {
+                    facingDirection = GhostDirection.Down;
+                }
+                return;
+            }
 
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
             {
