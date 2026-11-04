@@ -33,13 +33,24 @@ namespace GhostSurvival.Editor
         static GhostAtlasImporter()
         {
             EditorApplication.delayCall += AutoRunSetupOnce;
+            EditorApplication.playModeStateChanged += OnPlayModeStateChanged;
+        }
+
+        private static void OnPlayModeStateChanged(PlayModeStateChange state)
+        {
+            if (state == PlayModeStateChange.EnteredEditMode)
+            {
+                SetupAll();
+            }
         }
 
         private static void AutoRunSetupOnce()
         {
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v9", false))
+            if (EditorApplication.isPlayingOrWillChangePlaymode) return;
+
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v13", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v9", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v13", true);
                 SetupAll();
             }
         }
@@ -47,6 +58,12 @@ namespace GhostSurvival.Editor
         [MenuItem("Tools/W1SPL1NGS/1. Setup All (Slice, Clips, Prefabs, Scene)")]
         public static void SetupAll()
         {
+            if (EditorApplication.isPlayingOrWillChangePlaymode)
+            {
+                Debug.LogWarning("[W1SPL1NGS] SetupAll postponed: Unity is currently in Play mode. Exit Play mode to run setup.");
+                return;
+            }
+
             Debug.Log("[W1SPL1NGS] Starting complete prototype setup v5 (All HD + Animation Fix)...");
             EnsureMaterials();
             SliceAllAtlases();
@@ -86,6 +103,8 @@ namespace GhostSurvival.Editor
             if (dotTex != null)
             {
                 mat.mainTexture = dotTex;
+                if (mat.HasProperty("_BaseMap")) mat.SetTexture("_BaseMap", dotTex);
+                if (mat.HasProperty("_MainTex")) mat.SetTexture("_MainTex", dotTex);
             }
             EditorUtility.SetDirty(mat);
             return mat;
@@ -120,6 +139,7 @@ namespace GhostSurvival.Editor
 
             importer.textureType = TextureImporterType.Sprite;
             importer.spriteImportMode = SpriteImportMode.Multiple;
+            importer.textureShape = TextureImporterShape.Texture2D;
             importer.spritePixelsPerUnit = ppu;
             importer.filterMode = FilterMode.Bilinear;
             importer.textureCompression = TextureImporterCompression.Uncompressed;

@@ -32,10 +32,10 @@ namespace GhostSurvival.Characters
         [Header("Idle Glance Settings (Calm looking around)")]
         [Tooltip("Enable gentle, random looking left/right when player sits idle.")]
         [SerializeField] private bool enableIdleGlances = true;
-        [SerializeField] private float minGlanceInterval = 4.0f;
-        [SerializeField] private float maxGlanceInterval = 7.0f;
-        [SerializeField] private float minGlanceDuration = 1.6f;
-        [SerializeField] private float maxGlanceDuration = 2.4f;
+        [SerializeField] private float minGlanceInterval = 2.2f;
+        [SerializeField] private float maxGlanceInterval = 4.0f;
+        [SerializeField] private float minGlanceDuration = 0.65f;
+        [SerializeField] private float maxGlanceDuration = 1.0f;
 
         [Header("Health / Stats")]
         [SerializeField] private float maxHealth = 100f;
@@ -55,11 +55,19 @@ namespace GhostSurvival.Characters
         private Vector3 initialVisualLocalPos = Vector3.zero;
 
         // Idle glance runtime state
+        private enum GlancePhase
+        {
+            None,
+            FirstLook,
+            SecondLook
+        }
+
         private float idleTime = 0f;
-        private float nextGlanceTime = 4.5f;
-        private bool isGlancing = false;
+        private float nextGlanceTime = 2.5f;
+        private GlancePhase glancePhase = GlancePhase.None;
+        private GhostDirection secondaryGlanceDir = GhostDirection.Down;
         private float glanceTimer = 0f;
-        private float currentGlanceDuration = 2.0f;
+        private float currentGlanceDuration = 0.8f;
 
         public bool IsAlive => currentHealth > 0f;
         public GhostDirection FacingDirection => facingDirection;
@@ -149,7 +157,7 @@ namespace GhostSurvival.Characters
             if (isMoving)
             {
                 // When moving, immediately cancel any idle glance with zero delay
-                isGlancing = false;
+                glancePhase = GlancePhase.None;
                 idleTime = 0f;
                 glanceTimer = 0f;
 
@@ -176,35 +184,76 @@ namespace GhostSurvival.Characters
 
             idleTime += Time.deltaTime;
 
-            if (!isGlancing)
+            if (glancePhase == GlancePhase.None)
             {
-                // If just stopped from moving Up, face forward Down
+                // Baseline facing forward Down
                 if (facingDirection == GhostDirection.Up)
                 {
                     facingDirection = GhostDirection.Down;
                 }
 
-                // Check if it's time for a gentle, calm glance left or right
+                // Check if it is time for a quick, lively glance around
                 if (idleTime >= nextGlanceTime)
                 {
-                    isGlancing = true;
                     glanceTimer = 0f;
                     currentGlanceDuration = Random.Range(minGlanceDuration, maxGlanceDuration);
-                    // Randomly look Left or Right
-                    facingDirection = (Random.value < 0.5f) ? GhostDirection.Left : GhostDirection.Right;
+
+                    float roll = Random.value;
+                    if (roll < 0.42f)
+                    {
+                        facingDirection = GhostDirection.Left;
+                        secondaryGlanceDir = GhostDirection.Down;
+                        glancePhase = GlancePhase.FirstLook;
+                    }
+                    else if (roll < 0.84f)
+                    {
+                        facingDirection = GhostDirection.Right;
+                        secondaryGlanceDir = GhostDirection.Down;
+                        glancePhase = GlancePhase.FirstLook;
+                    }
+                    else
+                    {
+                        // Look both ways (left then right, or right then left)
+                        bool startLeft = Random.value < 0.5f;
+                        facingDirection = startLeft ? GhostDirection.Left : GhostDirection.Right;
+                        secondaryGlanceDir = startLeft ? GhostDirection.Right : GhostDirection.Left;
+                        glancePhase = GlancePhase.FirstLook;
+                    }
                 }
             }
-            else
+            else if (glancePhase == GlancePhase.FirstLook)
             {
-                // Currently glancing left/right
                 glanceTimer += Time.deltaTime;
                 if (glanceTimer >= currentGlanceDuration)
                 {
-                    // Return naturally to looking forward/down
-                    isGlancing = false;
-                    idleTime = 0f;
-                    nextGlanceTime = Random.Range(minGlanceInterval, maxGlanceInterval); // New calm cooldown
+                    if (secondaryGlanceDir != GhostDirection.Down)
+                    {
+                        // Transition to second look
+                        facingDirection = secondaryGlanceDir;
+                        secondaryGlanceDir = GhostDirection.Down;
+                        glancePhase = GlancePhase.SecondLook;
+                        glanceTimer = 0f;
+                        currentGlanceDuration = Random.Range(minGlanceDuration, maxGlanceDuration);
+                    }
+                    else
+                    {
+                        // Return to looking forward Down
+                        facingDirection = GhostDirection.Down;
+                        glancePhase = GlancePhase.None;
+                        idleTime = 0f;
+                        nextGlanceTime = Random.Range(minGlanceInterval, maxGlanceInterval);
+                    }
+                }
+            }
+            else if (glancePhase == GlancePhase.SecondLook)
+            {
+                glanceTimer += Time.deltaTime;
+                if (glanceTimer >= currentGlanceDuration)
+                {
                     facingDirection = GhostDirection.Down;
+                    glancePhase = GlancePhase.None;
+                    idleTime = 0f;
+                    nextGlanceTime = Random.Range(minGlanceInterval, maxGlanceInterval);
                 }
             }
         }

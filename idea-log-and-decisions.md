@@ -167,3 +167,35 @@ Ngoại trang được hiển thị theo hệ thống lớp (Layer Sorting) chu�
   1. Đã nghiên cứu giải phẫu khối hình học (Shape Anatomy) và thử nghiệm dựng các dáng Bézier thuần vector (tay cụt mái chèo, chân ma tí hon lơ lửng).
   2. **Quyết định chính thức của Creator (Anh):** Giữ nguyên thiết kế nhân vật gốc (Bản V1 hiện tại) đã ổn định trong game và hoàn tất sửa lỗi animation, không thay đổi shape nhân vật chính nữa để tập trung vào gameplay và các tính năng tiếp theo.
   3. Các file vector nghiên cứu hình học được lưu lại trong thư mục `tools/` và `ArtSource/.../concepts/` để làm tư liệu tham khảo sau này nếu cần thiết.
+
+### 8.3. Khắc phục triệt để lỗi Sprite biến thành quả cầu 3D & Particle vuông vức
+* **Nguyên nhân gốc rễ (Root Cause):**
+  1. Trong file `.meta` của 5 texture sprite (`ghost_main_8x4`, `cosmetic_hat_witch_8x4`, `cosmetic_wings_moth_8x4`, `shade_stalker_4x4`, `soul_collectible_6x1`), trường `textureShape` bị ghi nhầm thành `2` (tương ứng `TextureImporterShape.TextureCube` - Cubemap quả cầu 3D) thay vì `1` (`TextureImporterShape.Texture2D`). Đồng thời `cookieLightType` bị đặt thành `2`.
+  2. Khi texture bị coi là Cubemap, pipeline đồ họa 2D Sprite của Unity URP không thể cắt slice sprite 2D, khiến thumbnail Project hiển thị hình cầu 3D và các SpriteRenderer trong Game view không thể nạp sprite, dẫn đến hiển thị cụm pixel vỡ hoặc biến mất.
+  3. Material particle `M_URP_Particle.mat` bị thiếu gán `_BaseMap` vào `fx_particle_soft_dot.png`, khiến hệ thống hạt glow và bụi trail hiển thị thành các khối vuông thô.
+* **Biện pháp xử lý:**
+  1. Đưa `textureShape` về `1` (Texture2D), `cookieLightType` về `0`, `applyGammaDecoding` về `0` trên toàn bộ file `.meta`.
+  2. Bổ sung `importer.textureShape = TextureImporterShape.Texture2D;` trực tiếp vào `GhostAtlasImporter.cs` để bảo vệ vĩnh viễn.
+  3. Gán `_BaseMap` trong `M_URP_Particle.mat` trỏ chuẩn tới texture hạt `fx_particle_soft_dot.png`.
+
+### 8.4. Phục hồi frame chớp mắt (Blinking Eye Animation) cho hướng nhìn thẳng & lên xuống
+* **Hiện tượng:** Khi nhân vật đứng nhìn thẳng (Down) hoặc di chuyển lên xuống (Up/Down), nhân vật không bao giờ chớp mắt.
+* **Nguyên nhân:**
+  Trong file SVG gốc của nhân vật, Cell 3 (cột Idle 4) của Row 0 (Down / Nhìn thẳng) bị mất hiệu ứng thu hẹp mắt (`scale(1 0.13)`), khiến mắt vẫn mở tròn to như bình thường (`ry="7.1"`).
+* **Biện pháp xử lý:**
+  1. Cập nhật Cell 3 của cả 4 hướng (Down, Left, Right, Up) sang cặp mí mắt khép chuẩn vector: `<ellipse cx="..." cy="..." rx="5.8" ry="1.2" fill="#F7F7FF"/>`.
+  2. Khi chạy clip Idle (6 FPS), ở frame thứ 4 (0.5s), đôi mắt sẽ khép lại thành đường mí trắng thanh mảnh siêu nét (2.4px ở bản HD 256x256), tạo hiệu ứng chớp mắt tự nhiên, sống động và rất đáng yêu.
+  3. Xuất lại toàn bộ atlas HD (2048x1024) qua Chrome headless sang thư mục dự án Unity.
+
+### 8.5. Tinh chỉnh hành vi quay ngẫu nhiên khi Idle (Random Idle Glances)
+* **Yêu cầu của Creator:**
+  - Không nhìn chằm chằm một hướng quá lâu ("đừng nhìn chằm chằm dài quá").
+  - Quay trái, quay phải ngẫu nhiên theo nhịp điệu thư thái vừa phải ("cứ quay trái quay phải random lâu lâu vào").
+* **Thuật toán điều khiển mới trong `GhostController.cs`:**
+  1. **Rút ngắn thời gian ngắm (Glance Duration):** Giảm từ 1.6s - 2.4s xuống còn **0.65s - 1.0s** (trung bình ~0.8s) để tạo cảm giác bé ma tò mò ngó nghiêng nhanh nhẹn, không bao giờ bị đơ hay "nhìn chằm chằm".
+  2. **Nhịp điệu nghỉ hợp lý (Glance Interval):** Đặt khoảng cách giữa các lần ngó là **2.2s - 4.0s** (vừa đủ lâu để không bị spam liên tục, nhưng người chơi dừng lại là thấy bé ma ngó nghiêng ngay).
+  3. **Đa dạng hóa mẫu ngó (Varied Peek Patterns):**
+     - 42% cơ hội: Ngó sang Trái một thoáng (~0.8s) rồi quay lại nhìn thẳng phía trước.
+     - 42% cơ hội: Ngó sang Phải một thoáng (~0.8s) rồi quay lại nhìn thẳng phía trước.
+     - 16% cơ hội: **Double Peek (Ngó hai bên)**: Ngó sang một bên (~0.7s), lập tức quay ngoắt sang bên đối diện (~0.7s) rồi mới quay lại nhìn thẳng.
+  4. **Hủy tức thì khi di chuyển:** Bất cứ khi nào người chơi nhấn phím di chuyển, toàn bộ trạng thái ngó lập tức bị hủy bỏ trong 0ms để quay về hướng di chuyển của người chơi.
