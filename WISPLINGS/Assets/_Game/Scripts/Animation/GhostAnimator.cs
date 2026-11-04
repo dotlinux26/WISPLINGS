@@ -24,6 +24,16 @@ namespace GhostSurvival.Animation
         [Tooltip("Playback speed for Walk footsteps (snappy and responsive).")]
         [SerializeField] private float walkFps = 8.5f;
 
+        [Header("Idle Blink Settings (Natural, occasional blinking)")]
+        [Tooltip("Minimum time (seconds) between natural idle eye blinks.")]
+        [SerializeField] private float minBlinkInterval = 3.5f;
+
+        [Tooltip("Maximum time (seconds) between natural idle eye blinks.")]
+        [SerializeField] private float maxBlinkInterval = 6.0f;
+
+        [Tooltip("Duration of a single eye blink in seconds.")]
+        [SerializeField] private float blinkDuration = 0.16f;
+
         [Header("Sprite Frames (32 frames: 4 directions x 8 frames)")]
         [SerializeField] private Sprite[] bodySprites = new Sprite[32];
 
@@ -31,6 +41,14 @@ namespace GhostSurvival.Animation
         private bool currentIsMoving = false;
         private float frameTimer = 0f;
         private int currentFrame = 0;
+
+        // Natural Idle bobbing & blinking runtime state
+        private float blinkTimer = 0f;
+        private float nextBlinkInterval = 4.0f;
+        private bool isBlinking = false;
+        private float blinkElapsed = 0f;
+        private int idleBobIndex = 0;
+        private static readonly int[] idleBobSequence = new int[] { 0, 1, 2, 1 };
 
         private readonly Dictionary<string, Sprite> spriteMap = new Dictionary<string, Sprite>();
 
@@ -70,6 +88,7 @@ namespace GhostSurvival.Animation
             ResolveBodyRenderer();
             EnsureSpritesLoaded();
             BuildSpriteMap();
+            nextBlinkInterval = Random.Range(minBlinkInterval, maxBlinkInterval);
             ApplyCurrentFrameImmediate();
         }
 
@@ -102,14 +121,60 @@ namespace GhostSurvival.Animation
         {
             if (bodyRenderer == null) return;
 
-            float targetFps = currentIsMoving ? walkFps : idleFps;
-            frameTimer += Time.deltaTime;
-
-            if (frameTimer >= 1f / targetFps)
+            if (currentIsMoving)
             {
-                frameTimer -= 1f / targetFps;
-                currentFrame = (currentFrame + 1) % 4;
-                ApplyCurrentFrameImmediate();
+                // Walking: simple continuous 4-step loop
+                isBlinking = false;
+                blinkTimer = 0f;
+                frameTimer += Time.deltaTime;
+
+                if (frameTimer >= 1f / walkFps)
+                {
+                    frameTimer -= 1f / walkFps;
+                    currentFrame = (currentFrame + 1) % 4;
+                    ApplyCurrentFrameImmediate();
+                }
+            }
+            else
+            {
+                // Idle: smooth floating bob (0 -> 1 -> 2 -> 1) with natural, occasional blink
+                // 1. Advance the smooth floating bob
+                frameTimer += Time.deltaTime;
+                if (frameTimer >= 1f / idleFps)
+                {
+                    frameTimer -= 1f / idleFps;
+                    idleBobIndex = (idleBobIndex + 1) % idleBobSequence.Length;
+                    if (!isBlinking)
+                    {
+                        currentFrame = idleBobSequence[idleBobIndex];
+                        ApplyCurrentFrameImmediate();
+                    }
+                }
+
+                // 2. Trigger occasional natural blink (~once every 3.5 - 6.0 seconds)
+                if (!isBlinking)
+                {
+                    blinkTimer += Time.deltaTime;
+                    if (blinkTimer >= nextBlinkInterval)
+                    {
+                        isBlinking = true;
+                        blinkElapsed = 0f;
+                        currentFrame = 3; // Cell 3 is the blink frame
+                        ApplyCurrentFrameImmediate();
+                    }
+                }
+                else
+                {
+                    blinkElapsed += Time.deltaTime;
+                    if (blinkElapsed >= blinkDuration)
+                    {
+                        isBlinking = false;
+                        blinkTimer = 0f;
+                        nextBlinkInterval = Random.Range(minBlinkInterval, maxBlinkInterval);
+                        currentFrame = idleBobSequence[idleBobIndex]; // Reopen eyes seamlessly
+                        ApplyCurrentFrameImmediate();
+                    }
+                }
             }
         }
 
@@ -124,6 +189,8 @@ namespace GhostSurvival.Animation
             {
                 // Instantly snap to frame 0 with ZERO delay on direction or movement change
                 frameTimer = 0f;
+                idleBobIndex = 0;
+                isBlinking = false;
                 currentFrame = 0;
                 ApplyCurrentFrameImmediate();
             }

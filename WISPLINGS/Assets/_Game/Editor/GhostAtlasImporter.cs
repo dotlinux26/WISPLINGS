@@ -48,9 +48,9 @@ namespace GhostSurvival.Editor
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
 
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v13", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v14", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v13", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v14", true);
                 SetupAll();
             }
         }
@@ -212,7 +212,15 @@ namespace GhostSurvival.Editor
                     GetSprite(ghostSprites, $"Ghost_{dir}_Idle_0"),
                     GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
                     GetSprite(ghostSprites, $"Ghost_{dir}_Idle_2"),
-                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_3")
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_0"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_2"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_0"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_1"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_2"),
+                    GetSprite(ghostSprites, $"Ghost_{dir}_Idle_3") // One single natural blink per long cycle
                 }, ghostPaths);
 
                 CreateClip($"{AnimationsDir}/Ghost_Walk_{dir}.anim", 6f, new Sprite[]
