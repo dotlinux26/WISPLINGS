@@ -226,10 +226,10 @@ MonoBehaviour:
   hoverAmplitude: 0.025
   visualRoot: {fileID: 3611739345216660515}
   enableIdleGlances: 1
-  minGlanceInterval: 2.2
-  maxGlanceInterval: 4
-  minGlanceDuration: 0.65
-  maxGlanceDuration: 1
+  minGlanceInterval: 2.8
+  maxGlanceInterval: 4.8
+  minGlanceDuration: 1.6
+  maxGlanceDuration: 2
   maxHealth: 100
   currentHealth: 100
 --- !u!114 &2619071398222509887
