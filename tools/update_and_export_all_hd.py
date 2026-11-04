@@ -52,7 +52,7 @@ def main():
     print("Rendering HD atlases (no hands, zero wobbling, restored blinking)...")
     atlases = [
         ('D:/ghoster/ArtSource/GhostSurvivalArtPackV1/character/ghost_main_8x4_clean.svg',
-         'ghost_main_8x4.png', 2048, 1024),
+         'ghost_main_8x4.png', 2048, 2048),
         ('D:/ghoster/ArtSource/GhostSurvivalArtPackV1/cosmetics/cosmetic_hat_witch_8x4.svg',
          'cosmetic_hat_witch_8x4.png', 2048, 1024),
         ('D:/ghoster/ArtSource/GhostSurvivalArtPackV1/cosmetics/cosmetic_wings_moth_8x4.svg',
@@ -70,8 +70,14 @@ def main():
         # Copy to ghost_survival_art_v1 and Unity Assets
         out_ghost_art = f'D:/ghoster/ghost_survival_art_v1/exports/{png_name}'
         out_unity = f'D:/ghoster/WISPLINGS/Assets/_Game/Art/Sprites/{png_name}'
-        shutil.copyfile(out_artsource, out_ghost_art)
-        shutil.copyfile(out_artsource, out_unity)
+        # Atomic replace to prevent Windows file locking errors when files are open in viewers
+        tmp_ghost = out_ghost_art + '.tmp'
+        shutil.copyfile(out_artsource, tmp_ghost)
+        os.replace(tmp_ghost, out_ghost_art)
+
+        tmp_unity = out_unity + '.tmp'
+        shutil.copyfile(out_artsource, tmp_unity)
+        os.replace(tmp_unity, out_unity)
         print(f"Copied {png_name} to Unity and art pack folders.")
 
     if os.path.exists('D:/ghoster/temp_render.html'):

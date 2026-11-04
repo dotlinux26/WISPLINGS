@@ -215,15 +215,31 @@ namespace GhostSurvival.Cosmetics
             }
         }
 
+        public static string MapDirectionTo4Way(string spriteName)
+        {
+            if (spriteName.Contains("_DownLeft_")) return spriteName.Replace("_DownLeft_", "_Left_");
+            if (spriteName.Contains("_DownRight_")) return spriteName.Replace("_DownRight_", "_Right_");
+            if (spriteName.Contains("_UpLeft_")) return spriteName.Replace("_UpLeft_", "_Left_");
+            if (spriteName.Contains("_UpRight_")) return spriteName.Replace("_UpRight_", "_Right_");
+            return spriteName;
+        }
+
         public void SyncCosmetics(string bodySpriteName)
         {
+            string fourWayName = MapDirectionTo4Way(bodySpriteName);
+
             // 1. Hat Witch: Ghost_Down_Walk_1 -> Hat_Witch_Down_Walk_1
             if (hatRenderer != null && hatRenderer.enabled)
             {
                 string targetHatName = bodySpriteName.Replace("Ghost_", "Hat_Witch_");
+                string targetHatName4Way = fourWayName.Replace("Ghost_", "Hat_Witch_");
                 if (hatSpriteMap.TryGetValue(targetHatName, out Sprite matchedHat))
                 {
                     hatRenderer.sprite = matchedHat;
+                }
+                else if (hatSpriteMap.TryGetValue(targetHatName4Way, out Sprite matched4WayHat))
+                {
+                    hatRenderer.sprite = matched4WayHat;
                 }
                 else if (hatSpriteMap.TryGetValue("Hat_Witch_Down_Idle_0", out Sprite fallbackHat))
                 {
@@ -235,9 +251,14 @@ namespace GhostSurvival.Cosmetics
             if (wingsRenderer != null && wingsRenderer.enabled)
             {
                 string targetWingsName = bodySpriteName.Replace("Ghost_", "Wings_Moth_");
+                string targetWingsName4Way = fourWayName.Replace("Ghost_", "Wings_Moth_");
                 if (wingsSpriteMap.TryGetValue(targetWingsName, out Sprite matchedWings))
                 {
                     wingsRenderer.sprite = matchedWings;
+                }
+                else if (wingsSpriteMap.TryGetValue(targetWingsName4Way, out Sprite matched4WayWings))
+                {
+                    wingsRenderer.sprite = matched4WayWings;
                 }
                 else if (wingsSpriteMap.TryGetValue("Wings_Moth_Down_Idle_0", out Sprite fallbackWings))
                 {

@@ -48,9 +48,9 @@ namespace GhostSurvival.Editor
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
 
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v16", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v17", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v16", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v17", true);
                 SetupAll();
             }
         }
@@ -64,7 +64,7 @@ namespace GhostSurvival.Editor
                 return;
             }
 
-            Debug.Log("[W1SPL1NGS] Starting complete prototype setup v5 (All HD + Animation Fix)...");
+            Debug.Log("[W1SPL1NGS] Starting complete prototype setup v6 (8-direction ghost support)...");
             EnsureMaterials();
             SliceAllAtlases();
 
@@ -78,7 +78,7 @@ namespace GhostSurvival.Editor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            Debug.Log("[W1SPL1NGS] Complete prototype setup v5 finished successfully!");
+            Debug.Log("[W1SPL1NGS] Complete prototype setup v6 finished successfully!");
         }
 
         public static Material GetOrCreateParticleMaterial()
@@ -118,8 +118,8 @@ namespace GhostSurvival.Editor
         [MenuItem("Tools/W1SPL1NGS/2. Slice Atlases Only")]
         public static void SliceAllAtlases()
         {
-            // All atlases rendered at HD 256x256 per cell with PPU=256
-            SliceAtlas($"{SpritesDir}/ghost_main_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Ghost", true, 256);
+            // Ghost atlas is 8x8 (64 cells: 8 directions x 8 frames) at HD 256x256 per cell
+            SliceAtlas($"{SpritesDir}/ghost_main_8x4.png", 8, 8, 256, 256, new Vector2(0.5f, 0.18f), "Ghost", true, 256);
             SliceAtlas($"{SpritesDir}/cosmetic_hat_witch_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Hat_Witch", true, 256);
             SliceAtlas($"{SpritesDir}/cosmetic_wings_moth_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Wings_Moth", true, 256);
             SliceAtlas($"{SpritesDir}/shade_stalker_4x4.png", 4, 4, 256, 256, new Vector2(0.5f, 0.18f), "Stalker", false, 256);
@@ -146,14 +146,15 @@ namespace GhostSurvival.Editor
             importer.mipmapEnabled = false;
 
             int totalH = rows * cellH;
-            string[] directions = { "Down", "Left", "Right", "Up" };
+            string[] directions4 = { "Down", "Left", "Right", "Up" };
+            string[] directions8 = { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" };
 
             List<SpriteMetaData> metas = new List<SpriteMetaData>();
 
             for (int r = 0; r < rows; r++)
             {
                 int unityY = totalH - (r + 1) * cellH;
-                string dir = (rows == 4) ? directions[r] : "Hover";
+                string dir = (rows == 8) ? directions8[r] : (rows == 4 ? directions4[r] : "Hover");
 
                 for (int c = 0; c < cols; c++)
                 {
@@ -199,13 +200,14 @@ namespace GhostSurvival.Editor
             var stalkerSprites = LoadSprites($"{SpritesDir}/shade_stalker_4x4.png");
             var soulSprites = LoadSprites($"{SpritesDir}/soul_collectible_6x1.png");
 
-            string[] directions = { "Down", "Left", "Right", "Up" };
+            string[] directions4 = { "Down", "Left", "Right", "Up" };
+            string[] directions8 = { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" };
 
-            // 1. Ghost Clips: 4 Idle, 4 Walk at 6 FPS for soft pace
+            // 1. Ghost Clips: 8 Idle, 8 Walk at 6 FPS for soft pace
             // Bind both "BodyRenderer" (relative to VisualRoot Animator) and "" as well as "VisualRoot/BodyRenderer"
             string[] ghostPaths = new string[] { "BodyRenderer", "", "VisualRoot/BodyRenderer" };
 
-            foreach (var dir in directions)
+            foreach (var dir in directions8)
             {
                 CreateClip($"{AnimationsDir}/Ghost_Idle_{dir}.anim", 6f, new Sprite[]
                 {
@@ -233,7 +235,7 @@ namespace GhostSurvival.Editor
             }
 
             // 2. ShadeStalker Clips: 4 Chase clips (Animator on stalker root -> path "")
-            foreach (var dir in directions)
+            foreach (var dir in directions4)
             {
                 CreateClip($"{AnimationsDir}/Stalker_Chase_{dir}.anim", 6f, new Sprite[]
                 {
@@ -315,13 +317,13 @@ namespace GhostSurvival.Editor
 
             var rootSm = ghostCtrl.layers[0].stateMachine;
 
-            string[] dirs = { "Down", "Left", "Right", "Up" };
-            AnimatorState[] idleStates = new AnimatorState[4];
-            AnimatorState[] walkStates = new AnimatorState[4];
+            string[] dirs8 = { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" };
+            AnimatorState[] idleStates = new AnimatorState[8];
+            AnimatorState[] walkStates = new AnimatorState[8];
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
-                string dir = dirs[i];
+                string dir = dirs8[i];
                 AnimationClip idleClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Idle_{dir}.anim");
                 AnimationClip walkClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Ghost_Walk_{dir}.anim");
 
@@ -334,7 +336,7 @@ namespace GhostSurvival.Editor
 
             rootSm.defaultState = idleStates[0]; // Default Idle_Down
 
-            for (int i = 0; i < 4; i++)
+            for (int i = 0; i < 8; i++)
             {
                 var idleToWalk = idleStates[i].AddTransition(walkStates[i]);
                 idleToWalk.AddCondition(AnimatorConditionMode.If, 0, "IsMoving");
@@ -347,7 +349,7 @@ namespace GhostSurvival.Editor
                 walkToIdle.hasExitTime = false;
                 walkToIdle.duration = 0f;
 
-                for (int j = 0; j < 4; j++)
+                for (int j = 0; j < 8; j++)
                 {
                     if (i == j) continue;
 
@@ -376,10 +378,11 @@ namespace GhostSurvival.Editor
 
             var stalkerSm = stalkerCtrl.layers[0].stateMachine;
             AnimatorState[] chaseStates = new AnimatorState[4];
+            string[] stalkerDirs = { "Down", "Left", "Right", "Up" };
 
             for (int i = 0; i < 4; i++)
             {
-                string dir = dirs[i];
+                string dir = stalkerDirs[i];
                 AnimationClip chaseClip = AssetDatabase.LoadAssetAtPath<AnimationClip>($"{AnimationsDir}/Stalker_Chase_{dir}.anim");
                 chaseStates[i] = stalkerSm.AddState($"Chase_{dir}");
                 chaseStates[i].motion = chaseClip;
@@ -785,9 +788,12 @@ namespace GhostSurvival.Editor
                 }
             }
 
-            string[] dirs = { "Down", "Left", "Right", "Up" };
-            List<Sprite> list = new List<Sprite>(32);
-            for (int d = 0; d < 4; d++)
+            string[] dirs = (prefix == "Ghost")
+                ? new string[] { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" }
+                : new string[] { "Down", "Left", "Right", "Up" };
+
+            List<Sprite> list = new List<Sprite>(dirs.Length * 8);
+            for (int d = 0; d < dirs.Length; d++)
             {
                 string dir = dirs[d];
                 for (int f = 0; f < 4; f++)

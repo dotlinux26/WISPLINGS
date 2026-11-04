@@ -34,8 +34,8 @@ namespace GhostSurvival.Animation
         [Tooltip("Duration of a single eye blink in seconds.")]
         [SerializeField] private float blinkDuration = 0.16f;
 
-        [Header("Sprite Frames (32 frames: 4 directions x 8 frames)")]
-        [SerializeField] private Sprite[] bodySprites = new Sprite[32];
+        [Header("Sprite Frames (64 frames: 8 directions x 8 frames)")]
+        [SerializeField] private Sprite[] bodySprites = new Sprite[64];
 
         private GhostDirection currentDirection = GhostDirection.Down;
         private bool currentIsMoving = false;
@@ -248,7 +248,7 @@ namespace GhostSurvival.Animation
             }
 
 #if UNITY_EDITOR
-            if (spriteMap.Count < 32)
+            if (spriteMap.Count < 64)
             {
                 foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/ghost_main_8x4.png"))
                 {
@@ -260,15 +260,15 @@ namespace GhostSurvival.Animation
             }
 #endif
 
-            // Rebuild canonical 32-element bodySprites array
-            if (bodySprites == null || bodySprites.Length != 32)
+            // Rebuild canonical 64-element bodySprites array
+            if (bodySprites == null || bodySprites.Length != 64)
             {
-                bodySprites = new Sprite[32];
+                bodySprites = new Sprite[64];
             }
 
-            string[] dirs = { "Down", "Left", "Right", "Up" };
+            string[] dirs = { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" };
             int idx = 0;
-            for (int d = 0; d < 4; d++)
+            for (int d = 0; d < 8; d++)
             {
                 string dir = dirs[d];
                 for (int f = 0; f < 4; f++)
@@ -289,7 +289,7 @@ namespace GhostSurvival.Animation
         private void EnsureSpritesLoaded()
         {
 #if UNITY_EDITOR
-            if (bodySprites == null || bodySprites.Length < 32 || bodySprites[0] == null)
+            if (bodySprites == null || bodySprites.Length < 64 || bodySprites[0] == null)
             {
                 var dict = new Dictionary<string, Sprite>();
                 foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/ghost_main_8x4.png"))
@@ -301,12 +301,12 @@ namespace GhostSurvival.Animation
                     }
                 }
 
-                if (dict.Count >= 32)
+                if (dict.Count >= 64)
                 {
-                    bodySprites = new Sprite[32];
-                    string[] dirs = { "Down", "Left", "Right", "Up" };
+                    bodySprites = new Sprite[64];
+                    string[] dirs = { "Down", "DownLeft", "Left", "UpLeft", "Up", "UpRight", "Right", "DownRight" };
                     int idx = 0;
-                    for (int d = 0; d < 4; d++)
+                    for (int d = 0; d < 8; d++)
                     {
                         string dir = dirs[d];
                         for (int f = 0; f < 4; f++)

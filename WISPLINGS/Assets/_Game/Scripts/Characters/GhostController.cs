@@ -161,13 +161,22 @@ namespace GhostSurvival.Characters
                 idleTime = 0f;
                 glanceTimer = 0f;
 
-                if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
+                // 8-directional movement determination (45-degree sectors)
+                float angle = Mathf.Atan2(moveInput.y, moveInput.x) * Mathf.Rad2Deg;
+                float normalizedAngle = (angle + 360f + 22.5f) % 360f;
+                int sector = (int)(normalizedAngle / 45f);
+
+                switch (sector)
                 {
-                    facingDirection = moveInput.x > 0 ? GhostDirection.Right : GhostDirection.Left;
-                }
-                else
-                {
-                    facingDirection = moveInput.y > 0 ? GhostDirection.Up : GhostDirection.Down;
+                    case 0: facingDirection = GhostDirection.Right; break;
+                    case 1: facingDirection = GhostDirection.UpRight; break;
+                    case 2: facingDirection = GhostDirection.Up; break;
+                    case 3: facingDirection = GhostDirection.UpLeft; break;
+                    case 4: facingDirection = GhostDirection.Left; break;
+                    case 5: facingDirection = GhostDirection.DownLeft; break;
+                    case 6: facingDirection = GhostDirection.Down; break;
+                    case 7: facingDirection = GhostDirection.DownRight; break;
+                    default: facingDirection = GhostDirection.Down; break;
                 }
                 return;
             }
@@ -175,7 +184,7 @@ namespace GhostSurvival.Characters
             // --- Idle state (Not moving) ---
             if (!enableIdleGlances)
             {
-                if (facingDirection == GhostDirection.Up)
+                if (facingDirection != GhostDirection.Down)
                 {
                     facingDirection = GhostDirection.Down;
                 }
@@ -187,7 +196,7 @@ namespace GhostSurvival.Characters
             if (glancePhase == GlancePhase.None)
             {
                 // Baseline facing forward Down
-                if (facingDirection == GhostDirection.Up)
+                if (facingDirection == GhostDirection.Up || facingDirection == GhostDirection.UpLeft || facingDirection == GhostDirection.UpRight)
                 {
                     facingDirection = GhostDirection.Down;
                 }
@@ -199,15 +208,27 @@ namespace GhostSurvival.Characters
                     currentGlanceDuration = Random.Range(minGlanceDuration, maxGlanceDuration);
 
                     float roll = Random.value;
-                    if (roll < 0.42f)
+                    if (roll < 0.30f)
                     {
                         facingDirection = GhostDirection.Left;
                         secondaryGlanceDir = GhostDirection.Down;
                         glancePhase = GlancePhase.FirstLook;
                     }
-                    else if (roll < 0.84f)
+                    else if (roll < 0.60f)
                     {
                         facingDirection = GhostDirection.Right;
+                        secondaryGlanceDir = GhostDirection.Down;
+                        glancePhase = GlancePhase.FirstLook;
+                    }
+                    else if (roll < 0.75f)
+                    {
+                        facingDirection = GhostDirection.DownLeft;
+                        secondaryGlanceDir = GhostDirection.Down;
+                        glancePhase = GlancePhase.FirstLook;
+                    }
+                    else if (roll < 0.85f)
+                    {
+                        facingDirection = GhostDirection.DownRight;
                         secondaryGlanceDir = GhostDirection.Down;
                         glancePhase = GlancePhase.FirstLook;
                     }

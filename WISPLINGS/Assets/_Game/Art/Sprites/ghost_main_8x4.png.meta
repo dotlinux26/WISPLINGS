@@ -27,6 +27,30 @@ TextureImporter:
       213: 4044779418158398644
     second: Ghost_Down_Walk_3
   - first:
+      213: -5992210780081433502
+    second: Ghost_DownLeft_Idle_0
+  - first:
+      213: -785768101555633657
+    second: Ghost_DownLeft_Idle_1
+  - first:
+      213: 3928479779193401117
+    second: Ghost_DownLeft_Idle_2
+  - first:
+      213: -2314004336150937559
+    second: Ghost_DownLeft_Idle_3
+  - first:
+      213: 4233017360520466725
+    second: Ghost_DownLeft_Walk_0
+  - first:
+      213: 3183829213965468008
+    second: Ghost_DownLeft_Walk_1
+  - first:
+      213: 298226786324513309
+    second: Ghost_DownLeft_Walk_2
+  - first:
+      213: -8045760098660520652
+    second: Ghost_DownLeft_Walk_3
+  - first:
       213: -8884395030339858079
     second: Ghost_Left_Idle_0
   - first:
@@ -50,6 +74,78 @@ TextureImporter:
   - first:
       213: -274491940613441757
     second: Ghost_Left_Walk_3
+  - first:
+      213: 9052805870207962318
+    second: Ghost_UpLeft_Idle_0
+  - first:
+      213: 1348073092819072081
+    second: Ghost_UpLeft_Idle_1
+  - first:
+      213: 2246864323745855200
+    second: Ghost_UpLeft_Idle_2
+  - first:
+      213: -1911005825133859764
+    second: Ghost_UpLeft_Idle_3
+  - first:
+      213: 2031181037556413156
+    second: Ghost_UpLeft_Walk_0
+  - first:
+      213: 6147457077999318769
+    second: Ghost_UpLeft_Walk_1
+  - first:
+      213: -5923399652813509619
+    second: Ghost_UpLeft_Walk_2
+  - first:
+      213: -690934646439835091
+    second: Ghost_UpLeft_Walk_3
+  - first:
+      213: -4234432100992389118
+    second: Ghost_Up_Idle_0
+  - first:
+      213: 8387738945327465709
+    second: Ghost_Up_Idle_1
+  - first:
+      213: -3718325526789673875
+    second: Ghost_Up_Idle_2
+  - first:
+      213: -5028346741408615852
+    second: Ghost_Up_Idle_3
+  - first:
+      213: 7798445927390621864
+    second: Ghost_Up_Walk_0
+  - first:
+      213: -5642901461103394866
+    second: Ghost_Up_Walk_1
+  - first:
+      213: -6938071786333371026
+    second: Ghost_Up_Walk_2
+  - first:
+      213: 4297643610889252016
+    second: Ghost_Up_Walk_3
+  - first:
+      213: -6673789246103414678
+    second: Ghost_UpRight_Idle_0
+  - first:
+      213: -4280797186156022137
+    second: Ghost_UpRight_Idle_1
+  - first:
+      213: -7357595472818060482
+    second: Ghost_UpRight_Idle_2
+  - first:
+      213: -2225741024175821905
+    second: Ghost_UpRight_Idle_3
+  - first:
+      213: 774964464523939200
+    second: Ghost_UpRight_Walk_0
+  - first:
+      213: -1286111646687257597
+    second: Ghost_UpRight_Walk_1
+  - first:
+      213: 6330385537123937816
+    second: Ghost_UpRight_Walk_2
+  - first:
+      213: 5397743374479425370
+    second: Ghost_UpRight_Walk_3
   - first:
       213: 8156271674791807977
     second: Ghost_Right_Idle_0
@@ -75,29 +171,29 @@ TextureImporter:
       213: 3201789400327475425
     second: Ghost_Right_Walk_3
   - first:
-      213: -4234432100992389118
-    second: Ghost_Up_Idle_0
+      213: -8343902318456493316
+    second: Ghost_DownRight_Idle_0
   - first:
-      213: 8387738945327465709
-    second: Ghost_Up_Idle_1
+      213: -6245039320735797469
+    second: Ghost_DownRight_Idle_1
   - first:
-      213: -3718325526789673875
-    second: Ghost_Up_Idle_2
+      213: 5133919137506369201
+    second: Ghost_DownRight_Idle_2
   - first:
-      213: -5028346741408615852
-    second: Ghost_Up_Idle_3
+      213: -2101302765273568219
+    second: Ghost_DownRight_Idle_3
   - first:
-      213: 7798445927390621864
-    second: Ghost_Up_Walk_0
+      213: -1580238558490591964
+    second: Ghost_DownRight_Walk_0
   - first:
-      213: -5642901461103394866
-    second: Ghost_Up_Walk_1
+      213: -5333615416979760300
+    second: Ghost_DownRight_Walk_1
   - first:
-      213: -6938071786333371026
-    second: Ghost_Up_Walk_2
+      213: 632705162456821912
+    second: Ghost_DownRight_Walk_2
   - first:
-      213: 4297643610889252016
-    second: Ghost_Up_Walk_3
+      213: 86029355463276411
+    second: Ghost_DownRight_Walk_3
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -212,7 +308,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 0
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -234,7 +330,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -256,7 +352,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -278,7 +374,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -300,7 +396,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -322,7 +418,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -344,7 +440,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -366,7 +462,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1792
-        y: 768
+        y: 1792
         width: 256
         height: 256
       alignment: 9
@@ -384,11 +480,187 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
+      name: Ghost_DownLeft_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 264daf92b0467dca0800000000000000
+      internalID: -5992210780081433502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 70281f623146815f0800000000000000
+      internalID: -785768101555633657
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1fa0229b83c48630800000000000000
+      internalID: 3928479779193401117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 920820ff05103efd0800000000000000
+      internalID: -2314004336150937559
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 52152e5acd2beba30800000000000000
+      internalID: 4233017360520466725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8614ceb2dcb3f2c20800000000000000
+      internalID: 3183829213965468008
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d12016d9ea3832400800000000000000
+      internalID: 298226786324513309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_DownLeft_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1536
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 43de35b81d7b75090800000000000000
+      internalID: -8045760098660520652
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
       name: Ghost_Left_Idle_0
       rect:
         serializedVersion: 2
         x: 0
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -410,7 +682,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 256
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -432,7 +704,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 512
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -454,7 +726,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 768
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -476,7 +748,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1024
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -498,7 +770,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1280
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -520,7 +792,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1536
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -542,7 +814,7 @@ TextureImporter:
       rect:
         serializedVersion: 2
         x: 1792
-        y: 512
+        y: 1280
         width: 256
         height: 256
       alignment: 9
@@ -555,6 +827,534 @@ TextureImporter:
       bones: []
       spriteID: 327370ac80fc03cf0800000000000000
       internalID: -274491940613441757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecc0152a9f602ad70800000000000000
+      internalID: 9052805870207962318
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1543eb4e55155b210800000000000000
+      internalID: 1348073092819072081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0e6be53b2377e2f10800000000000000
+      internalID: 2246864323745855200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c4ca135b35eba75e0800000000000000
+      internalID: -1911005825133859764
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4e23f0a5464303c10800000000000000
+      internalID: 2031181037556413156
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1f63c1e44a7205550800000000000000
+      internalID: 6147457077999318769
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d0ce067366bdbcda0800000000000000
+      internalID: -5923399652813509619
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpLeft_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 1024
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d2a81fb899e4966f0800000000000000
+      internalID: -690934646439835091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20076da60764c35c0800000000000000
+      internalID: -4234432100992389118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de404f0712c376470800000000000000
+      internalID: 8387738945327465709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c2f6842aad56cc0800000000000000
+      internalID: -3718325526789673875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 452b8dea749b73ab0800000000000000
+      internalID: -5028346741408615852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0b536c045a93c60800000000000000
+      internalID: 7798445927390621864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf366cb40360b1b0800000000000000
+      internalID: -5642901461103394866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e658075487407bf90800000000000000
+      internalID: -6938071786333371026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 768
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bce74e181c44ab30800000000000000
+      internalID: 4297643610889252016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a681f283a00f163a0800000000000000
+      internalID: -6673789246103414678
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 786bdabc3ad8794c0800000000000000
+      internalID: -4280797186156022137
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e3348a156e194e990800000000000000
+      internalID: -7357595472818060482
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fab6cfbb4549c11e0800000000000000
+      internalID: -2225741024175821905
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 1024
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 08d0085131a31ca00800000000000000
+      internalID: 774964464523939200
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 1280
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 30c96bd7540d62ee0800000000000000
+      internalID: -1286111646687257597
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 1536
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 81eea8f2b1c0ad750800000000000000
+      internalID: 6330385537123937816
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_UpRight_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 1792
+        y: 512
+        width: 256
+        height: 256
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a5f70982003a8ea40800000000000000
+      internalID: 5397743374479425370
       vertices: []
       indices: 
       edges: []
@@ -736,7 +1536,7 @@ TextureImporter:
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Idle_0
+      name: Ghost_DownRight_Idle_0
       rect:
         serializedVersion: 2
         x: 0
@@ -751,14 +1551,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 20076da60764c35c0800000000000000
-      internalID: -4234432100992389118
+      spriteID: cfaa7db9c01843c80800000000000000
+      internalID: -8343902318456493316
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Idle_1
+      name: Ghost_DownRight_Idle_1
       rect:
         serializedVersion: 2
         x: 256
@@ -773,14 +1573,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: de404f0712c376470800000000000000
-      internalID: 8387738945327465709
+      spriteID: 32f223f43d92559a0800000000000000
+      internalID: -6245039320735797469
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Idle_2
+      name: Ghost_DownRight_Idle_2
       rect:
         serializedVersion: 2
         x: 512
@@ -795,14 +1595,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: d6c2f6842aad56cc0800000000000000
-      internalID: -3718325526789673875
+      spriteID: 1be95a041485f3740800000000000000
+      internalID: 5133919137506369201
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Idle_3
+      name: Ghost_DownRight_Idle_3
       rect:
         serializedVersion: 2
         x: 768
@@ -817,14 +1617,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 452b8dea749b73ab0800000000000000
-      internalID: -5028346741408615852
+      spriteID: 52ca256a44ca6d2e0800000000000000
+      internalID: -2101302765273568219
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Walk_0
+      name: Ghost_DownRight_Walk_0
       rect:
         serializedVersion: 2
         x: 1024
@@ -839,14 +1639,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 8a0b536c045a93c60800000000000000
-      internalID: 7798445927390621864
+      spriteID: 42dfacc476dd11ae0800000000000000
+      internalID: -1580238558490591964
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Walk_1
+      name: Ghost_DownRight_Walk_1
       rect:
         serializedVersion: 2
         x: 1280
@@ -861,14 +1661,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: ecf366cb40360b1b0800000000000000
-      internalID: -5642901461103394866
+      spriteID: 45bdf5679013bf5b0800000000000000
+      internalID: -5333615416979760300
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Walk_2
+      name: Ghost_DownRight_Walk_2
       rect:
         serializedVersion: 2
         x: 1536
@@ -883,14 +1683,14 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: e658075487407bf90800000000000000
-      internalID: -6938071786333371026
+      spriteID: 8907bc73ef1d7c800800000000000000
+      internalID: 632705162456821912
       vertices: []
       indices: 
       edges: []
       weights: []
     - serializedVersion: 2
-      name: Ghost_Up_Walk_3
+      name: Ghost_DownRight_Walk_3
       rect:
         serializedVersion: 2
         x: 1792
@@ -905,8 +1705,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 0bce74e181c44ab30800000000000000
-      internalID: 4297643610889252016
+      spriteID: b77f4a43e33a13100800000000000000
+      internalID: 86029355463276411
       vertices: []
       indices: 
       edges: []
@@ -925,6 +1725,22 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
+      Ghost_DownLeft_Idle_0: -5992210780081433502
+      Ghost_DownLeft_Idle_1: -785768101555633657
+      Ghost_DownLeft_Idle_2: 3928479779193401117
+      Ghost_DownLeft_Idle_3: -2314004336150937559
+      Ghost_DownLeft_Walk_0: 4233017360520466725
+      Ghost_DownLeft_Walk_1: 3183829213965468008
+      Ghost_DownLeft_Walk_2: 298226786324513309
+      Ghost_DownLeft_Walk_3: -8045760098660520652
+      Ghost_DownRight_Idle_0: -8343902318456493316
+      Ghost_DownRight_Idle_1: -6245039320735797469
+      Ghost_DownRight_Idle_2: 5133919137506369201
+      Ghost_DownRight_Idle_3: -2101302765273568219
+      Ghost_DownRight_Walk_0: -1580238558490591964
+      Ghost_DownRight_Walk_1: -5333615416979760300
+      Ghost_DownRight_Walk_2: 632705162456821912
+      Ghost_DownRight_Walk_3: 86029355463276411
       Ghost_Down_Idle_0: 5891090115284449564
       Ghost_Down_Idle_1: 3669818176468111561
       Ghost_Down_Idle_2: -3962732029481871330
@@ -949,6 +1765,22 @@ TextureImporter:
       Ghost_Right_Walk_1: -3079844524453886088
       Ghost_Right_Walk_2: 6745161039747207837
       Ghost_Right_Walk_3: 3201789400327475425
+      Ghost_UpLeft_Idle_0: 9052805870207962318
+      Ghost_UpLeft_Idle_1: 1348073092819072081
+      Ghost_UpLeft_Idle_2: 2246864323745855200
+      Ghost_UpLeft_Idle_3: -1911005825133859764
+      Ghost_UpLeft_Walk_0: 2031181037556413156
+      Ghost_UpLeft_Walk_1: 6147457077999318769
+      Ghost_UpLeft_Walk_2: -5923399652813509619
+      Ghost_UpLeft_Walk_3: -690934646439835091
+      Ghost_UpRight_Idle_0: -6673789246103414678
+      Ghost_UpRight_Idle_1: -4280797186156022137
+      Ghost_UpRight_Idle_2: -7357595472818060482
+      Ghost_UpRight_Idle_3: -2225741024175821905
+      Ghost_UpRight_Walk_0: 774964464523939200
+      Ghost_UpRight_Walk_1: -1286111646687257597
+      Ghost_UpRight_Walk_2: 6330385537123937816
+      Ghost_UpRight_Walk_3: 5397743374479425370
       Ghost_Up_Idle_0: -4234432100992389118
       Ghost_Up_Idle_1: 8387738945327465709
       Ghost_Up_Idle_2: -3718325526789673875

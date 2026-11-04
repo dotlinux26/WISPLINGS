@@ -199,3 +199,41 @@ Ngoại trang được hiển thị theo hệ thống lớp (Layer Sorting) chu�
      - 42% cơ hội: Ngó sang Phải một thoáng (~0.8s) rồi quay lại nhìn thẳng phía trước.
      - 16% cơ hội: **Double Peek (Ngó hai bên)**: Ngó sang một bên (~0.7s), lập tức quay ngoắt sang bên đối diện (~0.7s) rồi mới quay lại nhìn thẳng.
   4. **Hủy tức thì khi di chuyển:** Bất cứ khi nào người chơi nhấn phím di chuyển, toàn bộ trạng thái ngó lập tức bị hủy bỏ trong 0ms để quay về hướng di chuyển của người chơi.
+
+
+---
+
+## 9. Ý TƯỞNG & QUYẾT ĐỊNH THIẾT KẾ ĐỘT PHÁ VỀ CO-OP LORE & GAMEPLAY (05/11/2026)
+
+> *"Một mạch tư duy logic nhất quán: Từ đồ họa, lore nhân vật cho đến gameplay đều phục vụ đúng một chữ: **KỲ BÍ**. Giữ vững cái chất này, game chắc chắn sẽ có một tệp người chơi trung thành cực lớn!"* — Creator
+
+### 9.1. Trải nghiệm Co-op "Chết nhưng không ngồi chơi xơi nước" (The Lost Wisp Form — Dạng Tàn Linh)
+* **Vấn đề cốt tử trong game Co-op:** Khi chơi cùng anh em, một người sơ suất chết sớm mà phải ngồi nhìn màn hình đợi cả team "end thế giới" thì cực kỳ chán nản, ức chế và làm gián đoạn cuộc vui.
+* **Quyết định thiết kế mới:**
+  * **Trạng thái Tàn Linh (Lost Wisp):** Khi HP về 0, người chơi không bị biến mất khỏi ván chơi, mà biến thành một dạng linh hồn mờ ảo, yếu ớt.
+  * **Quyền kiểm soát liên tục:** Người chơi đã chết vẫn tự do điều khiển nhân vật bay qua bay lại theo sát đồng đội, không bị "ngồi chơi xơi nước". Tuy không thể tấn công quái hay nhặt đồ loot, nhưng tàn linh vẫn có thể phát ra đốm sáng mờ giúp đồng đội soi đường hoặc bay đi trước làm trinh sát thăm dò cạm bẫy trong sương mù.
+  * **Cơ chế Hồi sinh tại chỗ (Revival Rites):**
+    1. **Tế Đàn Cổ (Ancient Soul Altars / Shrines):** Team có thể tìm các tế đàn linh thiêng rải rác trong bản đồ thám hiểm để dẫn tàn linh tới làm lễ tái sinh thể xác.
+    2. **Hiến tế Linh hồn khẩn cấp (Sacrificial Revival):** Đồng đội còn sống có thể tiêu tốn một lượng lớn hạt linh hồn (Soul orbs) đã gom góp được để làm phép cứu sống bạn mình ngay tại chỗ — tạo ra những tình huống hy sinh nghẹt thở: nhường cơ hội sống sót và tài nguyên quý giá để bạn bè được tiếp tục chơi cùng.
+
+### 9.2. Cơ chế Tương tác & Cộng hưởng giữa các Thực thể (Entity Resonance & Soul Sharing)
+* **Cộng hưởng hào quang (Aura Resonance):** 
+  * Khi các bé ma đồng đội đi cạnh nhau, các giọt linh hồn phát quang tự động hòa quyện cộng hưởng, giúp quầng sáng mở rộng hơn, xua bớt màn sương mù dày đặc và làm chùn bước lũ quái vật săn mồi sợ ánh sáng. Đi lẻ thì yếu ớt và cô độc, đi chung thì ấm áp và sáng sủa.
+* **Truyền dẫn linh hồn cứu sinh (Soul Sharing / Infusion):**
+  * Khi một người chơi sắp "oẹo" (hết đói, kiệt quệ thể lực hoặc máu tụt về mức báo động), đồng đội có thể lại gần và giữ nút để truyền bớt hạt linh hồn của bản thân sang tiếp sức cho bạn.
+  * Cơ chế này biến việc thu thập hạt linh hồn không chỉ là tích điểm cá nhân mà còn là công cụ bảo bọc, chia ngọt sẻ bùi giữa những người đồng đội.
+
+---
+
+## 10. NHẬT KÝ THỬ NGHIỆM HỆ THỐNG MẮT 8 HƯỚNG (8-DIRECTION EYES EXPERIMENT)
+
+* **Nhánh thử nghiệm:** `experiment/8-direction-eyes` (Toàn bộ trạng thái 4 hướng ổn định đã được commit và push an toàn lên `origin/main` trước khi tiến hành).
+* **Nâng cấp Atlas:** Mở rộng từ 8×4 (32 frame) lên 8×8 (64 frame) kích thước HD 2048×2048:
+  * 8 hướng: `Down (0)`, `DownLeft (1)`, `Left (2)`, `UpLeft (3)`, `Up (4)`, `UpRight (5)`, `Right (6)`, `DownRight (7)`.
+  * Mỗi hướng gồm 4 frame Idle (frame 3 là chớp mắt mí trắng mảnh) và 4 frame Walk (hướng Down, DownLeft, DownRight có mắt tụt xuống nhẹ khi di chuyển).
+* **Đồng bộ hóa Ngoại trang (Cosmetics Smart Fallback):**
+  * Mũ (Hat) và Cánh (Wings) giữ nguyên vẹn 100% thông số và vị trí thiết kế ban đầu (`hatOffset = 0.22`, `wingsOffset = -0.06`, `wingsScale = 1.35`).
+  * Khi nhân vật di chuyển 8 hướng, hệ thống `CosmeticSynchronizer` tự động ánh xạ thông minh 8 hướng về 4 góc nhìn chuẩn của mũ và cánh (`DownLeft/UpLeft -> Left`, `DownRight/UpRight -> Right`).
+* **Sửa lỗi triệt để:**
+  * Sửa lỗi thuật toán bóc tách mắt cũ trên SVG, loại bỏ hoàn toàn hiện tượng 3 mắt / mắt biến dạng ở các hướng chéo.
+  * Sửa lỗi thụt lề file `.meta` của particle, đảm bảo hiệu ứng bụi đuôi luôn là hạt tròn mờ mượt mà.

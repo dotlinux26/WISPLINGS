@@ -1,18 +1,26 @@
 namespace GhostSurvival.Animation
 {
     /// <summary>
-    /// Four directional facing states matching atlas row order:
+    /// Eight directional facing states matching atlas row order:
     /// Row 0: Down
-    /// Row 1: Left
-    /// Row 2: Right
-    /// Row 3: Up
+    /// Row 1: DownLeft
+    /// Row 2: Left
+    /// Row 3: UpLeft
+    /// Row 4: Up
+    /// Row 5: UpRight
+    /// Row 6: Right
+    /// Row 7: DownRight
     /// </summary>
     public enum GhostDirection
     {
         Down = 0,
-        Left = 1,
-        Right = 2,
-        Up = 3
+        DownLeft = 1,
+        Left = 2,
+        UpLeft = 3,
+        Up = 4,
+        UpRight = 5,
+        Right = 6,
+        DownRight = 7
     }
 }
 
