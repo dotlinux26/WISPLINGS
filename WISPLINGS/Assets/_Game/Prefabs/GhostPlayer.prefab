@@ -318,7 +318,8 @@ MonoBehaviour:
   hatRenderer: {fileID: 6122164577556521267}
   wingsRenderer: {fileID: 2520882531243742310}
   hatOffset: {x: 0, y: 0.22, z: 0}
-  wingsOffset: {x: 0, y: 0.05, z: 0}
+  wingsOffset: {x: 0, y: 0.08, z: 0}
+  wingsScale: {x: 1.35, y: 1.35, z: 1}
   hatSprites:
   - {fileID: 7117874583068459947, guid: b6d1f58be3c0b9a44a480f4858252a7c, type: 3}
   - {fileID: -1952551546628417974, guid: b6d1f58be3c0b9a44a480f4858252a7c, type: 3}
@@ -2952,8 +2953,8 @@ Transform:
   m_GameObject: {fileID: 8204101510032522881}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.05, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: 0, y: 0.08, z: 0}
+  m_LocalScale: {x: 1.35, y: 1.35, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
   m_Father: {fileID: 3611739345216660515}

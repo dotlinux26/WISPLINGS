@@ -48,9 +48,9 @@ namespace GhostSurvival.Editor
         {
             if (EditorApplication.isPlayingOrWillChangePlaymode) return;
 
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v14", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v15", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v14", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v15", true);
                 SetupAll();
             }
         }
@@ -465,7 +465,8 @@ namespace GhostSurvival.Editor
             // WingsRenderer (Sorting Order -10)
             GameObject wingsGo = new GameObject("WingsRenderer");
             wingsGo.transform.SetParent(visualRootGo.transform, false);
-            wingsGo.transform.localPosition = new Vector3(0f, 0.05f, 0f);
+            wingsGo.transform.localPosition = new Vector3(0f, 0.08f, 0f);
+            wingsGo.transform.localScale = new Vector3(1.35f, 1.35f, 1f);
             var wingsSr = wingsGo.AddComponent<SpriteRenderer>();
             wingsSr.sortingOrder = -10;
             if (wingsSprites.Count > 0) wingsSr.sprite = wingsSprites[0];
@@ -518,7 +519,8 @@ namespace GhostSurvival.Editor
             soSyncer.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soSyncer.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
             soSyncer.FindProperty("hatOffset").vector3Value = new Vector3(0f, 0.22f, 0f);
-            soSyncer.FindProperty("wingsOffset").vector3Value = new Vector3(0f, 0.05f, 0f);
+            soSyncer.FindProperty("wingsOffset").vector3Value = new Vector3(0f, 0.08f, 0f);
+            soSyncer.FindProperty("wingsScale").vector3Value = new Vector3(1.35f, 1.35f, 1f);
 
             var propHats = soSyncer.FindProperty("hatSprites");
             propHats.arraySize = hatSprites.Count;
