@@ -188,7 +188,7 @@ namespace GhostSurvival.Cosmetics
             }
         }
 
-        private void SyncCosmetics(string bodySpriteName)
+        public void SyncCosmetics(string bodySpriteName)
         {
             // 1. Try direct name conversion: Ghost_Down_Walk_1 -> Hat_Witch_Down_Walk_1
             string targetHatName = bodySpriteName.Replace("Ghost_", "Hat_Witch_");

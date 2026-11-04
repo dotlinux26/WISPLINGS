@@ -1,33 +1,31 @@
 using System.Collections.Generic;
 using UnityEngine;
+using GhostSurvival.Cosmetics;
 
 namespace GhostSurvival.Animation
 {
     /// <summary>
-    /// Updates Animator states and parameters for 4-direction idle and walk.
-    /// Drives sprite frames directly at authored FPS for 100% guaranteed animation reliability,
-    /// ensuring BodyRenderer, Hat, Wings, and Hands always animate in sync without controller glitches.
+    /// Updates character animation for 4-direction idle and walk.
+    /// Drives sprite playback directly in C# for instant, zero-delay responsiveness,
+    /// and immediately synchronizes Hat, Wings, and Hands on the exact same frame.
+    /// Disables Animator conflict so there is zero stutter or lag.
     /// </summary>
     public class GhostAnimator : MonoBehaviour
     {
-        [Header("Animator Reference")]
+        [Header("Renderers & Components")]
         [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer bodyRenderer;
+        [SerializeField] private CosmeticSynchronizer cosmeticSynchronizer;
 
-        [Header("Animation Pace Settings")]
-        [Tooltip("Pace multiplier for the ghost animations. Lower values create a calmer, softer floating rhythm.")]
-        [Range(0.2f, 2.0f)]
-        [SerializeField] private float animationSpeed = 0.65f;
+        [Header("Animation Speed Settings")]
+        [Tooltip("Playback speed for Idle floating (calm and floaty).")]
+        [SerializeField] private float idleFps = 6.0f;
 
-        [Tooltip("Base frames per second for authoring playback.")]
-        [SerializeField] private float baseFps = 6f;
+        [Tooltip("Playback speed for Walk footsteps (snappy and responsive).")]
+        [SerializeField] private float walkFps = 8.5f;
 
         [Header("Sprite Frames (32 frames: 4 directions x 8 frames)")]
         [SerializeField] private Sprite[] bodySprites = new Sprite[32];
-
-        // Hash IDs for fast Animator parameter updates
-        private static readonly int ParamDirection = Animator.StringToHash("Direction");
-        private static readonly int ParamIsMoving = Animator.StringToHash("IsMoving");
 
         private GhostDirection currentDirection = GhostDirection.Down;
         private bool currentIsMoving = false;
@@ -37,21 +35,27 @@ namespace GhostSurvival.Animation
         public GhostDirection CurrentDirection => currentDirection;
         public bool CurrentIsMoving => currentIsMoving;
         public SpriteRenderer BodyRenderer => bodyRenderer;
-        public float AnimationSpeed
-        {
-            get => animationSpeed;
-            set
-            {
-                animationSpeed = value;
-                if (animator != null) animator.speed = animationSpeed;
-            }
-        }
 
         private void Awake()
         {
             if (animator == null)
             {
                 animator = GetComponentInChildren<Animator>();
+            }
+
+            // Disable Animator component so it doesn't conflict/fight C# sprite updates
+            if (animator != null)
+            {
+                animator.enabled = false;
+            }
+
+            if (cosmeticSynchronizer == null)
+            {
+                cosmeticSynchronizer = GetComponent<CosmeticSynchronizer>();
+                if (cosmeticSynchronizer == null)
+                {
+                    cosmeticSynchronizer = GetComponentInChildren<CosmeticSynchronizer>();
+                }
             }
 
             if (bodyRenderer == null)
@@ -76,20 +80,8 @@ namespace GhostSurvival.Animation
 
         private void Start()
         {
-            ApplyAnimationSpeed();
-        }
-
-        private void OnValidate()
-        {
-            ApplyAnimationSpeed();
-        }
-
-        public void ApplyAnimationSpeed()
-        {
-            if (animator != null)
-            {
-                animator.speed = animationSpeed;
-            }
+            // Immediately apply frame 0 of Idle_Down on game start
+            ApplyCurrentFrameImmediate();
         }
 
         private void Update()
@@ -101,13 +93,36 @@ namespace GhostSurvival.Animation
         {
             if (bodySprites == null || bodySprites.Length < 32 || bodyRenderer == null) return;
 
-            float fps = Mathf.Max(1f, baseFps * animationSpeed);
+            float targetFps = currentIsMoving ? walkFps : idleFps;
             frameTimer += Time.deltaTime;
-            if (frameTimer >= 1f / fps)
+
+            if (frameTimer >= 1f / targetFps)
             {
-                frameTimer -= 1f / fps;
+                frameTimer -= 1f / targetFps;
                 currentFrame = (currentFrame + 1) % 4;
+                ApplyCurrentFrameImmediate();
             }
+        }
+
+        public void UpdateAnimationState(GhostDirection direction, bool isMoving)
+        {
+            bool stateChanged = (currentDirection != direction) || (currentIsMoving != isMoving);
+
+            currentDirection = direction;
+            currentIsMoving = isMoving;
+
+            if (stateChanged)
+            {
+                // Instantly snap to frame 0 with ZERO delay on direction or movement change
+                frameTimer = 0f;
+                currentFrame = 0;
+                ApplyCurrentFrameImmediate();
+            }
+        }
+
+        private void ApplyCurrentFrameImmediate()
+        {
+            if (bodySprites == null || bodySprites.Length < 32 || bodyRenderer == null) return;
 
             int dirOffset = (int)currentDirection * 8;
             int stateOffset = currentIsMoving ? 4 : 0;
@@ -115,27 +130,14 @@ namespace GhostSurvival.Animation
 
             if (spriteIndex >= 0 && spriteIndex < bodySprites.Length && bodySprites[spriteIndex] != null)
             {
-                bodyRenderer.sprite = bodySprites[spriteIndex];
-            }
-        }
+                Sprite nextSprite = bodySprites[spriteIndex];
+                bodyRenderer.sprite = nextSprite;
 
-        public void UpdateAnimationState(GhostDirection direction, bool isMoving)
-        {
-            if (currentDirection != direction || currentIsMoving != isMoving)
-            {
-                // Reset frame timer on direction or state change for responsive feel
-                frameTimer = 0f;
-                currentFrame = 0;
-            }
-
-            currentDirection = direction;
-            currentIsMoving = isMoving;
-
-            if (animator != null && animator.runtimeAnimatorController != null)
-            {
-                animator.SetInteger(ParamDirection, (int)direction);
-                animator.SetBool(ParamIsMoving, isMoving);
-                animator.speed = animationSpeed;
+                // Instantly update Hat, Wings, and Hands on the exact same CPU frame
+                if (cosmeticSynchronizer != null)
+                {
+                    cosmeticSynchronizer.SyncCosmetics(nextSprite.name);
+                }
             }
         }
 

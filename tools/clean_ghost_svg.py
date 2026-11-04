@@ -22,3 +22,4 @@ for p in svg_paths:
     with open(p, 'w', encoding='utf-8') as f:
         f.write(content)
     print(f"Processed {p}")
+
