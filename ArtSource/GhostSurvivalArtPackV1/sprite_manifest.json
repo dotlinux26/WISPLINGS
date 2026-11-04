@@ -1,0 +1,142 @@
+{
+  "pack": "Ghost Survival Art Pack v1",
+  "cell_px": [
+    128,
+    128
+  ],
+  "palette": {
+    "ink": "#111117",
+    "ink_secondary": "#20202A",
+    "outline": "#3A3947",
+    "white_eyes": "#F7F7FF",
+    "spirit_glow": "#BFE8FF",
+    "rare_magic": "#C8C1FF",
+    "cosmetic_accent": "#F0A9C9"
+  },
+  "unity_import": {
+    "texture_type": "Sprite (2D and UI)",
+    "sprite_mode": "Multiple",
+    "filter_mode": "Bilinear",
+    "compression": "None for first prototype",
+    "pixels_per_unit": 128,
+    "pivot_normalized_bottom_left": [
+      0.5,
+      0.18
+    ],
+    "slice_method": "Grid By Cell Size",
+    "cell_size_px": [
+      128,
+      128
+    ],
+    "note": "Import PNG exports for predictable runtime use. SVG files are editable masters and animated previews; Unity's SVG importer does not execute CSS/SVG animation."
+  },
+  "atlases": {
+    "ghost_main_8x4.png": {
+      "columns": 8,
+      "rows": 4,
+      "row_order": [
+        "Down",
+        "Left",
+        "Right",
+        "Up"
+      ],
+      "column_order": [
+        "Idle_0",
+        "Idle_1",
+        "Idle_2",
+        "Idle_3",
+        "Walk_0",
+        "Walk_1",
+        "Walk_2",
+        "Walk_3"
+      ],
+      "purpose": "Main character body; one fixed silhouette, directional eye placement only."
+    },
+    "soul_collectible_6x1.png": {
+      "columns": 6,
+      "rows": 1,
+      "row_order": [
+        "HoverPulse"
+      ],
+      "column_order": [
+        "Frame_0",
+        "Frame_1",
+        "Frame_2",
+        "Frame_3",
+        "Frame_4",
+        "Frame_5"
+      ],
+      "purpose": "Collectible spirit, loop at 8-10 FPS."
+    },
+    "shade_stalker_4x4.png": {
+      "columns": 4,
+      "rows": 4,
+      "row_order": [
+        "Down",
+        "Left",
+        "Right",
+        "Up"
+      ],
+      "column_order": [
+        "Chase_0",
+        "Chase_1",
+        "Chase_2",
+        "Chase_3"
+      ],
+      "purpose": "Single enemy design, four facing directions."
+    },
+    "cosmetic_hat_witch_8x4.png": {
+      "columns": 8,
+      "rows": 4,
+      "row_order": [
+        "Down",
+        "Left",
+        "Right",
+        "Up"
+      ],
+      "purpose": "Render above character; same cell layout as body."
+    },
+    "cosmetic_wings_moth_8x4.png": {
+      "columns": 8,
+      "rows": 4,
+      "row_order": [
+        "Down",
+        "Left",
+        "Right",
+        "Up"
+      ],
+      "purpose": "Render behind character; same cell layout as body."
+    }
+  },
+  "cosmetic_slots": {
+    "hat": {
+      "anchor_svg": [
+        64,
+        34
+      ],
+      "sorting_order": "Character + 10",
+      "persistent_account_cosmetic": true,
+      "inventory_item": false
+    },
+    "wings": {
+      "anchor_svg": [
+        64,
+        64
+      ],
+      "sorting_order": "Character - 10",
+      "persistent_account_cosmetic": true,
+      "inventory_item": false
+    }
+  },
+  "data_policy": {
+    "unlocked_cosmetics": "Account progression; persist permanently once unlocked.",
+    "equipped_cosmetics": "Account loadout; persist between expeditions and devices.",
+    "expedition_loot": "Separate temporary run inventory; does not contain cosmetics.",
+    "death": "Never destroys unlocked/equipped cosmetics."
+  },
+  "source_vs_runtime": {
+    "svg": "Editable vector master files; use for art revisions and browser previews.",
+    "png": "Recommended runtime atlas exports for the initial Unity prototype.",
+    "animation": "Use Unity Animator clips from atlas frames; CSS/SVG preview animation does not become a Unity AnimationClip."
+  }
+}

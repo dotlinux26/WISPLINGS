@@ -1,0 +1,52 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="256" height="256" viewBox="0 0 256 256">
+ <title>Ghost character animated preview</title><desc>One fixed ghost silhouette. CSS animation demonstrates idle floating and blinking; Unity should use sprite frames and Animator.</desc>
+ <defs>
+    <radialGradient id="bodyGrad" cx="42%" cy="28%" r="75%">
+      <stop offset="0" stop-color="#292833"/>
+      <stop offset="0.58" stop-color="#17171F"/>
+      <stop offset="1" stop-color="#0D0D12"/>
+    </radialGradient>
+    <radialGradient id="wispGrad" cx="50%" cy="42%" r="65%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.32" stop-color="#DDF7FF"/>
+      <stop offset="0.72" stop-color="#9EDBF5"/>
+      <stop offset="1" stop-color="#8F8BCB"/>
+    </radialGradient>
+    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DCD9EE"/>
+      <stop offset="1" stop-color="#77768C"/>
+    </linearGradient>
+    </defs>
+ 
+<ellipse cx="128" cy="222" rx="57" ry="10" fill="#050509" opacity=".36"/>
+<ellipse cx="128" cy="132" rx="91" ry="96" fill="none" stroke="#A6A5BA" stroke-width="2" opacity=".13" stroke-dasharray="5 10">
+  <animate attributeName="opacity" values=".07;.21;.07" dur="3.2s" repeatCount="indefinite"/>
+</ellipse>
+<g id="ghost-float">
+  <g transform="translate(128 132) scale(1.55) translate(-64 -64)">
+    <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#3A3947" stroke-width="2.0" stroke-linejoin="round"/>
+    <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
+      fill="none" stroke="#777587" stroke-width="2.2" stroke-linecap="round" opacity=".25"/>
+    <g id="ghost-eyes">
+      <ellipse cx="53" cy="58" rx="5.2" ry="7.1" fill="#F7F7FF"/>
+      <ellipse cx="75" cy="58" rx="5.2" ry="7.1" fill="#F7F7FF"/>
+      <ellipse cx="51.5" cy="55.2" rx="1.25" ry="1.8" fill="#FFFFFF" opacity=".78"/>
+      <ellipse cx="73.5" cy="55.2" rx="1.25" ry="1.8" fill="#FFFFFF" opacity=".78"/>
+    </g>
+  </g>
+</g>
+<circle cx="72" cy="94" r="3" fill="#E8E8F4" opacity="0">
+  <animate attributeName="opacity" values="0;.8;0" dur="2.4s" repeatCount="indefinite"/>
+</circle>
+<circle cx="181" cy="153" r="2.2" fill="#DCEBFF" opacity="0">
+  <animate attributeName="opacity" values="0;.75;0" dur="3s" begin=".6s" repeatCount="indefinite"/>
+</circle>
+<style>
+#ghost-float { transform-box: fill-box; transform-origin: center; animation: ghostBob 2.25s ease-in-out infinite; }
+@keyframes ghostBob { 0%,100% { transform: translateY(2px) scale(1,1); } 50% { transform: translateY(-8px) scale(1.025,.985); } }
+#ghost-eyes { transform-box: fill-box; transform-origin: center; animation: ghostBlink 5.4s infinite; }
+@keyframes ghostBlink { 0%, 43%, 47%, 100% { transform: scaleY(1); } 45% { transform: scaleY(.12); } }
+</style>
+
+</svg>

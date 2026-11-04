@@ -1,0 +1,37 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink"
+ width="128" height="128" viewBox="0 0 128 128">
+ <title>Small animated wisp flame effect</title><desc>Illustrative animated SVG. For Unity, reproduce with Particle System or 4-6 sprite frames.</desc>
+ <defs>
+    <radialGradient id="bodyGrad" cx="42%" cy="28%" r="75%">
+      <stop offset="0" stop-color="#292833"/>
+      <stop offset="0.58" stop-color="#17171F"/>
+      <stop offset="1" stop-color="#0D0D12"/>
+    </radialGradient>
+    <radialGradient id="wispGrad" cx="50%" cy="42%" r="65%">
+      <stop offset="0" stop-color="#FFFFFF"/>
+      <stop offset="0.32" stop-color="#DDF7FF"/>
+      <stop offset="0.72" stop-color="#9EDBF5"/>
+      <stop offset="1" stop-color="#8F8BCB"/>
+    </radialGradient>
+    <linearGradient id="wingGrad" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#DCD9EE"/>
+      <stop offset="1" stop-color="#77768C"/>
+    </linearGradient>
+    </defs>
+ 
+<ellipse cx="64" cy="112" rx="18" ry="4" fill="#15141C" opacity=".2"/>
+<g id="flame">
+ <path d="M64 105 C45 92 51 77 58 65 C64 55 61 43 73 27 C73 47 91 56 88 77 C87 94 77 105 64 105Z"
+       fill="#F0A9C9" opacity=".92"/>
+ <path d="M64 103 C54 91 61 81 66 72 C68 65 68 57 73 49 C80 65 83 77 79 90 C76 100 70 105 64 103Z"
+       fill="#FFE6F0"/>
+ <path d="M65 100 C61 91 66 86 69 80 C74 89 72 96 65 100Z" fill="#FFFFFF"/>
+</g>
+<circle cx="37" cy="66" r="2.2" fill="#F0A9C9"><animate attributeName="cy" values="70;50;70" dur="1.4s" repeatCount="indefinite"/></circle>
+<circle cx="92" cy="78" r="1.8" fill="#FFE6F0"><animate attributeName="cy" values="82;58;82" dur="1.7s" repeatCount="indefinite"/></circle>
+<style>
+#flame { transform-box: fill-box; transform-origin: 50% 100%; animation: flameDance .72s ease-in-out infinite alternate; }
+@keyframes flameDance { from { transform: scaleX(.92) scaleY(.97) rotate(-2deg); } to { transform: scaleX(1.06) scaleY(1.04) rotate(2deg); } }
+</style>
+
+</svg>

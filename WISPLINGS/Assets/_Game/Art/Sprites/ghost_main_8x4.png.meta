@@ -1,0 +1,1156 @@
+fileFormatVersion: 2
+guid: bc768becbe0f81141b0f4b9c75782790
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 40992032337739630
+    second: ghost_main_8x4_0
+  - first:
+      213: -2869926872792454042
+    second: ghost_main_8x4_1
+  - first:
+      213: 829184823265221314
+    second: ghost_main_8x4_2
+  - first:
+      213: 6230730079938699077
+    second: ghost_main_8x4_3
+  - first:
+      213: -2470306538986474099
+    second: ghost_main_8x4_4
+  - first:
+      213: 1492988641490531198
+    second: ghost_main_8x4_5
+  - first:
+      213: -8527902085599756729
+    second: ghost_main_8x4_6
+  - first:
+      213: 8462098492177834366
+    second: ghost_main_8x4_7
+  - first:
+      213: 5759848982519506589
+    second: ghost_main_8x4_8
+  - first:
+      213: -3004402224062478665
+    second: ghost_main_8x4_9
+  - first:
+      213: -3955762147484304870
+    second: ghost_main_8x4_10
+  - first:
+      213: -5790947932090678229
+    second: ghost_main_8x4_11
+  - first:
+      213: 6056336858877205636
+    second: ghost_main_8x4_12
+  - first:
+      213: -1290945966920663998
+    second: ghost_main_8x4_13
+  - first:
+      213: -2754245238763410425
+    second: ghost_main_8x4_14
+  - first:
+      213: -880067207580961768
+    second: ghost_main_8x4_15
+  - first:
+      213: 9152274239657862049
+    second: ghost_main_8x4_16
+  - first:
+      213: 2230563808522992683
+    second: ghost_main_8x4_17
+  - first:
+      213: -7449973370185132782
+    second: ghost_main_8x4_18
+  - first:
+      213: -8884094493995507611
+    second: ghost_main_8x4_19
+  - first:
+      213: -6636143309521732686
+    second: ghost_main_8x4_20
+  - first:
+      213: 2950472129444435203
+    second: ghost_main_8x4_21
+  - first:
+      213: -2661568359059442723
+    second: ghost_main_8x4_22
+  - first:
+      213: 878026330768836451
+    second: ghost_main_8x4_23
+  - first:
+      213: 7660621593605568255
+    second: ghost_main_8x4_24
+  - first:
+      213: -8151301388348887189
+    second: ghost_main_8x4_25
+  - first:
+      213: -4023917952876310468
+    second: ghost_main_8x4_26
+  - first:
+      213: -8207442140849672069
+    second: ghost_main_8x4_27
+  - first:
+      213: 2157944591551564175
+    second: ghost_main_8x4_28
+  - first:
+      213: -9019351066851652731
+    second: ghost_main_8x4_29
+  - first:
+      213: 689041565253341584
+    second: ghost_main_8x4_30
+  - first:
+      213: 752835993723396577
+    second: ghost_main_8x4_31
+  - first:
+      213: -4243048421720906239
+    second: ghost_main_8x4_32
+  - first:
+      213: 3871748414417454319
+    second: ghost_main_8x4_33
+  - first:
+      213: -3221977601409049707
+    second: ghost_main_8x4_34
+  - first:
+      213: -1345775770601043182
+    second: ghost_main_8x4_35
+  - first:
+      213: -8275789942370483738
+    second: ghost_main_8x4_36
+  - first:
+      213: -2450021668581138628
+    second: ghost_main_8x4_37
+  - first:
+      213: -5234138506859687143
+    second: ghost_main_8x4_38
+  - first:
+      213: -6729025689691132660
+    second: ghost_main_8x4_39
+  - first:
+      213: 854417081569107603
+    second: ghost_main_8x4_40
+  - first:
+      213: 6989007754626884922
+    second: ghost_main_8x4_41
+  - first:
+      213: -6907591660792244464
+    second: ghost_main_8x4_42
+  - first:
+      213: 2433290635508634406
+    second: ghost_main_8x4_43
+  - first:
+      213: 142330644263936781
+    second: ghost_main_8x4_44
+  - first:
+      213: 8803236301572212610
+    second: ghost_main_8x4_45
+  - first:
+      213: -5422496201894263274
+    second: ghost_main_8x4_46
+  - first:
+      213: 4951789772397190207
+    second: ghost_main_8x4_47
+  - first:
+      213: 5891090115284449564
+    second: Ghost_Down_Idle_0
+  - first:
+      213: 3669818176468111561
+    second: Ghost_Down_Idle_1
+  - first:
+      213: -3962732029481871330
+    second: Ghost_Down_Idle_2
+  - first:
+      213: -3671105911712930142
+    second: Ghost_Down_Idle_3
+  - first:
+      213: 1246624713944981502
+    second: Ghost_Down_Walk_0
+  - first:
+      213: -9043405092342346328
+    second: Ghost_Down_Walk_1
+  - first:
+      213: 7870711984097496975
+    second: Ghost_Down_Walk_2
+  - first:
+      213: 4044779418158398644
+    second: Ghost_Down_Walk_3
+  - first:
+      213: -8884395030339858079
+    second: Ghost_Left_Idle_0
+  - first:
+      213: -3323092822748352081
+    second: Ghost_Left_Idle_1
+  - first:
+      213: -6956082307771552530
+    second: Ghost_Left_Idle_2
+  - first:
+      213: 1221572770662740060
+    second: Ghost_Left_Idle_3
+  - first:
+      213: 922048264728491549
+    second: Ghost_Left_Walk_0
+  - first:
+      213: -6065571870985112662
+    second: Ghost_Left_Walk_1
+  - first:
+      213: -2723512185685226418
+    second: Ghost_Left_Walk_2
+  - first:
+      213: -274491940613441757
+    second: Ghost_Left_Walk_3
+  - first:
+      213: 8156271674791807977
+    second: Ghost_Right_Idle_0
+  - first:
+      213: -8316578902387167132
+    second: Ghost_Right_Idle_1
+  - first:
+      213: 6072926477909351262
+    second: Ghost_Right_Idle_2
+  - first:
+      213: 7982561063258692733
+    second: Ghost_Right_Idle_3
+  - first:
+      213: 46989903533587859
+    second: Ghost_Right_Walk_0
+  - first:
+      213: -3079844524453886088
+    second: Ghost_Right_Walk_1
+  - first:
+      213: 6745161039747207837
+    second: Ghost_Right_Walk_2
+  - first:
+      213: 3201789400327475425
+    second: Ghost_Right_Walk_3
+  - first:
+      213: -4234432100992389118
+    second: Ghost_Up_Idle_0
+  - first:
+      213: 8387738945327465709
+    second: Ghost_Up_Idle_1
+  - first:
+      213: -3718325526789673875
+    second: Ghost_Up_Idle_2
+  - first:
+      213: -5028346741408615852
+    second: Ghost_Up_Idle_3
+  - first:
+      213: 7798445927390621864
+    second: Ghost_Up_Walk_0
+  - first:
+      213: -5642901461103394866
+    second: Ghost_Up_Walk_1
+  - first:
+      213: -6938071786333371026
+    second: Ghost_Up_Walk_2
+  - first:
+      213: 4297643610889252016
+    second: Ghost_Up_Walk_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Ghost_Down_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c19385d5f3b51c150800000000000000
+      internalID: 5891090115284449564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9c057ae1030dde230800000000000000
+      internalID: 3669818176468111561
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e189ba2f63c8109c0800000000000000
+      internalID: -3962732029481871330
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2a6a387af9c9d0dc0800000000000000
+      internalID: -3671105911712930142
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: effd9ea8296ec4110800000000000000
+      internalID: 1246624713944981502
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8adc9f68bfe5f7280800000000000000
+      internalID: -9043405092342346328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f8f8a8549d26a3d60800000000000000
+      internalID: 7870711984097496975
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Down_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4bc742e5371f12830800000000000000
+      internalID: 4044779418158398644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 161d85c9ac944b480800000000000000
+      internalID: -8884395030339858079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fa13f682fa002e1d0800000000000000
+      internalID: -3323092822748352081
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeca5e8fef7077f90800000000000000
+      internalID: -6956082307771552530
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c5074a676f5e3f010800000000000000
+      internalID: 1221572770662740060
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d1638e4f206cbcc00800000000000000
+      internalID: 922048264728491549
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3b4562582c2dba0800000000000000
+      internalID: -6065571870985112662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e4cc8cec814243ad0800000000000000
+      internalID: -2723512185685226418
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Left_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 327370ac80fc03cf0800000000000000
+      internalID: -274491940613441757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9ebcb8bdfd5e03170800000000000000
+      internalID: 8156271674791807977
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 46074b82d83959c80800000000000000
+      internalID: -8316578902387167132
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e5bd9d6b47e574450800000000000000
+      internalID: 6072926477909351262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d7c166d5ef0c7ce60800000000000000
+      internalID: 7982561063258692733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 39d362c7111f6a000800000000000000
+      internalID: 46989903533587859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8778e7409b13245d0800000000000000
+      internalID: -3079844524453886088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d92dfee6a30ab9d50800000000000000
+      internalID: 6745161039747207837
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Right_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1e0512cee7a0f6c20800000000000000
+      internalID: 3201789400327475425
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 20076da60764c35c0800000000000000
+      internalID: -4234432100992389118
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: de404f0712c376470800000000000000
+      internalID: 8387738945327465709
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d6c2f6842aad56cc0800000000000000
+      internalID: -3718325526789673875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 452b8dea749b73ab0800000000000000
+      internalID: -5028346741408615852
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8a0b536c045a93c60800000000000000
+      internalID: 7798445927390621864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ecf366cb40360b1b0800000000000000
+      internalID: -5642901461103394866
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e658075487407bf90800000000000000
+      internalID: -6938071786333371026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Ghost_Up_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0bce74e181c44ab30800000000000000
+      internalID: 4297643610889252016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Ghost_Down_Idle_0: 5891090115284449564
+      Ghost_Down_Idle_1: 3669818176468111561
+      Ghost_Down_Idle_2: -3962732029481871330
+      Ghost_Down_Idle_3: -3671105911712930142
+      Ghost_Down_Walk_0: 1246624713944981502
+      Ghost_Down_Walk_1: -9043405092342346328
+      Ghost_Down_Walk_2: 7870711984097496975
+      Ghost_Down_Walk_3: 4044779418158398644
+      Ghost_Left_Idle_0: -8884395030339858079
+      Ghost_Left_Idle_1: -3323092822748352081
+      Ghost_Left_Idle_2: -6956082307771552530
+      Ghost_Left_Idle_3: 1221572770662740060
+      Ghost_Left_Walk_0: 922048264728491549
+      Ghost_Left_Walk_1: -6065571870985112662
+      Ghost_Left_Walk_2: -2723512185685226418
+      Ghost_Left_Walk_3: -274491940613441757
+      Ghost_Right_Idle_0: 8156271674791807977
+      Ghost_Right_Idle_1: -8316578902387167132
+      Ghost_Right_Idle_2: 6072926477909351262
+      Ghost_Right_Idle_3: 7982561063258692733
+      Ghost_Right_Walk_0: 46989903533587859
+      Ghost_Right_Walk_1: -3079844524453886088
+      Ghost_Right_Walk_2: 6745161039747207837
+      Ghost_Right_Walk_3: 3201789400327475425
+      Ghost_Up_Idle_0: -4234432100992389118
+      Ghost_Up_Idle_1: 8387738945327465709
+      Ghost_Up_Idle_2: -3718325526789673875
+      Ghost_Up_Idle_3: -5028346741408615852
+      Ghost_Up_Walk_0: 7798445927390621864
+      Ghost_Up_Walk_1: -5642901461103394866
+      Ghost_Up_Walk_2: -6938071786333371026
+      Ghost_Up_Walk_3: 4297643610889252016
+      ghost_main_8x4_0: 40992032337739630
+      ghost_main_8x4_1: -2869926872792454042
+      ghost_main_8x4_10: -3955762147484304870
+      ghost_main_8x4_11: -5790947932090678229
+      ghost_main_8x4_12: 6056336858877205636
+      ghost_main_8x4_13: -1290945966920663998
+      ghost_main_8x4_14: -2754245238763410425
+      ghost_main_8x4_15: -880067207580961768
+      ghost_main_8x4_16: 9152274239657862049
+      ghost_main_8x4_17: 2230563808522992683
+      ghost_main_8x4_18: -7449973370185132782
+      ghost_main_8x4_19: -8884094493995507611
+      ghost_main_8x4_2: 829184823265221314
+      ghost_main_8x4_20: -6636143309521732686
+      ghost_main_8x4_21: 2950472129444435203
+      ghost_main_8x4_22: -2661568359059442723
+      ghost_main_8x4_23: 878026330768836451
+      ghost_main_8x4_24: 7660621593605568255
+      ghost_main_8x4_25: -8151301388348887189
+      ghost_main_8x4_26: -4023917952876310468
+      ghost_main_8x4_27: -8207442140849672069
+      ghost_main_8x4_28: 2157944591551564175
+      ghost_main_8x4_29: -9019351066851652731
+      ghost_main_8x4_3: 6230730079938699077
+      ghost_main_8x4_30: 689041565253341584
+      ghost_main_8x4_31: 752835993723396577
+      ghost_main_8x4_32: -4243048421720906239
+      ghost_main_8x4_33: 3871748414417454319
+      ghost_main_8x4_34: -3221977601409049707
+      ghost_main_8x4_35: -1345775770601043182
+      ghost_main_8x4_36: -8275789942370483738
+      ghost_main_8x4_37: -2450021668581138628
+      ghost_main_8x4_38: -5234138506859687143
+      ghost_main_8x4_39: -6729025689691132660
+      ghost_main_8x4_4: -2470306538986474099
+      ghost_main_8x4_40: 854417081569107603
+      ghost_main_8x4_41: 6989007754626884922
+      ghost_main_8x4_42: -6907591660792244464
+      ghost_main_8x4_43: 2433290635508634406
+      ghost_main_8x4_44: 142330644263936781
+      ghost_main_8x4_45: 8803236301572212610
+      ghost_main_8x4_46: -5422496201894263274
+      ghost_main_8x4_47: 4951789772397190207
+      ghost_main_8x4_5: 1492988641490531198
+      ghost_main_8x4_6: -8527902085599756729
+      ghost_main_8x4_7: 8462098492177834366
+      ghost_main_8x4_8: 5759848982519506589
+      ghost_main_8x4_9: -3004402224062478665
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

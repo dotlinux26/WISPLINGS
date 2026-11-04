@@ -1,0 +1,35 @@
+# Unity temporary & cache directories
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Ll]ibrary/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Tt]emp/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Oo]bj/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Bb]uild/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Bb]uilds/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Ll]ogs/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/[Uu]ser[Ss]ettings/
+/[Ww][Ii][Ss][Pp][Ll][Ii][Nn][Gg][Ss]/MemoryCaptures/
+
+# General Unity patterns
+[Ll]ibrary/
+[Tt]emp/
+[Oo]bj/
+[Bb]uild/
+[Bb]uilds/
+[Ll]ogs/
+[Uu]ser[Ss]ettings/
+
+# IDE / OS files
+.vs/
+.idea/
+.vscode/
+*.csproj
+*.unityproj
+*.sln
+*.suo
+*.user
+*.userprefs
+*.pidb
+*.booproj
+.DS_Store
+Thumbs.db
+
+khognduocpushcainay.png

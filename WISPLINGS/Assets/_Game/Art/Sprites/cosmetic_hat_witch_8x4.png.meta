@@ -1,0 +1,1092 @@
+fileFormatVersion: 2
+guid: b6d1f58be3c0b9a44a480f4858252a7c
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 5440857714622984877
+    second: cosmetic_hat_witch_8x4_0
+  - first:
+      213: -4386287983324451623
+    second: cosmetic_hat_witch_8x4_1
+  - first:
+      213: 6521967704216289623
+    second: cosmetic_hat_witch_8x4_2
+  - first:
+      213: 888720716219116383
+    second: cosmetic_hat_witch_8x4_3
+  - first:
+      213: -9172630022372053288
+    second: cosmetic_hat_witch_8x4_4
+  - first:
+      213: 5103875767234352954
+    second: cosmetic_hat_witch_8x4_5
+  - first:
+      213: -6823520852993976673
+    second: cosmetic_hat_witch_8x4_6
+  - first:
+      213: -7934897514309804355
+    second: cosmetic_hat_witch_8x4_7
+  - first:
+      213: 7619190806175468960
+    second: cosmetic_hat_witch_8x4_8
+  - first:
+      213: -1631245164010900110
+    second: cosmetic_hat_witch_8x4_9
+  - first:
+      213: 333297386632777183
+    second: cosmetic_hat_witch_8x4_10
+  - first:
+      213: -4901999896950711555
+    second: cosmetic_hat_witch_8x4_11
+  - first:
+      213: -7573615532696483998
+    second: cosmetic_hat_witch_8x4_12
+  - first:
+      213: 6373414638958202951
+    second: cosmetic_hat_witch_8x4_13
+  - first:
+      213: 2162770581508097558
+    second: cosmetic_hat_witch_8x4_14
+  - first:
+      213: -1474382963464209541
+    second: cosmetic_hat_witch_8x4_15
+  - first:
+      213: -8791128521807664418
+    second: cosmetic_hat_witch_8x4_16
+  - first:
+      213: -5335148868875854445
+    second: cosmetic_hat_witch_8x4_17
+  - first:
+      213: -7751184563959540014
+    second: cosmetic_hat_witch_8x4_18
+  - first:
+      213: 5500407103172120429
+    second: cosmetic_hat_witch_8x4_19
+  - first:
+      213: 3210301146144072942
+    second: cosmetic_hat_witch_8x4_20
+  - first:
+      213: 4840661554747025982
+    second: cosmetic_hat_witch_8x4_21
+  - first:
+      213: -5831948960898728047
+    second: cosmetic_hat_witch_8x4_22
+  - first:
+      213: -4979559729128776339
+    second: cosmetic_hat_witch_8x4_23
+  - first:
+      213: -1614556674512356531
+    second: cosmetic_hat_witch_8x4_24
+  - first:
+      213: 2604884226817419361
+    second: cosmetic_hat_witch_8x4_25
+  - first:
+      213: -366532516674233101
+    second: cosmetic_hat_witch_8x4_26
+  - first:
+      213: -5707321670979787381
+    second: cosmetic_hat_witch_8x4_27
+  - first:
+      213: 2429833811224273707
+    second: cosmetic_hat_witch_8x4_28
+  - first:
+      213: 1839663626020069229
+    second: cosmetic_hat_witch_8x4_29
+  - first:
+      213: 3450364666929847618
+    second: cosmetic_hat_witch_8x4_30
+  - first:
+      213: 5931590921123218490
+    second: cosmetic_hat_witch_8x4_31
+  - first:
+      213: 7117874583068459947
+    second: Hat_Witch_Down_Idle_0
+  - first:
+      213: -1952551546628417974
+    second: Hat_Witch_Down_Idle_1
+  - first:
+      213: 7987457726465522070
+    second: Hat_Witch_Down_Idle_2
+  - first:
+      213: 5097346529521047119
+    second: Hat_Witch_Down_Idle_3
+  - first:
+      213: -5542069851215130067
+    second: Hat_Witch_Down_Walk_0
+  - first:
+      213: -282702612619173884
+    second: Hat_Witch_Down_Walk_1
+  - first:
+      213: -6350599670517879455
+    second: Hat_Witch_Down_Walk_2
+  - first:
+      213: -3188058758838736615
+    second: Hat_Witch_Down_Walk_3
+  - first:
+      213: -6697010548689512445
+    second: Hat_Witch_Left_Idle_0
+  - first:
+      213: -4398517555571753032
+    second: Hat_Witch_Left_Idle_1
+  - first:
+      213: -6982276175919552255
+    second: Hat_Witch_Left_Idle_2
+  - first:
+      213: 3045227756418490994
+    second: Hat_Witch_Left_Idle_3
+  - first:
+      213: -2364775359102920304
+    second: Hat_Witch_Left_Walk_0
+  - first:
+      213: -5282600192655266002
+    second: Hat_Witch_Left_Walk_1
+  - first:
+      213: 769044603762137825
+    second: Hat_Witch_Left_Walk_2
+  - first:
+      213: 4855264366999455590
+    second: Hat_Witch_Left_Walk_3
+  - first:
+      213: -2330654107028002512
+    second: Hat_Witch_Right_Idle_0
+  - first:
+      213: -1104863212422867605
+    second: Hat_Witch_Right_Idle_1
+  - first:
+      213: 8089281802651829357
+    second: Hat_Witch_Right_Idle_2
+  - first:
+      213: 5727498539596894907
+    second: Hat_Witch_Right_Idle_3
+  - first:
+      213: 8937282415111897185
+    second: Hat_Witch_Right_Walk_0
+  - first:
+      213: -3634078105482707117
+    second: Hat_Witch_Right_Walk_1
+  - first:
+      213: 5556536030666715637
+    second: Hat_Witch_Right_Walk_2
+  - first:
+      213: -6202925421258883270
+    second: Hat_Witch_Right_Walk_3
+  - first:
+      213: -2409715127090428512
+    second: Hat_Witch_Up_Idle_0
+  - first:
+      213: -1538201281278944297
+    second: Hat_Witch_Up_Idle_1
+  - first:
+      213: 5429984574636155266
+    second: Hat_Witch_Up_Idle_2
+  - first:
+      213: 1299951525071864746
+    second: Hat_Witch_Up_Idle_3
+  - first:
+      213: 2822251890392630291
+    second: Hat_Witch_Up_Walk_0
+  - first:
+      213: 2407940820702401131
+    second: Hat_Witch_Up_Walk_1
+  - first:
+      213: -1203662999286902182
+    second: Hat_Witch_Up_Walk_2
+  - first:
+      213: -7296669645191605964
+    second: Hat_Witch_Up_Walk_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ba3c39f9835c7c260800000000000000
+      internalID: 7117874583068459947
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a46d291a6b427e4e0800000000000000
+      internalID: -1952551546628417974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6993d6c9b7629de60800000000000000
+      internalID: 7987457726465522070
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f461c2569a96db640800000000000000
+      internalID: 5097346529521047119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d229bed55dc9613b0800000000000000
+      internalID: -5542069851215130067
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 40062cdb873a31cf0800000000000000
+      internalID: -282702612619173884
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 16da1102f332ed7a0800000000000000
+      internalID: -6350599670517879455
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Down_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 919285c237db1c3d0800000000000000
+      internalID: -3188058758838736615
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 308515463607f03a0800000000000000
+      internalID: -6697010548689512445
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 8bf73d9669355f2c0800000000000000
+      internalID: -4398517555571753032
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 10964aacfc8f91f90800000000000000
+      internalID: -6982276175919552255
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 272eb799282d24a20800000000000000
+      internalID: 3045227756418490994
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 099d21b0751ae2fd0800000000000000
+      internalID: -2364775359102920304
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e2f6f5afc1f60b6b0800000000000000
+      internalID: -5282600192655266002
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ea5ca71ef13caa00800000000000000
+      internalID: 769044603762137825
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Left_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 6674d9da73d516340800000000000000
+      internalID: 4855264366999455590
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0396a40207ad7afd0800000000000000
+      internalID: -2330654107028002512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b65532a13ccbaa0f0800000000000000
+      internalID: -1104863212422867605
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d64081fc0f6e24070800000000000000
+      internalID: 8089281802651829357
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb2dd3083992c7f40800000000000000
+      internalID: 5727498539596894907
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 160071a310b970c70800000000000000
+      internalID: 8937282415111897185
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 35fbdac9739219dc0800000000000000
+      internalID: -3634078105482707117
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5f17c818418cc1d40800000000000000
+      internalID: 5556536030666715637
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Right_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a3fbf91a138cae9a0800000000000000
+      internalID: -6202925421258883270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0a5c3efebd8fe8ed0800000000000000
+      internalID: -2409715127090428512
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7db515c951637aae0800000000000000
+      internalID: -1538201281278944297
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 281e90b833e2b5b40800000000000000
+      internalID: 5429984574636155266
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aa3c22d460b5a0210800000000000000
+      internalID: 1299951525071864746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 31407813427aa2720800000000000000
+      internalID: 2822251890392630291
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b62112a2b69ba6120800000000000000
+      internalID: 2407940820702401131
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a52193221eabb4fe0800000000000000
+      internalID: -1203662999286902182
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Hat_Witch_Up_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4319afafd950dba90800000000000000
+      internalID: -7296669645191605964
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Hat_Witch_Down_Idle_0: 7117874583068459947
+      Hat_Witch_Down_Idle_1: -1952551546628417974
+      Hat_Witch_Down_Idle_2: 7987457726465522070
+      Hat_Witch_Down_Idle_3: 5097346529521047119
+      Hat_Witch_Down_Walk_0: -5542069851215130067
+      Hat_Witch_Down_Walk_1: -282702612619173884
+      Hat_Witch_Down_Walk_2: -6350599670517879455
+      Hat_Witch_Down_Walk_3: -3188058758838736615
+      Hat_Witch_Left_Idle_0: -6697010548689512445
+      Hat_Witch_Left_Idle_1: -4398517555571753032
+      Hat_Witch_Left_Idle_2: -6982276175919552255
+      Hat_Witch_Left_Idle_3: 3045227756418490994
+      Hat_Witch_Left_Walk_0: -2364775359102920304
+      Hat_Witch_Left_Walk_1: -5282600192655266002
+      Hat_Witch_Left_Walk_2: 769044603762137825
+      Hat_Witch_Left_Walk_3: 4855264366999455590
+      Hat_Witch_Right_Idle_0: -2330654107028002512
+      Hat_Witch_Right_Idle_1: -1104863212422867605
+      Hat_Witch_Right_Idle_2: 8089281802651829357
+      Hat_Witch_Right_Idle_3: 5727498539596894907
+      Hat_Witch_Right_Walk_0: 8937282415111897185
+      Hat_Witch_Right_Walk_1: -3634078105482707117
+      Hat_Witch_Right_Walk_2: 5556536030666715637
+      Hat_Witch_Right_Walk_3: -6202925421258883270
+      Hat_Witch_Up_Idle_0: -2409715127090428512
+      Hat_Witch_Up_Idle_1: -1538201281278944297
+      Hat_Witch_Up_Idle_2: 5429984574636155266
+      Hat_Witch_Up_Idle_3: 1299951525071864746
+      Hat_Witch_Up_Walk_0: 2822251890392630291
+      Hat_Witch_Up_Walk_1: 2407940820702401131
+      Hat_Witch_Up_Walk_2: -1203662999286902182
+      Hat_Witch_Up_Walk_3: -7296669645191605964
+      cosmetic_hat_witch_8x4_0: 5440857714622984877
+      cosmetic_hat_witch_8x4_1: -4386287983324451623
+      cosmetic_hat_witch_8x4_10: 333297386632777183
+      cosmetic_hat_witch_8x4_11: -4901999896950711555
+      cosmetic_hat_witch_8x4_12: -7573615532696483998
+      cosmetic_hat_witch_8x4_13: 6373414638958202951
+      cosmetic_hat_witch_8x4_14: 2162770581508097558
+      cosmetic_hat_witch_8x4_15: -1474382963464209541
+      cosmetic_hat_witch_8x4_16: -8791128521807664418
+      cosmetic_hat_witch_8x4_17: -5335148868875854445
+      cosmetic_hat_witch_8x4_18: -7751184563959540014
+      cosmetic_hat_witch_8x4_19: 5500407103172120429
+      cosmetic_hat_witch_8x4_2: 6521967704216289623
+      cosmetic_hat_witch_8x4_20: 3210301146144072942
+      cosmetic_hat_witch_8x4_21: 4840661554747025982
+      cosmetic_hat_witch_8x4_22: -5831948960898728047
+      cosmetic_hat_witch_8x4_23: -4979559729128776339
+      cosmetic_hat_witch_8x4_24: -1614556674512356531
+      cosmetic_hat_witch_8x4_25: 2604884226817419361
+      cosmetic_hat_witch_8x4_26: -366532516674233101
+      cosmetic_hat_witch_8x4_27: -5707321670979787381
+      cosmetic_hat_witch_8x4_28: 2429833811224273707
+      cosmetic_hat_witch_8x4_29: 1839663626020069229
+      cosmetic_hat_witch_8x4_3: 888720716219116383
+      cosmetic_hat_witch_8x4_30: 3450364666929847618
+      cosmetic_hat_witch_8x4_31: 5931590921123218490
+      cosmetic_hat_witch_8x4_4: -9172630022372053288
+      cosmetic_hat_witch_8x4_5: 5103875767234352954
+      cosmetic_hat_witch_8x4_6: -6823520852993976673
+      cosmetic_hat_witch_8x4_7: -7934897514309804355
+      cosmetic_hat_witch_8x4_8: 7619190806175468960
+      cosmetic_hat_witch_8x4_9: -1631245164010900110
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

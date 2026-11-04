@@ -1,0 +1,612 @@
+fileFormatVersion: 2
+guid: 53d8d37f1f162d9418e183da7c024857
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3485311007838200258
+    second: shade_stalker_4x4_0
+  - first:
+      213: -957812614314298688
+    second: shade_stalker_4x4_1
+  - first:
+      213: 8454464613782887310
+    second: shade_stalker_4x4_2
+  - first:
+      213: 5720178939587169132
+    second: shade_stalker_4x4_3
+  - first:
+      213: 1307160531987826470
+    second: shade_stalker_4x4_4
+  - first:
+      213: 6893022365385822689
+    second: shade_stalker_4x4_5
+  - first:
+      213: 6295269759453312821
+    second: shade_stalker_4x4_6
+  - first:
+      213: -9571435851837927
+    second: shade_stalker_4x4_7
+  - first:
+      213: 717444730545612886
+    second: shade_stalker_4x4_8
+  - first:
+      213: -3360256052126910167
+    second: shade_stalker_4x4_9
+  - first:
+      213: -9008624618819836197
+    second: shade_stalker_4x4_10
+  - first:
+      213: -6386702543522338029
+    second: shade_stalker_4x4_11
+  - first:
+      213: 2775279170093101518
+    second: shade_stalker_4x4_12
+  - first:
+      213: 6461899562127392706
+    second: shade_stalker_4x4_13
+  - first:
+      213: -7786969021709243914
+    second: shade_stalker_4x4_14
+  - first:
+      213: 4313818606316791713
+    second: shade_stalker_4x4_15
+  - first:
+      213: -2081853396605167941
+    second: Stalker_Down_Chase_0
+  - first:
+      213: 5328549996412443275
+    second: Stalker_Down_Chase_1
+  - first:
+      213: 8707575957787666254
+    second: Stalker_Down_Chase_2
+  - first:
+      213: -8729716944072691429
+    second: Stalker_Down_Chase_3
+  - first:
+      213: -78530113173987406
+    second: Stalker_Left_Chase_0
+  - first:
+      213: 1028912298169921717
+    second: Stalker_Left_Chase_1
+  - first:
+      213: -8263362440719294047
+    second: Stalker_Left_Chase_2
+  - first:
+      213: 8462832559045741844
+    second: Stalker_Left_Chase_3
+  - first:
+      213: 7347732117074750609
+    second: Stalker_Right_Chase_0
+  - first:
+      213: 2639421348861180557
+    second: Stalker_Right_Chase_1
+  - first:
+      213: 4313779931679975662
+    second: Stalker_Right_Chase_2
+  - first:
+      213: 411597634257391708
+    second: Stalker_Right_Chase_3
+  - first:
+      213: -5583870752013076569
+    second: Stalker_Up_Chase_0
+  - first:
+      213: 3931297599999117779
+    second: Stalker_Up_Chase_1
+  - first:
+      213: 9142114397106625441
+    second: Stalker_Up_Chase_2
+  - first:
+      213: -6737648762017020212
+    second: Stalker_Up_Chase_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Stalker_Down_Chase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: bb698ecad55cb13e0800000000000000
+      internalID: -2081853396605167941
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Down_Chase_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b8a92186dffc2f940800000000000000
+      internalID: 5328549996412443275
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Down_Chase_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e476aaae23687d870800000000000000
+      internalID: 8707575957787666254
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Down_Chase_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b11b6def0b0d9d680800000000000000
+      internalID: -8729716944072691429
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Left_Chase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2bfd714374109eef0800000000000000
+      internalID: -78530113173987406
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Left_Chase_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b0f275a84e674e00800000000000000
+      internalID: 1028912298169921717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Left_Chase_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1a12f9e24a3a25d80800000000000000
+      internalID: -8263362440719294047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Left_Chase_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 41d088bdf55027570800000000000000
+      internalID: 8462832559045741844
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Right_Chase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 19c28f63e6368f560800000000000000
+      internalID: 7347732117074750609
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Right_Chase_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d8af3778bbb11a420800000000000000
+      internalID: 2639421348861180557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Right_Chase_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ee86ef21eff9ddb30800000000000000
+      internalID: 4313779931679975662
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Right_Chase_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: c509d4c1ed946b500800000000000000
+      internalID: 411597634257391708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Up_Chase_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7a7319ab22b1282b0800000000000000
+      internalID: -5583870752013076569
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Up_Chase_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3d90b4a9656ce8630800000000000000
+      internalID: 3931297599999117779
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Up_Chase_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 1ab568f6b905fde70800000000000000
+      internalID: 9142114397106625441
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Stalker_Up_Chase_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: cc600a606201f72a0800000000000000
+      internalID: -6737648762017020212
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Stalker_Down_Chase_0: -2081853396605167941
+      Stalker_Down_Chase_1: 5328549996412443275
+      Stalker_Down_Chase_2: 8707575957787666254
+      Stalker_Down_Chase_3: -8729716944072691429
+      Stalker_Left_Chase_0: -78530113173987406
+      Stalker_Left_Chase_1: 1028912298169921717
+      Stalker_Left_Chase_2: -8263362440719294047
+      Stalker_Left_Chase_3: 8462832559045741844
+      Stalker_Right_Chase_0: 7347732117074750609
+      Stalker_Right_Chase_1: 2639421348861180557
+      Stalker_Right_Chase_2: 4313779931679975662
+      Stalker_Right_Chase_3: 411597634257391708
+      Stalker_Up_Chase_0: -5583870752013076569
+      Stalker_Up_Chase_1: 3931297599999117779
+      Stalker_Up_Chase_2: 9142114397106625441
+      Stalker_Up_Chase_3: -6737648762017020212
+      shade_stalker_4x4_0: 3485311007838200258
+      shade_stalker_4x4_1: -957812614314298688
+      shade_stalker_4x4_10: -9008624618819836197
+      shade_stalker_4x4_11: -6386702543522338029
+      shade_stalker_4x4_12: 2775279170093101518
+      shade_stalker_4x4_13: 6461899562127392706
+      shade_stalker_4x4_14: -7786969021709243914
+      shade_stalker_4x4_15: 4313818606316791713
+      shade_stalker_4x4_2: 8454464613782887310
+      shade_stalker_4x4_3: 5720178939587169132
+      shade_stalker_4x4_4: 1307160531987826470
+      shade_stalker_4x4_5: 6893022365385822689
+      shade_stalker_4x4_6: 6295269759453312821
+      shade_stalker_4x4_7: -9571435851837927
+      shade_stalker_4x4_8: 717444730545612886
+      shade_stalker_4x4_9: -3360256052126910167
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

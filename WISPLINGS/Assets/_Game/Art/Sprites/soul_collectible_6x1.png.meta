@@ -1,0 +1,428 @@
+fileFormatVersion: 2
+guid: 98e067f8899d2f741a73e84973e256e1
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -1767014594547250011
+    second: soul_collectible_6x1_0
+  - first:
+      213: 7959145671429114103
+    second: soul_collectible_6x1_1
+  - first:
+      213: -6515428428865780890
+    second: soul_collectible_6x1_2
+  - first:
+      213: -4780874375589511226
+    second: soul_collectible_6x1_3
+  - first:
+      213: -4288700096455807986
+    second: soul_collectible_6x1_4
+  - first:
+      213: 5662685540199059257
+    second: soul_collectible_6x1_5
+  - first:
+      213: -6024684786331443050
+    second: soul_collectible_6x1_6
+  - first:
+      213: -7501820501348584120
+    second: soul_collectible_6x1_7
+  - first:
+      213: 1251614842751909667
+    second: soul_collectible_6x1_8
+  - first:
+      213: 6172427466770385994
+    second: soul_collectible_6x1_9
+  - first:
+      213: 6626882176903251392
+    second: soul_collectible_6x1_10
+  - first:
+      213: -4016372360157554948
+    second: soul_collectible_6x1_11
+  - first:
+      213: -8344262860921555067
+    second: soul_collectible_6x1_12
+  - first:
+      213: 6766424168117465417
+    second: soul_collectible_6x1_13
+  - first:
+      213: 2792389777088378963
+    second: soul_collectible_6x1_14
+  - first:
+      213: 3051750225723392291
+    second: soul_collectible_6x1_15
+  - first:
+      213: -3479533242099981610
+    second: soul_collectible_6x1_16
+  - first:
+      213: -8426429028774149416
+    second: soul_collectible_6x1_17
+  - first:
+      213: -2399737221389421078
+    second: soul_collectible_6x1_18
+  - first:
+      213: 6487623072835502723
+    second: soul_collectible_6x1_19
+  - first:
+      213: -1262332921048772782
+    second: soul_collectible_6x1_20
+  - first:
+      213: -7817167547389320930
+    second: soul_collectible_6x1_21
+  - first:
+      213: -1171412208384154874
+    second: soul_collectible_6x1_22
+  - first:
+      213: -5695222923737819689
+    second: soul_collectible_6x1_23
+  - first:
+      213: 8061713080256979160
+    second: soul_collectible_6x1_24
+  - first:
+      213: -3210786450845261506
+    second: soul_collectible_6x1_25
+  - first:
+      213: -1515418548186434743
+    second: soul_collectible_6x1_26
+  - first:
+      213: -5823997365751515352
+    second: soul_collectible_6x1_27
+  - first:
+      213: -5996735768892929311
+    second: soul_collectible_6x1_28
+  - first:
+      213: 4794391345095190952
+    second: soul_collectible_6x1_29
+  - first:
+      213: 3411204369589019254
+    second: soul_collectible_6x1_30
+  - first:
+      213: -2832764833405855118
+    second: soul_collectible_6x1_31
+  - first:
+      213: 6435422473667344227
+    second: soul_collectible_6x1_32
+  - first:
+      213: 6015401484911397900
+    second: soul_collectible_6x1_33
+  - first:
+      213: 6438942248576702437
+    second: soul_collectible_6x1_34
+  - first:
+      213: -2453072759508269488
+    second: Soul_Hover_0
+  - first:
+      213: 3296000187292095503
+    second: Soul_Hover_1
+  - first:
+      213: 6261349758353742864
+    second: Soul_Hover_2
+  - first:
+      213: -2603240238364532270
+    second: Soul_Hover_3
+  - first:
+      213: 512580606929984234
+    second: Soul_Hover_4
+  - first:
+      213: 4033282804642111237
+    second: Soul_Hover_5
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Soul_Hover_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0568259725fe4fdd0800000000000000
+      internalID: -2453072759508269488
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul_Hover_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f049a2715bebdbd20800000000000000
+      internalID: 3296000187292095503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul_Hover_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 01c17216e68c4e650800000000000000
+      internalID: 6261349758353742864
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul_Hover_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2d16747bbce6fdbd0800000000000000
+      internalID: -2603240238364532270
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul_Hover_4
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: aead0d2a85d0d1700800000000000000
+      internalID: 512580606929984234
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Soul_Hover_5
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 50f5261775919f730800000000000000
+      internalID: 4033282804642111237
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Soul_Hover_0: -2453072759508269488
+      Soul_Hover_1: 3296000187292095503
+      Soul_Hover_2: 6261349758353742864
+      Soul_Hover_3: -2603240238364532270
+      Soul_Hover_4: 512580606929984234
+      Soul_Hover_5: 4033282804642111237
+      soul_collectible_6x1_0: -1767014594547250011
+      soul_collectible_6x1_1: 7959145671429114103
+      soul_collectible_6x1_10: 6626882176903251392
+      soul_collectible_6x1_11: -4016372360157554948
+      soul_collectible_6x1_12: -8344262860921555067
+      soul_collectible_6x1_13: 6766424168117465417
+      soul_collectible_6x1_14: 2792389777088378963
+      soul_collectible_6x1_15: 3051750225723392291
+      soul_collectible_6x1_16: -3479533242099981610
+      soul_collectible_6x1_17: -8426429028774149416
+      soul_collectible_6x1_18: -2399737221389421078
+      soul_collectible_6x1_19: 6487623072835502723
+      soul_collectible_6x1_2: -6515428428865780890
+      soul_collectible_6x1_20: -1262332921048772782
+      soul_collectible_6x1_21: -7817167547389320930
+      soul_collectible_6x1_22: -1171412208384154874
+      soul_collectible_6x1_23: -5695222923737819689
+      soul_collectible_6x1_24: 8061713080256979160
+      soul_collectible_6x1_25: -3210786450845261506
+      soul_collectible_6x1_26: -1515418548186434743
+      soul_collectible_6x1_27: -5823997365751515352
+      soul_collectible_6x1_28: -5996735768892929311
+      soul_collectible_6x1_29: 4794391345095190952
+      soul_collectible_6x1_3: -4780874375589511226
+      soul_collectible_6x1_30: 3411204369589019254
+      soul_collectible_6x1_31: -2832764833405855118
+      soul_collectible_6x1_32: 6435422473667344227
+      soul_collectible_6x1_33: 6015401484911397900
+      soul_collectible_6x1_34: 6438942248576702437
+      soul_collectible_6x1_4: -4288700096455807986
+      soul_collectible_6x1_5: 5662685540199059257
+      soul_collectible_6x1_6: -6024684786331443050
+      soul_collectible_6x1_7: -7501820501348584120
+      soul_collectible_6x1_8: 1251614842751909667
+      soul_collectible_6x1_9: 6172427466770385994
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 

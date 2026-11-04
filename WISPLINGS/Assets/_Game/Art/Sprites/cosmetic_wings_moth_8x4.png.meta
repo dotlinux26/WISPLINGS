@@ -1,0 +1,1220 @@
+fileFormatVersion: 2
+guid: 558cd8928f1a41142a34d88500f96527
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 3707989455946689764
+    second: cosmetic_wings_moth_8x4_0
+  - first:
+      213: 584261015289496521
+    second: cosmetic_wings_moth_8x4_1
+  - first:
+      213: -8877759436383512753
+    second: cosmetic_wings_moth_8x4_2
+  - first:
+      213: -5925520122615081157
+    second: cosmetic_wings_moth_8x4_3
+  - first:
+      213: -7293259331731284341
+    second: cosmetic_wings_moth_8x4_4
+  - first:
+      213: 1431421844673367007
+    second: cosmetic_wings_moth_8x4_5
+  - first:
+      213: -2773398602163306045
+    second: cosmetic_wings_moth_8x4_6
+  - first:
+      213: -6178104879353042879
+    second: cosmetic_wings_moth_8x4_7
+  - first:
+      213: 4404835232297618165
+    second: cosmetic_wings_moth_8x4_8
+  - first:
+      213: 6740144827123671964
+    second: cosmetic_wings_moth_8x4_9
+  - first:
+      213: -3623313773669227880
+    second: cosmetic_wings_moth_8x4_10
+  - first:
+      213: 7826651591231679823
+    second: cosmetic_wings_moth_8x4_11
+  - first:
+      213: 2640779007216331253
+    second: cosmetic_wings_moth_8x4_12
+  - first:
+      213: 3693569450314009171
+    second: cosmetic_wings_moth_8x4_13
+  - first:
+      213: -4633851422112467629
+    second: cosmetic_wings_moth_8x4_14
+  - first:
+      213: -7523208843637388826
+    second: cosmetic_wings_moth_8x4_15
+  - first:
+      213: 1669554649413500918
+    second: cosmetic_wings_moth_8x4_16
+  - first:
+      213: 4663866923733014267
+    second: cosmetic_wings_moth_8x4_17
+  - first:
+      213: 5307226071433801839
+    second: cosmetic_wings_moth_8x4_18
+  - first:
+      213: -8740189826794934726
+    second: cosmetic_wings_moth_8x4_19
+  - first:
+      213: 4369640379155153303
+    second: cosmetic_wings_moth_8x4_20
+  - first:
+      213: 4694830293251499067
+    second: cosmetic_wings_moth_8x4_21
+  - first:
+      213: 5927088121836524691
+    second: cosmetic_wings_moth_8x4_22
+  - first:
+      213: -288444532778512869
+    second: cosmetic_wings_moth_8x4_23
+  - first:
+      213: -4573380563887744498
+    second: cosmetic_wings_moth_8x4_24
+  - first:
+      213: -5584986542157705484
+    second: cosmetic_wings_moth_8x4_25
+  - first:
+      213: -6620333103531592384
+    second: cosmetic_wings_moth_8x4_26
+  - first:
+      213: -8784551804701071493
+    second: cosmetic_wings_moth_8x4_27
+  - first:
+      213: 5870381669898064425
+    second: cosmetic_wings_moth_8x4_28
+  - first:
+      213: -1516215363056803476
+    second: cosmetic_wings_moth_8x4_29
+  - first:
+      213: 903346786305675025
+    second: cosmetic_wings_moth_8x4_30
+  - first:
+      213: 5930581274936238300
+    second: cosmetic_wings_moth_8x4_31
+  - first:
+      213: -5474578305954063307
+    second: cosmetic_wings_moth_8x4_32
+  - first:
+      213: -6582341672414744098
+    second: cosmetic_wings_moth_8x4_33
+  - first:
+      213: -6703780030756348205
+    second: cosmetic_wings_moth_8x4_34
+  - first:
+      213: -6417353427878994374
+    second: cosmetic_wings_moth_8x4_35
+  - first:
+      213: -2172136729164094066
+    second: cosmetic_wings_moth_8x4_36
+  - first:
+      213: -1699707444231250456
+    second: cosmetic_wings_moth_8x4_37
+  - first:
+      213: -9195698926253400530
+    second: cosmetic_wings_moth_8x4_38
+  - first:
+      213: -8017939133067688338
+    second: cosmetic_wings_moth_8x4_39
+  - first:
+      213: -4984729115843449886
+    second: cosmetic_wings_moth_8x4_40
+  - first:
+      213: 3539534978183349268
+    second: cosmetic_wings_moth_8x4_41
+  - first:
+      213: 2059278158468903221
+    second: cosmetic_wings_moth_8x4_42
+  - first:
+      213: -4962532180573114673
+    second: cosmetic_wings_moth_8x4_43
+  - first:
+      213: 4798484464093285030
+    second: cosmetic_wings_moth_8x4_44
+  - first:
+      213: 7905162652645829697
+    second: cosmetic_wings_moth_8x4_45
+  - first:
+      213: -6632230936446922426
+    second: cosmetic_wings_moth_8x4_46
+  - first:
+      213: 2302784824252858586
+    second: cosmetic_wings_moth_8x4_47
+  - first:
+      213: 2354783565435391305
+    second: cosmetic_wings_moth_8x4_48
+  - first:
+      213: 5292703190820443703
+    second: cosmetic_wings_moth_8x4_49
+  - first:
+      213: 1721304044021871665
+    second: cosmetic_wings_moth_8x4_50
+  - first:
+      213: -3704677928916749762
+    second: cosmetic_wings_moth_8x4_51
+  - first:
+      213: 1677410092562662171
+    second: cosmetic_wings_moth_8x4_52
+  - first:
+      213: -8130239328486295860
+    second: cosmetic_wings_moth_8x4_53
+  - first:
+      213: -3994252410418394215
+    second: cosmetic_wings_moth_8x4_54
+  - first:
+      213: -4177537011526692411
+    second: cosmetic_wings_moth_8x4_55
+  - first:
+      213: -3663853034642878273
+    second: cosmetic_wings_moth_8x4_56
+  - first:
+      213: 6767898885112938257
+    second: cosmetic_wings_moth_8x4_57
+  - first:
+      213: -3195041127959347195
+    second: cosmetic_wings_moth_8x4_58
+  - first:
+      213: -2646935589319556639
+    second: cosmetic_wings_moth_8x4_59
+  - first:
+      213: 5058513524473261283
+    second: cosmetic_wings_moth_8x4_60
+  - first:
+      213: 442067389225350122
+    second: cosmetic_wings_moth_8x4_61
+  - first:
+      213: 853046384470395870
+    second: cosmetic_wings_moth_8x4_62
+  - first:
+      213: 9076735512666207123
+    second: cosmetic_wings_moth_8x4_63
+  - first:
+      213: -7074799173049986982
+    second: Wings_Moth_Down_Idle_0
+  - first:
+      213: -1563359120931140088
+    second: Wings_Moth_Down_Idle_1
+  - first:
+      213: -5009410278681735601
+    second: Wings_Moth_Down_Idle_2
+  - first:
+      213: 4268337527981871159
+    second: Wings_Moth_Down_Idle_3
+  - first:
+      213: -8236828013926649867
+    second: Wings_Moth_Down_Walk_0
+  - first:
+      213: -1351076414532975970
+    second: Wings_Moth_Down_Walk_1
+  - first:
+      213: -885951583304437733
+    second: Wings_Moth_Down_Walk_2
+  - first:
+      213: 4241899666867706253
+    second: Wings_Moth_Down_Walk_3
+  - first:
+      213: 440222990609960224
+    second: Wings_Moth_Left_Idle_0
+  - first:
+      213: 5481284722502581648
+    second: Wings_Moth_Left_Idle_1
+  - first:
+      213: 7117519439728428469
+    second: Wings_Moth_Left_Idle_2
+  - first:
+      213: -229240538681415886
+    second: Wings_Moth_Left_Idle_3
+  - first:
+      213: -4743586798129337932
+    second: Wings_Moth_Left_Walk_0
+  - first:
+      213: -1360166917269279056
+    second: Wings_Moth_Left_Walk_1
+  - first:
+      213: 8960192766170489683
+    second: Wings_Moth_Left_Walk_2
+  - first:
+      213: -6341064367808861579
+    second: Wings_Moth_Left_Walk_3
+  - first:
+      213: -903401873771785912
+    second: Wings_Moth_Right_Idle_0
+  - first:
+      213: -6059434643107670736
+    second: Wings_Moth_Right_Idle_1
+  - first:
+      213: 4098969882769134233
+    second: Wings_Moth_Right_Idle_2
+  - first:
+      213: 1174153526493594371
+    second: Wings_Moth_Right_Idle_3
+  - first:
+      213: -8815709438396070111
+    second: Wings_Moth_Right_Walk_0
+  - first:
+      213: 3392089898623738309
+    second: Wings_Moth_Right_Walk_1
+  - first:
+      213: -6678006585684483633
+    second: Wings_Moth_Right_Walk_2
+  - first:
+      213: 1161139727030015012
+    second: Wings_Moth_Right_Walk_3
+  - first:
+      213: -7877647264786748690
+    second: Wings_Moth_Up_Idle_0
+  - first:
+      213: 654961667036803783
+    second: Wings_Moth_Up_Idle_1
+  - first:
+      213: -5782253958963268555
+    second: Wings_Moth_Up_Idle_2
+  - first:
+      213: 8291442904868214923
+    second: Wings_Moth_Up_Idle_3
+  - first:
+      213: 911165541060211658
+    second: Wings_Moth_Up_Walk_0
+  - first:
+      213: 1481190428809808766
+    second: Wings_Moth_Up_Walk_1
+  - first:
+      213: 559038610906167122
+    second: Wings_Moth_Up_Walk_2
+  - first:
+      213: -1344420333152116066
+    second: Wings_Moth_Up_Walk_3
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 1
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 128
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationMethod: 0
+  spriteTessellationDetail: -1
+  spriteGeometrySubdivision: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: WebGL
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: a50d021d2a341dd90800000000000000
+      internalID: -7074799173049986982
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 80e488c9925dd4ae0800000000000000
+      internalID: -1563359120931140088
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: f4e0cfc74effa7ab0800000000000000
+      internalID: -5009410278681735601
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 73014d8fd5e2c3b30800000000000000
+      internalID: 4268337527981871159
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5ff6ae9df88e0bd80800000000000000
+      internalID: -8236828013926649867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e928a57c823004de0800000000000000
+      internalID: -1351076414532975970
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b10b1fc9ab774b3f0800000000000000
+      internalID: -885951583304437733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Down_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 384
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: d895f70c5414eda30800000000000000
+      internalID: 4241899666867706253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 02d44414a7cfb1600800000000000000
+      internalID: 440222990609960224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 09dba8df96f611c40800000000000000
+      internalID: 5481284722502581648
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5b543fe583286c260800000000000000
+      internalID: 7117519439728428469
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 23766c3d1f291dcf0800000000000000
+      internalID: -229240538681415886
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 4b9a44090f46b2eb0800000000000000
+      internalID: -4743586798129337932
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0be2dec2567bf1de0800000000000000
+      internalID: -1360166917269279056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 353ed9209dff85c70800000000000000
+      internalID: 8960192766170489683
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Left_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 256
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 57aaddacd830008a0800000000000000
+      internalID: -6341064367808861579
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 841196048c87673f0800000000000000
+      internalID: -903401873771785912
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 0351fdddb4098eba0800000000000000
+      internalID: -6059434643107670736
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 9929a7f146772e830800000000000000
+      internalID: 4098969882769134233
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 3034c62596e6b4010800000000000000
+      internalID: 1174153526493594371
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 127085139fe48a580800000000000000
+      internalID: -8815709438396070111
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 5c1a8ad6acf131f20800000000000000
+      internalID: 3392089898623738309
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: fc1ae845464f253a0800000000000000
+      internalID: -6678006585684483633
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Right_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 128
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 424d7340e623d1010800000000000000
+      internalID: 1161139727030015012
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Idle_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: eeaee8cdc89fca290800000000000000
+      internalID: -7877647264786748690
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Idle_1
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 7c2f9318a24e61900800000000000000
+      internalID: 654961667036803783
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Idle_2
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 534f5e6f8ae41cfa0800000000000000
+      internalID: -5782253958963268555
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Idle_3
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: b885a1c546f111370800000000000000
+      internalID: 8291442904868214923
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Walk_0
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: ac378766b3c15ac00800000000000000
+      internalID: 911165541060211658
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Walk_1
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e7bcae9e8de3e8410800000000000000
+      internalID: 1481190428809808766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Walk_2
+      rect:
+        serializedVersion: 2
+        x: 768
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: 2573aca97aa12c700800000000000000
+      internalID: 559038610906167122
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: Wings_Moth_Up_Walk_3
+      rect:
+        serializedVersion: 2
+        x: 896
+        y: 0
+        width: 128
+        height: 128
+      alignment: 9
+      pivot: {x: 0.5, y: 0.18}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: -1
+      bones: []
+      spriteID: e92e7ad74d8a75de0800000000000000
+      internalID: -1344420333152116066
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      Wings_Moth_Down_Idle_0: -7074799173049986982
+      Wings_Moth_Down_Idle_1: -1563359120931140088
+      Wings_Moth_Down_Idle_2: -5009410278681735601
+      Wings_Moth_Down_Idle_3: 4268337527981871159
+      Wings_Moth_Down_Walk_0: -8236828013926649867
+      Wings_Moth_Down_Walk_1: -1351076414532975970
+      Wings_Moth_Down_Walk_2: -885951583304437733
+      Wings_Moth_Down_Walk_3: 4241899666867706253
+      Wings_Moth_Left_Idle_0: 440222990609960224
+      Wings_Moth_Left_Idle_1: 5481284722502581648
+      Wings_Moth_Left_Idle_2: 7117519439728428469
+      Wings_Moth_Left_Idle_3: -229240538681415886
+      Wings_Moth_Left_Walk_0: -4743586798129337932
+      Wings_Moth_Left_Walk_1: -1360166917269279056
+      Wings_Moth_Left_Walk_2: 8960192766170489683
+      Wings_Moth_Left_Walk_3: -6341064367808861579
+      Wings_Moth_Right_Idle_0: -903401873771785912
+      Wings_Moth_Right_Idle_1: -6059434643107670736
+      Wings_Moth_Right_Idle_2: 4098969882769134233
+      Wings_Moth_Right_Idle_3: 1174153526493594371
+      Wings_Moth_Right_Walk_0: -8815709438396070111
+      Wings_Moth_Right_Walk_1: 3392089898623738309
+      Wings_Moth_Right_Walk_2: -6678006585684483633
+      Wings_Moth_Right_Walk_3: 1161139727030015012
+      Wings_Moth_Up_Idle_0: -7877647264786748690
+      Wings_Moth_Up_Idle_1: 654961667036803783
+      Wings_Moth_Up_Idle_2: -5782253958963268555
+      Wings_Moth_Up_Idle_3: 8291442904868214923
+      Wings_Moth_Up_Walk_0: 911165541060211658
+      Wings_Moth_Up_Walk_1: 1481190428809808766
+      Wings_Moth_Up_Walk_2: 559038610906167122
+      Wings_Moth_Up_Walk_3: -1344420333152116066
+      cosmetic_wings_moth_8x4_0: 3707989455946689764
+      cosmetic_wings_moth_8x4_1: 584261015289496521
+      cosmetic_wings_moth_8x4_10: -3623313773669227880
+      cosmetic_wings_moth_8x4_11: 7826651591231679823
+      cosmetic_wings_moth_8x4_12: 2640779007216331253
+      cosmetic_wings_moth_8x4_13: 3693569450314009171
+      cosmetic_wings_moth_8x4_14: -4633851422112467629
+      cosmetic_wings_moth_8x4_15: -7523208843637388826
+      cosmetic_wings_moth_8x4_16: 1669554649413500918
+      cosmetic_wings_moth_8x4_17: 4663866923733014267
+      cosmetic_wings_moth_8x4_18: 5307226071433801839
+      cosmetic_wings_moth_8x4_19: -8740189826794934726
+      cosmetic_wings_moth_8x4_2: -8877759436383512753
+      cosmetic_wings_moth_8x4_20: 4369640379155153303
+      cosmetic_wings_moth_8x4_21: 4694830293251499067
+      cosmetic_wings_moth_8x4_22: 5927088121836524691
+      cosmetic_wings_moth_8x4_23: -288444532778512869
+      cosmetic_wings_moth_8x4_24: -4573380563887744498
+      cosmetic_wings_moth_8x4_25: -5584986542157705484
+      cosmetic_wings_moth_8x4_26: -6620333103531592384
+      cosmetic_wings_moth_8x4_27: -8784551804701071493
+      cosmetic_wings_moth_8x4_28: 5870381669898064425
+      cosmetic_wings_moth_8x4_29: -1516215363056803476
+      cosmetic_wings_moth_8x4_3: -5925520122615081157
+      cosmetic_wings_moth_8x4_30: 903346786305675025
+      cosmetic_wings_moth_8x4_31: 5930581274936238300
+      cosmetic_wings_moth_8x4_32: -5474578305954063307
+      cosmetic_wings_moth_8x4_33: -6582341672414744098
+      cosmetic_wings_moth_8x4_34: -6703780030756348205
+      cosmetic_wings_moth_8x4_35: -6417353427878994374
+      cosmetic_wings_moth_8x4_36: -2172136729164094066
+      cosmetic_wings_moth_8x4_37: -1699707444231250456
+      cosmetic_wings_moth_8x4_38: -9195698926253400530
+      cosmetic_wings_moth_8x4_39: -8017939133067688338
+      cosmetic_wings_moth_8x4_4: -7293259331731284341
+      cosmetic_wings_moth_8x4_40: -4984729115843449886
+      cosmetic_wings_moth_8x4_41: 3539534978183349268
+      cosmetic_wings_moth_8x4_42: 2059278158468903221
+      cosmetic_wings_moth_8x4_43: -4962532180573114673
+      cosmetic_wings_moth_8x4_44: 4798484464093285030
+      cosmetic_wings_moth_8x4_45: 7905162652645829697
+      cosmetic_wings_moth_8x4_46: -6632230936446922426
+      cosmetic_wings_moth_8x4_47: 2302784824252858586
+      cosmetic_wings_moth_8x4_48: 2354783565435391305
+      cosmetic_wings_moth_8x4_49: 5292703190820443703
+      cosmetic_wings_moth_8x4_5: 1431421844673367007
+      cosmetic_wings_moth_8x4_50: 1721304044021871665
+      cosmetic_wings_moth_8x4_51: -3704677928916749762
+      cosmetic_wings_moth_8x4_52: 1677410092562662171
+      cosmetic_wings_moth_8x4_53: -8130239328486295860
+      cosmetic_wings_moth_8x4_54: -3994252410418394215
+      cosmetic_wings_moth_8x4_55: -4177537011526692411
+      cosmetic_wings_moth_8x4_56: -3663853034642878273
+      cosmetic_wings_moth_8x4_57: 6767898885112938257
+      cosmetic_wings_moth_8x4_58: -3195041127959347195
+      cosmetic_wings_moth_8x4_59: -2646935589319556639
+      cosmetic_wings_moth_8x4_6: -2773398602163306045
+      cosmetic_wings_moth_8x4_60: 5058513524473261283
+      cosmetic_wings_moth_8x4_61: 442067389225350122
+      cosmetic_wings_moth_8x4_62: 853046384470395870
+      cosmetic_wings_moth_8x4_63: 9076735512666207123
+      cosmetic_wings_moth_8x4_7: -6178104879353042879
+      cosmetic_wings_moth_8x4_8: 4404835232297618165
+      cosmetic_wings_moth_8x4_9: 6740144827123671964
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
