@@ -32,10 +32,10 @@ namespace GhostSurvival.Characters
         [Header("Idle Glance Settings (Calm looking around)")]
         [Tooltip("Enable gentle, random looking left/right when player sits idle.")]
         [SerializeField] private bool enableIdleGlances = true;
-        [SerializeField] private float minGlanceInterval = 2.8f;
-        [SerializeField] private float maxGlanceInterval = 4.8f;
-        [SerializeField] private float minGlanceDuration = 1.6f;
-        [SerializeField] private float maxGlanceDuration = 2.0f;
+        [SerializeField] private float minGlanceInterval = 1.2f;
+        [SerializeField] private float maxGlanceInterval = 2.0f;
+        [SerializeField] private float minGlanceDuration = 3.6f;
+        [SerializeField] private float maxGlanceDuration = 4.0f;
 
         [Header("Health / Stats")]
         [SerializeField] private float maxHealth = 100f;

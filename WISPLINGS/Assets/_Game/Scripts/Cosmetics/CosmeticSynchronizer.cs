@@ -20,7 +20,7 @@ namespace GhostSurvival.Cosmetics
         [SerializeField] private Vector3 hatOffset = new Vector3(0f, 0.22f, 0f);
 
         [Tooltip("Local position offset for the wings.")]
-        [SerializeField] private Vector3 wingsOffset = new Vector3(0f, 0.08f, 0f);
+        [SerializeField] private Vector3 wingsOffset = new Vector3(0f, -0.06f, 0f);
 
         [Tooltip("Local scale for the wings (makes moth wings larger and more majestic).")]
         [SerializeField] private Vector3 wingsScale = new Vector3(1.35f, 1.35f, 1f);
