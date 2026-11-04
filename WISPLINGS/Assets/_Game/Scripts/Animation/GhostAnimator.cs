@@ -7,8 +7,7 @@ namespace GhostSurvival.Animation
     /// <summary>
     /// Updates character animation for 4-direction idle and walk.
     /// Drives sprite playback directly in C# for instant, zero-delay responsiveness,
-    /// and immediately synchronizes Hat, Wings, and Hands on the exact same frame.
-    /// Disables Animator conflict so there is zero stutter or lag.
+    /// and immediately synchronizes Hat and Wings on the exact same frame.
     /// Guarantees exact directional frame mapping via dictionary and canonical 32-element array.
     /// </summary>
     public class GhostAnimator : MonoBehaviour
@@ -61,9 +60,24 @@ namespace GhostSurvival.Animation
                 }
             }
 
+            ResolveBodyRenderer();
+            EnsureSpritesLoaded();
+            BuildSpriteMap();
+        }
+
+        private void Start()
+        {
+            ResolveBodyRenderer();
+            EnsureSpritesLoaded();
+            BuildSpriteMap();
+            ApplyCurrentFrameImmediate();
+        }
+
+        public void ResolveBodyRenderer()
+        {
             if (bodyRenderer == null)
             {
-                var renderers = GetComponentsInChildren<SpriteRenderer>();
+                var renderers = GetComponentsInChildren<SpriteRenderer>(true);
                 foreach (var r in renderers)
                 {
                     if (r.gameObject.name.Contains("Body"))
@@ -77,15 +91,6 @@ namespace GhostSurvival.Animation
                     bodyRenderer = renderers[0];
                 }
             }
-
-            EnsureSpritesLoaded();
-            BuildSpriteMap();
-        }
-
-        private void Start()
-        {
-            // Immediately apply frame 0 of current state on start
-            ApplyCurrentFrameImmediate();
         }
 
         private void Update()
@@ -144,11 +149,16 @@ namespace GhostSurvival.Animation
                 }
             }
 
+            if (nextSprite == null && bodySprites != null && bodySprites.Length > 0)
+            {
+                nextSprite = bodySprites[0];
+            }
+
             if (nextSprite != null)
             {
                 bodyRenderer.sprite = nextSprite;
 
-                // Instantly update Hat, Wings, and Hands on the exact same CPU frame
+                // Instantly update Hat and Wings on the exact same CPU frame
                 if (cosmeticSynchronizer != null)
                 {
                     cosmeticSynchronizer.SyncCosmetics(targetFrameName);
@@ -158,8 +168,6 @@ namespace GhostSurvival.Animation
 
         private void BuildSpriteMap()
         {
-            spriteMap.Clear();
-
             // Populate dictionary from serialized bodySprites array
             if (bodySprites != null)
             {
@@ -222,6 +230,7 @@ namespace GhostSurvival.Animation
                     if (obj is Sprite s && s.name.StartsWith("Ghost_"))
                     {
                         dict[s.name] = s;
+                        spriteMap[s.name] = s;
                     }
                 }
 

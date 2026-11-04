@@ -7,36 +7,32 @@ using UnityEngine.InputSystem;
 namespace GhostSurvival.Cosmetics
 {
     /// <summary>
-    /// Manages equipped cosmetics (Hat, Wings, Hands) at the account level.
+    /// Manages equipped cosmetics (Hat, Wings) at the account level.
     /// Cosmetics are persistent loadout items, completely separate from expedition inventory.
-    /// Supports runtime toggling via keyboard (H for Hat, J for Wings, K for Hands) or on-screen controls.
+    /// Supports runtime toggling via keyboard (H for Hat, J for Wings) or on-screen controls.
     /// </summary>
     public class CosmeticLoadout : MonoBehaviour
     {
         [Header("Cosmetic Renderers")]
         [SerializeField] private SpriteRenderer hatRenderer;
         [SerializeField] private SpriteRenderer wingsRenderer;
-        [SerializeField] private SpriteRenderer handsRenderer;
 
         [Header("Account Profile Data (Local Mock)")]
         [SerializeField] private List<string> unlockedCosmeticIds = new List<string>
         {
             "cosmetic_hat_witch",
-            "cosmetic_wings_moth",
-            "cosmetic_hands_paws"
+            "cosmetic_wings_moth"
         };
 
         [SerializeField] private string equippedHatId = "cosmetic_hat_witch";
         [SerializeField] private string equippedWingsId = "cosmetic_wings_moth";
-        [SerializeField] private string equippedHandsId = "cosmetic_hands_paws";
 
         [Header("Runtime Controls")]
-        [Tooltip("Show simple on-screen buttons to toggle hat, wings and hands during prototype play.")]
+        [Tooltip("Show simple on-screen buttons to toggle hat and wings during prototype play.")]
         [SerializeField] private bool showDebugGui = true;
 
         public bool IsHatEquipped => !string.IsNullOrEmpty(equippedHatId) && hatRenderer != null && hatRenderer.enabled;
         public bool IsWingsEquipped => !string.IsNullOrEmpty(equippedWingsId) && wingsRenderer != null && wingsRenderer.enabled;
-        public bool IsHandsEquipped => !string.IsNullOrEmpty(equippedHandsId) && handsRenderer != null && handsRenderer.enabled;
 
         private void Start()
         {
@@ -61,10 +57,6 @@ namespace GhostSurvival.Cosmetics
                 {
                     ToggleWings();
                 }
-                if (Keyboard.current.kKey.wasPressedThisFrame)
-                {
-                    ToggleHands();
-                }
             }
 #elif ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetKeyDown(KeyCode.H))
@@ -74,10 +66,6 @@ namespace GhostSurvival.Cosmetics
             if (Input.GetKeyDown(KeyCode.J))
             {
                 ToggleWings();
-            }
-            if (Input.GetKeyDown(KeyCode.K))
-            {
-                ToggleHands();
             }
 #endif
         }
@@ -92,11 +80,6 @@ namespace GhostSurvival.Cosmetics
             if (wingsRenderer != null)
             {
                 wingsRenderer.enabled = !string.IsNullOrEmpty(equippedWingsId) && unlockedCosmeticIds.Contains(equippedWingsId);
-            }
-
-            if (handsRenderer != null)
-            {
-                handsRenderer.enabled = !string.IsNullOrEmpty(equippedHandsId) && unlockedCosmeticIds.Contains(equippedHandsId);
             }
         }
 
@@ -121,18 +104,6 @@ namespace GhostSurvival.Cosmetics
             else
             {
                 UnequipWings();
-            }
-        }
-
-        public void ToggleHands()
-        {
-            if (string.IsNullOrEmpty(equippedHandsId))
-            {
-                EquipHands("cosmetic_hands_paws");
-            }
-            else
-            {
-                UnequipHands();
             }
         }
 
@@ -166,26 +137,11 @@ namespace GhostSurvival.Cosmetics
             Debug.Log("[CosmeticLoadout] Unequipped wings.");
         }
 
-        public void EquipHands(string handsId)
-        {
-            if (!unlockedCosmeticIds.Contains(handsId)) return;
-            equippedHandsId = handsId;
-            if (handsRenderer != null) handsRenderer.enabled = true;
-            Debug.Log($"[CosmeticLoadout] Equipped hands: {handsId}");
-        }
-
-        public void UnequipHands()
-        {
-            equippedHandsId = "";
-            if (handsRenderer != null) handsRenderer.enabled = false;
-            Debug.Log("[CosmeticLoadout] Unequipped hands.");
-        }
-
         private void OnGUI()
         {
             if (!showDebugGui) return;
 
-            GUILayout.BeginArea(new Rect(10, 10, 230, 140));
+            GUILayout.BeginArea(new Rect(10, 10, 230, 100));
             GUILayout.BeginVertical("box");
             GUILayout.Label("<b>W1SPL1NGS Cosmetics</b>");
             if (GUILayout.Button(IsHatEquipped ? "Remove Hat [H]" : "Equip Hat [H]"))
@@ -195,10 +151,6 @@ namespace GhostSurvival.Cosmetics
             if (GUILayout.Button(IsWingsEquipped ? "Remove Wings [J]" : "Equip Wings [J]"))
             {
                 ToggleWings();
-            }
-            if (GUILayout.Button(IsHandsEquipped ? "Remove Hands [K]" : "Equip Hands [K]"))
-            {
-                ToggleHands();
             }
             GUILayout.EndVertical();
             GUILayout.EndArea();

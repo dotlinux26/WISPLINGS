@@ -37,9 +37,9 @@ namespace GhostSurvival.Editor
 
         private static void AutoRunSetupOnce()
         {
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v7", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v9", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v7", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v9", true);
                 SetupAll();
             }
         }
@@ -103,11 +103,10 @@ namespace GhostSurvival.Editor
             SliceAtlas($"{SpritesDir}/ghost_main_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Ghost", true, 256);
             SliceAtlas($"{SpritesDir}/cosmetic_hat_witch_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Hat_Witch", true, 256);
             SliceAtlas($"{SpritesDir}/cosmetic_wings_moth_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Wings_Moth", true, 256);
-            SliceAtlas($"{SpritesDir}/cosmetic_hands_8x4.png", 8, 4, 256, 256, new Vector2(0.5f, 0.18f), "Hands", true, 256);
             SliceAtlas($"{SpritesDir}/shade_stalker_4x4.png", 4, 4, 256, 256, new Vector2(0.5f, 0.18f), "Stalker", false, 256);
             SliceAtlas($"{SpritesDir}/soul_collectible_6x1.png", 6, 1, 256, 256, new Vector2(0.5f, 0.5f), "Soul", false, 256);
 
-            Debug.Log("[W1SPL1NGS] All 6 atlases sliced with exact HD dimensions and pivots.");
+            Debug.Log("[W1SPL1NGS] All 5 atlases sliced with exact HD dimensions and pivots.");
         }
 
         private static void SliceAtlas(string assetPath, int cols, int rows, int cellW, int cellH, Vector2 pivot, string prefix, bool isGhostLayout, int ppu)
@@ -393,7 +392,6 @@ namespace GhostSurvival.Editor
             var ghostSprites = LoadOrderedSpritesList($"{SpritesDir}/ghost_main_8x4.png", "Ghost");
             var hatSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_hat_witch_8x4.png", "Hat_Witch");
             var wingsSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_wings_moth_8x4.png", "Wings_Moth");
-            var handsSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_hands_8x4.png", "Hands");
             var stalkerSprites = LoadSpritesList($"{SpritesDir}/shade_stalker_4x4.png");
             var soulSprites = LoadSpritesList($"{SpritesDir}/soul_collectible_6x1.png");
 
@@ -444,11 +442,10 @@ namespace GhostSurvival.Editor
             wingsSr.sortingOrder = -10;
             if (wingsSprites.Count > 0) wingsSr.sprite = wingsSprites[0];
 
-            // Dust Trail: EffectRenderer (Sorting Order -5: UNDER the character body)
-            // Placed at center (x: 0) and at the bottom/tail "đít" of the ghost body (y: -0.05)
+            // Dust Trail: EffectRenderer (Sorting Order -5: Placed at center of the character body)
             GameObject effectGo = new GameObject("EffectRenderer");
             effectGo.transform.SetParent(visualRootGo.transform, false);
-            effectGo.transform.localPosition = new Vector3(0f, -0.05f, 0f);
+            effectGo.transform.localPosition = new Vector3(0f, 0.25f, 0f);
             CreateWispParticleSystem(effectGo, particleMat);
 
             // BodyRenderer (Sorting Order 0)
@@ -457,14 +454,6 @@ namespace GhostSurvival.Editor
             var bodySr = bodyGo.AddComponent<SpriteRenderer>();
             bodySr.sortingOrder = 0;
             if (ghostSprites.Count > 0) bodySr.sprite = ghostSprites[0];
-
-            // Cute Hands Renderer (Sorting Order 2: ON TOP of the body silhouette)
-            GameObject handsGo = new GameObject("HandsRenderer");
-            handsGo.transform.SetParent(visualRootGo.transform, false);
-            handsGo.transform.localPosition = Vector3.zero;
-            var handsSr = handsGo.AddComponent<SpriteRenderer>();
-            handsSr.sortingOrder = 2;
-            if (handsSprites.Count > 0) handsSr.sprite = handsSprites[0];
 
             // HatRenderer (Sorting Order 10)
             GameObject hatGo = new GameObject("HatRenderer");
@@ -493,18 +482,15 @@ namespace GhostSurvival.Editor
             var soLoadout = new SerializedObject(loadout);
             soLoadout.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soLoadout.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
-            soLoadout.FindProperty("handsRenderer").objectReferenceValue = handsSr;
             soLoadout.ApplyModifiedProperties();
 
-            // Wire and serialize all 32 sprite lookups for Hat, Wings, and Hands
+            // Wire and serialize all 32 sprite lookups for Hat and Wings
             var soSyncer = new SerializedObject(syncer);
             soSyncer.FindProperty("bodyRenderer").objectReferenceValue = bodySr;
             soSyncer.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soSyncer.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
-            soSyncer.FindProperty("handsRenderer").objectReferenceValue = handsSr;
             soSyncer.FindProperty("hatOffset").vector3Value = new Vector3(0f, 0.22f, 0f);
             soSyncer.FindProperty("wingsOffset").vector3Value = new Vector3(0f, 0.05f, 0f);
-            soSyncer.FindProperty("handsOffset").vector3Value = Vector3.zero;
 
             var propHats = soSyncer.FindProperty("hatSprites");
             propHats.arraySize = hatSprites.Count;
@@ -518,13 +504,6 @@ namespace GhostSurvival.Editor
             for (int i = 0; i < wingsSprites.Count; i++)
             {
                 propWings.GetArrayElementAtIndex(i).objectReferenceValue = wingsSprites[i];
-            }
-
-            var propHands = soSyncer.FindProperty("handsSprites");
-            propHands.arraySize = handsSprites.Count;
-            for (int i = 0; i < handsSprites.Count; i++)
-            {
-                propHands.GetArrayElementAtIndex(i).objectReferenceValue = handsSprites[i];
             }
             soSyncer.ApplyModifiedProperties();
 

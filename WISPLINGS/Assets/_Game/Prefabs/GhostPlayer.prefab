@@ -81,7 +81,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 0
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 5891090115284449564, guid: bc768becbe0f81141b0f4b9c75782790, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -225,6 +225,11 @@ MonoBehaviour:
   hoverFrequency: 1.2
   hoverAmplitude: 0.025
   visualRoot: {fileID: 3611739345216660515}
+  enableIdleGlances: 1
+  minGlanceInterval: 4
+  maxGlanceInterval: 7
+  minGlanceDuration: 1.6
+  maxGlanceDuration: 2.4
   maxHealth: 100
   currentHealth: 100
 --- !u!114 &2619071398222509887
@@ -259,14 +264,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::GhostSurvival.Cosmetics.CosmeticLoadout
   hatRenderer: {fileID: 6122164577556521267}
   wingsRenderer: {fileID: 2520882531243742310}
-  handsRenderer: {fileID: 8543595010208812438}
   unlockedCosmeticIds:
   - cosmetic_hat_witch
   - cosmetic_wings_moth
-  - cosmetic_hands_paws
   equippedHatId: cosmetic_hat_witch
   equippedWingsId: cosmetic_wings_moth
-  equippedHandsId: cosmetic_hands_paws
   showDebugGui: 1
 --- !u!114 &5425514529900417825
 MonoBehaviour:
@@ -283,13 +285,10 @@ MonoBehaviour:
   bodyRenderer: {fileID: 6916488232128892731}
   hatRenderer: {fileID: 6122164577556521267}
   wingsRenderer: {fileID: 2520882531243742310}
-  handsRenderer: {fileID: 8543595010208812438}
   hatOffset: {x: 0, y: 0.22, z: 0}
   wingsOffset: {x: 0, y: 0.05, z: 0}
-  handsOffset: {x: 0, y: 0, z: 0}
   hatSprites: []
   wingsSprites: []
-  handsSprites: []
 --- !u!1 &5409350106829986593
 GameObject:
   m_ObjectHideFlags: 0
@@ -317,7 +316,7 @@ Transform:
   m_GameObject: {fileID: 5409350106829986593}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: -0.05, z: 0}
+  m_LocalPosition: {x: 0, y: 0.25, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2669,99 +2668,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: 10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_FlipX: 0
-  m_FlipY: 0
-  m_DrawMode: 0
-  m_Size: {x: 1, y: 1}
-  m_AdaptiveModeThreshold: 0.5
-  m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 0
-  m_SpriteSortPoint: 0
-  m_BlendShapeWeights: []
---- !u!1 &5964609478829997173
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 4616487141450780571}
-  - component: {fileID: 8543595010208812438}
-  m_Layer: 0
-  m_Name: HandsRenderer
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &4616487141450780571
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964609478829997173}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 3611739345216660515}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!212 &8543595010208812438
-SpriteRenderer:
-  serializedVersion: 3
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 5964609478829997173}
-  m_Enabled: 1
-  m_CastShadows: 0
-  m_ReceiveShadows: 0
-  m_DynamicOccludee: 1
-  m_StaticShadowCaster: 0
-  m_MotionVectors: 1
-  m_LightProbeUsage: 1
-  m_ReflectionProbeUsage: 1
-  m_RayTracingMode: 0
-  m_RayTraceProcedural: 0
-  m_RayTracingAccelStructBuildFlagsOverride: 0
-  m_RayTracingAccelStructBuildFlags: 1
-  m_SmallMeshCulling: 1
-  m_ForceMeshLod: -1
-  m_MeshLodSelectionBias: 0
-  m_RenderingLayerMask: 1
-  m_RendererPriority: 0
-  m_Materials:
-  - {fileID: 2100000, guid: a97c105638bdf8b4a8650670310a4cd3, type: 2}
-  m_StaticBatchInfo:
-    firstSubMesh: 0
-    subMeshCount: 0
-  m_StaticBatchRoot: {fileID: 0}
-  m_ProbeAnchor: {fileID: 0}
-  m_LightProbeVolumeOverride: {fileID: 0}
-  m_ScaleInLightmap: 1
-  m_ReceiveGI: 1
-  m_PreserveUVs: 0
-  m_IgnoreNormalsForChartDetection: 0
-  m_ImportantGI: 0
-  m_StitchLightmapSeams: 1
-  m_SelectedEditorRenderState: 0
-  m_MinimumChartSize: 4
-  m_AutoUVMaxDistance: 0.5
-  m_AutoUVMaxAngle: 89
-  m_LightmapParameters: {fileID: 0}
-  m_GlobalIlluminationMeshLod: 0
-  m_SortingLayerID: 0
-  m_SortingLayer: 0
-  m_SortingOrder: 2
-  m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 7117874583068459947, guid: b6d1f58be3c0b9a44a480f4858252a7c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2898,7 +2805,6 @@ Transform:
   - {fileID: 1040248260361502525}
   - {fileID: 8729026387388721326}
   - {fileID: 6727939216078141627}
-  - {fileID: 4616487141450780571}
   - {fileID: 4470395745639439050}
   m_Father: {fileID: 3699910329737183187}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
@@ -3005,7 +2911,7 @@ SpriteRenderer:
   m_SortingLayer: 0
   m_SortingOrder: -10
   m_MaskInteraction: 0
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: -7074799173049986982, guid: 558cd8928f1a41142a34d88500f96527, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

@@ -4,8 +4,8 @@ using UnityEngine;
 namespace GhostSurvival.Cosmetics
 {
     /// <summary>
-    /// Synchronizes cosmetic layer sprites (Hat, Wings, Hands) directly with the body sprite frame.
-    /// Ensures hat, wings, and cute hands follow every single walk/idle frame, bobbing, and directional turn.
+    /// Synchronizes cosmetic layer sprites (Hat, Wings) directly with the body sprite frame.
+    /// Ensures hat and wings follow every single walk/idle frame, bobbing, and directional turn.
     /// Guarantees exact frame mapping via dictionaries and canonical 32-element arrays.
     /// </summary>
     public class CosmeticSynchronizer : MonoBehaviour
@@ -14,7 +14,6 @@ namespace GhostSurvival.Cosmetics
         [SerializeField] private SpriteRenderer bodyRenderer;
         [SerializeField] private SpriteRenderer hatRenderer;
         [SerializeField] private SpriteRenderer wingsRenderer;
-        [SerializeField] private SpriteRenderer handsRenderer;
 
         [Header("Position Offsets")]
         [Tooltip("Local position offset for the hat (higher Y lifts the hat nicely above the eyes).")]
@@ -23,18 +22,13 @@ namespace GhostSurvival.Cosmetics
         [Tooltip("Local position offset for the wings.")]
         [SerializeField] private Vector3 wingsOffset = new Vector3(0f, 0.05f, 0f);
 
-        [Tooltip("Local position offset for the hands.")]
-        [SerializeField] private Vector3 handsOffset = Vector3.zero;
-
         [Header("Sprite Lookups (32 frames matching 8x4 atlas)")]
         [SerializeField] private Sprite[] hatSprites = new Sprite[32];
         [SerializeField] private Sprite[] wingsSprites = new Sprite[32];
-        [SerializeField] private Sprite[] handsSprites = new Sprite[32];
 
         private Sprite lastBodySprite;
         private readonly Dictionary<string, Sprite> hatSpriteMap = new Dictionary<string, Sprite>();
         private readonly Dictionary<string, Sprite> wingsSpriteMap = new Dictionary<string, Sprite>();
-        private readonly Dictionary<string, Sprite> handsSpriteMap = new Dictionary<string, Sprite>();
 
         public Vector3 HatOffset
         {
@@ -46,18 +40,19 @@ namespace GhostSurvival.Cosmetics
             }
         }
 
-        public Vector3 HandsOffset
+        public Vector3 WingsOffset
         {
-            get => handsOffset;
+            get => wingsOffset;
             set
             {
-                handsOffset = value;
+                wingsOffset = value;
                 ApplyOffsets();
             }
         }
 
         private void Awake()
         {
+            ResolveRenderers();
             EnsureSpritesLoaded();
             InitializeSpriteMaps();
             ApplyOffsets();
@@ -66,15 +61,32 @@ namespace GhostSurvival.Cosmetics
         private void Start()
         {
             ApplyOffsets();
-            if (bodyRenderer != null && bodyRenderer.sprite != null)
-            {
-                SyncCosmetics(bodyRenderer.sprite.name);
-            }
+            string initialSpriteName = (bodyRenderer != null && bodyRenderer.sprite != null)
+                ? bodyRenderer.sprite.name
+                : "Ghost_Down_Idle_0";
+            SyncCosmetics(initialSpriteName);
         }
 
         private void OnValidate()
         {
             ApplyOffsets();
+        }
+
+        public void ResolveRenderers()
+        {
+            if (bodyRenderer == null || hatRenderer == null || wingsRenderer == null)
+            {
+                var renderers = GetComponentsInChildren<SpriteRenderer>(true);
+                foreach (var r in renderers)
+                {
+                    if (bodyRenderer == null && r.gameObject.name.Contains("Body"))
+                        bodyRenderer = r;
+                    else if (hatRenderer == null && r.gameObject.name.Contains("Hat"))
+                        hatRenderer = r;
+                    else if (wingsRenderer == null && r.gameObject.name.Contains("Wings"))
+                        wingsRenderer = r;
+                }
+            }
         }
 
         public void ApplyOffsets()
@@ -86,10 +98,6 @@ namespace GhostSurvival.Cosmetics
             if (wingsRenderer != null)
             {
                 wingsRenderer.transform.localPosition = wingsOffset;
-            }
-            if (handsRenderer != null)
-            {
-                handsRenderer.transform.localPosition = handsOffset;
             }
         }
 
@@ -110,7 +118,6 @@ namespace GhostSurvival.Cosmetics
 #if UNITY_EDITOR
             LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_hat_witch_8x4.png", "Hat_Witch", ref hatSprites, hatSpriteMap);
             LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_wings_moth_8x4.png", "Wings_Moth", ref wingsSprites, wingsSpriteMap);
-            LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_hands_8x4.png", "Hands", ref handsSprites, handsSpriteMap);
 #endif
         }
 
@@ -155,13 +162,31 @@ namespace GhostSurvival.Cosmetics
 
         private void InitializeSpriteMaps()
         {
-            hatSpriteMap.Clear();
-            wingsSpriteMap.Clear();
-            handsSpriteMap.Clear();
-
             PopulateMapFromList(hatSprites, "Hat_Witch", hatSpriteMap);
             PopulateMapFromList(wingsSprites, "Wings_Moth", wingsSpriteMap);
-            PopulateMapFromList(handsSprites, "Hands", handsSpriteMap);
+
+#if UNITY_EDITOR
+            if (hatSpriteMap.Count < 32)
+            {
+                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/cosmetic_hat_witch_8x4.png"))
+                {
+                    if (obj is Sprite s && s.name.StartsWith("Hat_Witch"))
+                    {
+                        hatSpriteMap[s.name] = s;
+                    }
+                }
+            }
+            if (wingsSpriteMap.Count < 32)
+            {
+                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/cosmetic_wings_moth_8x4.png"))
+                {
+                    if (obj is Sprite s && s.name.StartsWith("Wings_Moth"))
+                    {
+                        wingsSpriteMap[s.name] = s;
+                    }
+                }
+            }
+#endif
         }
 
         private void PopulateMapFromList(Sprite[] sprites, string prefix, Dictionary<string, Sprite> map)
@@ -186,6 +211,10 @@ namespace GhostSurvival.Cosmetics
                 {
                     hatRenderer.sprite = matchedHat;
                 }
+                else if (hatSpriteMap.TryGetValue("Hat_Witch_Down_Idle_0", out Sprite fallbackHat))
+                {
+                    hatRenderer.sprite = fallbackHat;
+                }
             }
 
             // 2. Wings Moth: Ghost_Down_Walk_1 -> Wings_Moth_Down_Walk_1
@@ -196,15 +225,9 @@ namespace GhostSurvival.Cosmetics
                 {
                     wingsRenderer.sprite = matchedWings;
                 }
-            }
-
-            // 3. Cute Hands: Ghost_Down_Walk_1 -> Hands_Down_Walk_1
-            if (handsRenderer != null && handsRenderer.enabled)
-            {
-                string targetHandsName = bodySpriteName.Replace("Ghost_", "Hands_");
-                if (handsSpriteMap.TryGetValue(targetHandsName, out Sprite matchedHands))
+                else if (wingsSpriteMap.TryGetValue("Wings_Moth_Down_Idle_0", out Sprite fallbackWings))
                 {
-                    handsRenderer.sprite = matchedHands;
+                    wingsRenderer.sprite = fallbackWings;
                 }
             }
         }

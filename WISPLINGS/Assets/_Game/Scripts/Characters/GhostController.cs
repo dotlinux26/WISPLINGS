@@ -9,6 +9,7 @@ namespace GhostSurvival.Characters
     /// <summary>
     /// Controls 2D top-down movement, physics, and facing direction for the main ghost.
     /// Normalizes diagonal movement and preserves last facing direction when idle.
+    /// Includes natural, calm random idle glances (looking left/right smoothly without spamming).
     /// </summary>
     [RequireComponent(typeof(Rigidbody2D))]
     public class GhostController : MonoBehaviour, IDamageable
@@ -28,6 +29,14 @@ namespace GhostSurvival.Characters
         [SerializeField] private float hoverAmplitude = 0.025f;
         [SerializeField] private Transform visualRoot;
 
+        [Header("Idle Glance Settings (Calm looking around)")]
+        [Tooltip("Enable gentle, random looking left/right when player sits idle.")]
+        [SerializeField] private bool enableIdleGlances = true;
+        [SerializeField] private float minGlanceInterval = 4.0f;
+        [SerializeField] private float maxGlanceInterval = 7.0f;
+        [SerializeField] private float minGlanceDuration = 1.6f;
+        [SerializeField] private float maxGlanceDuration = 2.4f;
+
         [Header("Health / Stats")]
         [SerializeField] private float maxHealth = 100f;
         [SerializeField] private float currentHealth = 100f;
@@ -36,7 +45,7 @@ namespace GhostSurvival.Characters
         private Rigidbody2D rb;
         private GhostAnimator ghostAnimator;
 
-        // Runtime state
+        // Runtime movement state
         private Vector2 rawInput;
         private Vector2 moveInput;
         private Vector2 currentVelocity;
@@ -44,6 +53,13 @@ namespace GhostSurvival.Characters
         private bool isMoving = false;
         private float hoverTimer = 0f;
         private Vector3 initialVisualLocalPos = Vector3.zero;
+
+        // Idle glance runtime state
+        private float idleTime = 0f;
+        private float nextGlanceTime = 4.5f;
+        private bool isGlancing = false;
+        private float glanceTimer = 0f;
+        private float currentGlanceDuration = 2.0f;
 
         public bool IsAlive => currentHealth > 0f;
         public GhostDirection FacingDirection => facingDirection;
@@ -70,6 +86,8 @@ namespace GhostSurvival.Characters
             {
                 initialVisualLocalPos = visualRoot.localPosition;
             }
+
+            nextGlanceTime = Random.Range(minGlanceInterval, maxGlanceInterval);
         }
 
         private void Update()
@@ -128,9 +146,27 @@ namespace GhostSurvival.Characters
 
         private void UpdateFacingDirection()
         {
-            if (!isMoving)
+            if (isMoving)
             {
-                // Khi dừng di chuyển: nếu trước đó đang đi lên (Up), quay về Idle_Down để lộ mặt cute theo yêu cầu
+                // When moving, immediately cancel any idle glance with zero delay
+                isGlancing = false;
+                idleTime = 0f;
+                glanceTimer = 0f;
+
+                if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
+                {
+                    facingDirection = moveInput.x > 0 ? GhostDirection.Right : GhostDirection.Left;
+                }
+                else
+                {
+                    facingDirection = moveInput.y > 0 ? GhostDirection.Up : GhostDirection.Down;
+                }
+                return;
+            }
+
+            // --- Idle state (Not moving) ---
+            if (!enableIdleGlances)
+            {
                 if (facingDirection == GhostDirection.Up)
                 {
                     facingDirection = GhostDirection.Down;
@@ -138,13 +174,38 @@ namespace GhostSurvival.Characters
                 return;
             }
 
-            if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
+            idleTime += Time.deltaTime;
+
+            if (!isGlancing)
             {
-                facingDirection = moveInput.x > 0 ? GhostDirection.Right : GhostDirection.Left;
+                // If just stopped from moving Up, face forward Down
+                if (facingDirection == GhostDirection.Up)
+                {
+                    facingDirection = GhostDirection.Down;
+                }
+
+                // Check if it's time for a gentle, calm glance left or right
+                if (idleTime >= nextGlanceTime)
+                {
+                    isGlancing = true;
+                    glanceTimer = 0f;
+                    currentGlanceDuration = Random.Range(minGlanceDuration, maxGlanceDuration);
+                    // Randomly look Left or Right
+                    facingDirection = (Random.value < 0.5f) ? GhostDirection.Left : GhostDirection.Right;
+                }
             }
             else
             {
-                facingDirection = moveInput.y > 0 ? GhostDirection.Up : GhostDirection.Down;
+                // Currently glancing left/right
+                glanceTimer += Time.deltaTime;
+                if (glanceTimer >= currentGlanceDuration)
+                {
+                    // Return naturally to looking forward/down
+                    isGlancing = false;
+                    idleTime = 0f;
+                    nextGlanceTime = Random.Range(minGlanceInterval, maxGlanceInterval); // New calm cooldown
+                    facingDirection = GhostDirection.Down;
+                }
             }
         }
 
