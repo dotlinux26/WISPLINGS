@@ -161,3 +161,9 @@ Ngoại trang được hiển thị theo hệ thống lớp (Layer Sorting) chu�
      Nhờ đó, dù mảng có bị xáo trộn thế nào thì code cũng CHỈ chọn đúng frame tương ứng, loại bỏ 100% nguy cơ nhầm lẫn.
   3. **Xếp mảng chuẩn quy phạm (Canonical Ordering):** Trong `GhostAtlasImporter.cs`, hàm `LoadOrderedSpritesList` nạp đúng 32 slot theo thứ tự 4 hướng x 8 frame (Down Idle/Walk -> Left Idle/Walk -> Right Idle/Walk -> Up Idle/Walk) trước khi serialize vào Prefab.
   4. **Triệt tiêu cảnh báo `Parameter Hash -1781152096 does not exist`:** Thêm parameter `IsChasing` (Bool) vào `ShadeStalkerController.controller` và bổ sung kiểm tra an toàn trong `ShadeStalker.cs`.
+
+### 8.2. Học tập cách vẽ dáng nhân vật theo ảnh mẫu (Shape Study & Vector Bézier Crafting)
+* **Yêu cầu & Thử nghiệm nghệ thuật:**
+  1. Đã nghiên cứu giải phẫu khối hình học (Shape Anatomy) và thử nghiệm dựng các dáng Bézier thuần vector (tay cụt mái chèo, chân ma tí hon lơ lửng).
+  2. **Quyết định chính thức của Creator (Anh):** Giữ nguyên thiết kế nhân vật gốc (Bản V1 hiện tại) đã ổn định trong game và hoàn tất sửa lỗi animation, không thay đổi shape nhân vật chính nữa để tập trung vào gameplay và các tính năng tiếp theo.
+  3. Các file vector nghiên cứu hình học được lưu lại trong thư mục `tools/` và `ArtSource/.../concepts/` để làm tư liệu tham khảo sau này nếu cần thiết.
