@@ -200,7 +200,7 @@
       </g>
     </g><g transform="translate(512 128)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 0.0) rotate(-5.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
+      <g transform="translate(0 0.0) rotate(0.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -215,7 +215,7 @@
       </g>
     </g><g transform="translate(640 128)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 -2.0) rotate(-1.50 64 65) translate(0 65) scale(1 0.970) translate(0 -65)">
+      <g transform="translate(0 -2.0) rotate(0.00 64 65) translate(0 65) scale(1 0.970) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -230,7 +230,7 @@
       </g>
     </g><g transform="translate(768 128)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 0.0) rotate(2.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
+      <g transform="translate(0 0.0) rotate(0.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -245,7 +245,7 @@
       </g>
     </g><g transform="translate(896 128)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 2.0) rotate(-1.50 64 65) translate(0 65) scale(1 1.025) translate(0 -65)">
+      <g transform="translate(0 2.0) rotate(0.00 64 65) translate(0 65) scale(1 1.025) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -320,7 +320,7 @@
       </g>
     </g><g transform="translate(512 256)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 0.0) rotate(-2.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
+      <g transform="translate(0 0.0) rotate(0.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -335,7 +335,7 @@
       </g>
     </g><g transform="translate(640 256)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 -2.0) rotate(1.50 64 65) translate(0 65) scale(1 0.970) translate(0 -65)">
+      <g transform="translate(0 -2.0) rotate(0.00 64 65) translate(0 65) scale(1 0.970) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -350,7 +350,7 @@
       </g>
     </g><g transform="translate(768 256)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 0.0) rotate(5.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
+      <g transform="translate(0 0.0) rotate(0.00 64 65) translate(0 65) scale(1 1.000) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
@@ -365,7 +365,7 @@
       </g>
     </g><g transform="translate(896 256)">
       <ellipse cx="64" cy="109" rx="27" ry="5.6" fill="#050509" opacity=".38"/>
-      <g transform="translate(0 2.0) rotate(1.50 64 65) translate(0 65) scale(1 1.025) translate(0 -65)">
+      <g transform="translate(0 2.0) rotate(0.00 64 65) translate(0 65) scale(1 1.025) translate(0 -65)">
         
       <path d="M64 22 C44 22 29 38 29 58 C29 72 32 83 25 96 C21 104 28 110 37 103 C44 98 48 99 53 105 C58 111 65 111 70 105 C75 99 80 98 87 104 C95 111 103 104 99 96 C93 82 99 72 99 58 C99 38 84 22 64 22 Z" fill="url(#bodyGrad)" stroke="#393845" stroke-width="2.0" stroke-linejoin="round"/>
       <path d="M43 43 C48 33 58 29 67 30 C57 32 52 36 48 46"
