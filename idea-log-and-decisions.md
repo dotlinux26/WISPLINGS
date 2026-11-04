@@ -145,3 +145,19 @@ Ngoại trang được hiển thị theo hệ thống lớp (Layer Sorting) chu�
 ---
 *Tài liệu này là căn cứ quyết định để đối chiếu trong toàn bộ quá trình phát triển dự án.*
 
+
+
+## 8. NHẬT KÝ KHẮC PHỤC SỰ CỐ KỸ THUẬT V1 (BUG FIX & OPTIMIZATION LOG)
+
+### 8.1. Khắc phục triệt để lỗi "Animation tùm lum khi di chuyển" (Jumbled Directional Animation)
+* **Nguyên nhân gốc rễ (Root Cause):**
+  1. Trong file `.meta` của các sprite sheet (`ghost_main_8x4.png.meta`, `cosmetic_...`), bảng `internalIDToNameTable` bị tích lũy rác từ các lần import tự động trước đó (chứa tới 80-96 sprite ID ảo như `ghost_main_8x4_0..47` thay vì chỉ 32 slice chuẩn).
+  2. Hàm `AssetDatabase.LoadAllAssetsAtPath` trả về các sub-asset theo thứ tự băm FileID ngẫu nhiên của Unity chứ không theo thứ tự lưới hay bảng chữ cái.
+  3. Mảng `bodySprites` nhận các sprite lộn xộn khiến index `dir * 8 + state + frame` lấy sai frame (ví dụ: đang đi Left nhưng lại nạp nhầm frame Idle Up hoặc frame bị cắt lệch), kéo theo hệ thống đồng bộ Mũ, Cánh, Tay cũng bị trỏ sai tên.
+* **Biện pháp xử lý toàn diện:**
+  1. **Dọn sạch metadata:** Tạo công cụ `tools/clean_meta_tables.py` lọc sạch toàn bộ các FileID rác trong `internalIDToNameTable` của tất cả các file `.meta`, chỉ giữ lại đúng 32 frame chuẩn khớp 100% với `spriteSheet.sprites`.
+  2. **Truy vấn đích danh (Exact Name-based Mapping):** Thay đổi `GhostAnimator.cs` và `CosmeticSynchronizer.cs` sang cơ chế `Dictionary<string, Sprite>` tra cứu trực tiếp theo chuỗi tên chính quy:
+     `$"Ghost_{direction}_{(isMoving ? "Walk" : "Idle")}_{currentFrame}"`.
+     Nhờ đó, dù mảng có bị xáo trộn thế nào thì code cũng CHỈ chọn đúng frame tương ứng, loại bỏ 100% nguy cơ nhầm lẫn.
+  3. **Xếp mảng chuẩn quy phạm (Canonical Ordering):** Trong `GhostAtlasImporter.cs`, hàm `LoadOrderedSpritesList` nạp đúng 32 slot theo thứ tự 4 hướng x 8 frame (Down Idle/Walk -> Left Idle/Walk -> Right Idle/Walk -> Up Idle/Walk) trước khi serialize vào Prefab.
+  4. **Triệt tiêu cảnh báo `Parameter Hash -1781152096 does not exist`:** Thêm parameter `IsChasing` (Bool) vào `ShadeStalkerController.controller` và bổ sung kiểm tra an toàn trong `ShadeStalker.cs`.

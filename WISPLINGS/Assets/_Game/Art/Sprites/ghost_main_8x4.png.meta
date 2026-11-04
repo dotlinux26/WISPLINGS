@@ -3,150 +3,6 @@ guid: bc768becbe0f81141b0f4b9c75782790
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 40992032337739630
-    second: ghost_main_8x4_0
-  - first:
-      213: -2869926872792454042
-    second: ghost_main_8x4_1
-  - first:
-      213: 829184823265221314
-    second: ghost_main_8x4_2
-  - first:
-      213: 6230730079938699077
-    second: ghost_main_8x4_3
-  - first:
-      213: -2470306538986474099
-    second: ghost_main_8x4_4
-  - first:
-      213: 1492988641490531198
-    second: ghost_main_8x4_5
-  - first:
-      213: -8527902085599756729
-    second: ghost_main_8x4_6
-  - first:
-      213: 8462098492177834366
-    second: ghost_main_8x4_7
-  - first:
-      213: 5759848982519506589
-    second: ghost_main_8x4_8
-  - first:
-      213: -3004402224062478665
-    second: ghost_main_8x4_9
-  - first:
-      213: -3955762147484304870
-    second: ghost_main_8x4_10
-  - first:
-      213: -5790947932090678229
-    second: ghost_main_8x4_11
-  - first:
-      213: 6056336858877205636
-    second: ghost_main_8x4_12
-  - first:
-      213: -1290945966920663998
-    second: ghost_main_8x4_13
-  - first:
-      213: -2754245238763410425
-    second: ghost_main_8x4_14
-  - first:
-      213: -880067207580961768
-    second: ghost_main_8x4_15
-  - first:
-      213: 9152274239657862049
-    second: ghost_main_8x4_16
-  - first:
-      213: 2230563808522992683
-    second: ghost_main_8x4_17
-  - first:
-      213: -7449973370185132782
-    second: ghost_main_8x4_18
-  - first:
-      213: -8884094493995507611
-    second: ghost_main_8x4_19
-  - first:
-      213: -6636143309521732686
-    second: ghost_main_8x4_20
-  - first:
-      213: 2950472129444435203
-    second: ghost_main_8x4_21
-  - first:
-      213: -2661568359059442723
-    second: ghost_main_8x4_22
-  - first:
-      213: 878026330768836451
-    second: ghost_main_8x4_23
-  - first:
-      213: 7660621593605568255
-    second: ghost_main_8x4_24
-  - first:
-      213: -8151301388348887189
-    second: ghost_main_8x4_25
-  - first:
-      213: -4023917952876310468
-    second: ghost_main_8x4_26
-  - first:
-      213: -8207442140849672069
-    second: ghost_main_8x4_27
-  - first:
-      213: 2157944591551564175
-    second: ghost_main_8x4_28
-  - first:
-      213: -9019351066851652731
-    second: ghost_main_8x4_29
-  - first:
-      213: 689041565253341584
-    second: ghost_main_8x4_30
-  - first:
-      213: 752835993723396577
-    second: ghost_main_8x4_31
-  - first:
-      213: -4243048421720906239
-    second: ghost_main_8x4_32
-  - first:
-      213: 3871748414417454319
-    second: ghost_main_8x4_33
-  - first:
-      213: -3221977601409049707
-    second: ghost_main_8x4_34
-  - first:
-      213: -1345775770601043182
-    second: ghost_main_8x4_35
-  - first:
-      213: -8275789942370483738
-    second: ghost_main_8x4_36
-  - first:
-      213: -2450021668581138628
-    second: ghost_main_8x4_37
-  - first:
-      213: -5234138506859687143
-    second: ghost_main_8x4_38
-  - first:
-      213: -6729025689691132660
-    second: ghost_main_8x4_39
-  - first:
-      213: 854417081569107603
-    second: ghost_main_8x4_40
-  - first:
-      213: 6989007754626884922
-    second: ghost_main_8x4_41
-  - first:
-      213: -6907591660792244464
-    second: ghost_main_8x4_42
-  - first:
-      213: 2433290635508634406
-    second: ghost_main_8x4_43
-  - first:
-      213: 142330644263936781
-    second: ghost_main_8x4_44
-  - first:
-      213: 8803236301572212610
-    second: ghost_main_8x4_45
-  - first:
-      213: -5422496201894263274
-    second: ghost_main_8x4_46
-  - first:
-      213: 4951789772397190207
-    second: ghost_main_8x4_47
-  - first:
       213: 5891090115284449564
     second: Ghost_Down_Idle_0
   - first:
@@ -297,7 +153,7 @@ TextureImporter:
   spriteTessellationDetail: -1
   spriteGeometrySubdivision: -1
   textureType: 8
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -305,9 +161,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -327,7 +183,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -340,7 +196,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1101,54 +957,6 @@ TextureImporter:
       Ghost_Up_Walk_1: -5642901461103394866
       Ghost_Up_Walk_2: -6938071786333371026
       Ghost_Up_Walk_3: 4297643610889252016
-      ghost_main_8x4_0: 40992032337739630
-      ghost_main_8x4_1: -2869926872792454042
-      ghost_main_8x4_10: -3955762147484304870
-      ghost_main_8x4_11: -5790947932090678229
-      ghost_main_8x4_12: 6056336858877205636
-      ghost_main_8x4_13: -1290945966920663998
-      ghost_main_8x4_14: -2754245238763410425
-      ghost_main_8x4_15: -880067207580961768
-      ghost_main_8x4_16: 9152274239657862049
-      ghost_main_8x4_17: 2230563808522992683
-      ghost_main_8x4_18: -7449973370185132782
-      ghost_main_8x4_19: -8884094493995507611
-      ghost_main_8x4_2: 829184823265221314
-      ghost_main_8x4_20: -6636143309521732686
-      ghost_main_8x4_21: 2950472129444435203
-      ghost_main_8x4_22: -2661568359059442723
-      ghost_main_8x4_23: 878026330768836451
-      ghost_main_8x4_24: 7660621593605568255
-      ghost_main_8x4_25: -8151301388348887189
-      ghost_main_8x4_26: -4023917952876310468
-      ghost_main_8x4_27: -8207442140849672069
-      ghost_main_8x4_28: 2157944591551564175
-      ghost_main_8x4_29: -9019351066851652731
-      ghost_main_8x4_3: 6230730079938699077
-      ghost_main_8x4_30: 689041565253341584
-      ghost_main_8x4_31: 752835993723396577
-      ghost_main_8x4_32: -4243048421720906239
-      ghost_main_8x4_33: 3871748414417454319
-      ghost_main_8x4_34: -3221977601409049707
-      ghost_main_8x4_35: -1345775770601043182
-      ghost_main_8x4_36: -8275789942370483738
-      ghost_main_8x4_37: -2450021668581138628
-      ghost_main_8x4_38: -5234138506859687143
-      ghost_main_8x4_39: -6729025689691132660
-      ghost_main_8x4_4: -2470306538986474099
-      ghost_main_8x4_40: 854417081569107603
-      ghost_main_8x4_41: 6989007754626884922
-      ghost_main_8x4_42: -6907591660792244464
-      ghost_main_8x4_43: 2433290635508634406
-      ghost_main_8x4_44: 142330644263936781
-      ghost_main_8x4_45: 8803236301572212610
-      ghost_main_8x4_46: -5422496201894263274
-      ghost_main_8x4_47: 4951789772397190207
-      ghost_main_8x4_5: 1492988641490531198
-      ghost_main_8x4_6: -8527902085599756729
-      ghost_main_8x4_7: 8462098492177834366
-      ghost_main_8x4_8: 5759848982519506589
-      ghost_main_8x4_9: -3004402224062478665
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

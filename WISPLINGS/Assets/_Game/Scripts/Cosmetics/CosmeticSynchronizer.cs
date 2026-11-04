@@ -6,7 +6,7 @@ namespace GhostSurvival.Cosmetics
     /// <summary>
     /// Synchronizes cosmetic layer sprites (Hat, Wings, Hands) directly with the body sprite frame.
     /// Ensures hat, wings, and cute hands follow every single walk/idle frame, bobbing, and directional turn.
-    /// Supports automatic sprite caching and name-based / index-based frame locking.
+    /// Guarantees exact frame mapping via dictionaries and canonical 32-element arrays.
     /// </summary>
     public class CosmeticSynchronizer : MonoBehaviour
     {
@@ -35,7 +35,6 @@ namespace GhostSurvival.Cosmetics
         private readonly Dictionary<string, Sprite> hatSpriteMap = new Dictionary<string, Sprite>();
         private readonly Dictionary<string, Sprite> wingsSpriteMap = new Dictionary<string, Sprite>();
         private readonly Dictionary<string, Sprite> handsSpriteMap = new Dictionary<string, Sprite>();
-        private readonly Dictionary<string, int> bodySpriteNameToIndex = new Dictionary<string, int>();
 
         public Vector3 HatOffset
         {
@@ -109,126 +108,103 @@ namespace GhostSurvival.Cosmetics
         private void EnsureSpritesLoaded()
         {
 #if UNITY_EDITOR
-            if (hatSprites == null || hatSprites.Length == 0 || hatSprites[0] == null)
-            {
-                var loadedHats = new List<Sprite>();
-                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/cosmetic_hat_witch_8x4.png"))
-                {
-                    if (obj is Sprite s) loadedHats.Add(s);
-                }
-                if (loadedHats.Count > 0) hatSprites = loadedHats.ToArray();
-            }
-
-            if (wingsSprites == null || wingsSprites.Length == 0 || wingsSprites[0] == null)
-            {
-                var loadedWings = new List<Sprite>();
-                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/cosmetic_wings_moth_8x4.png"))
-                {
-                    if (obj is Sprite s) loadedWings.Add(s);
-                }
-                if (loadedWings.Count > 0) wingsSprites = loadedWings.ToArray();
-            }
-
-            if (handsSprites == null || handsSprites.Length == 0 || handsSprites[0] == null)
-            {
-                var loadedHands = new List<Sprite>();
-                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/cosmetic_hands_8x4.png"))
-                {
-                    if (obj is Sprite s) loadedHands.Add(s);
-                }
-                if (loadedHands.Count > 0) handsSprites = loadedHands.ToArray();
-            }
+            LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_hat_witch_8x4.png", "Hat_Witch", ref hatSprites, hatSpriteMap);
+            LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_wings_moth_8x4.png", "Wings_Moth", ref wingsSprites, wingsSpriteMap);
+            LoadCategorySprites("Assets/_Game/Art/Sprites/cosmetic_hands_8x4.png", "Hands", ref handsSprites, handsSpriteMap);
 #endif
         }
+
+#if UNITY_EDITOR
+        private void LoadCategorySprites(string atlasPath, string prefix, ref Sprite[] array, Dictionary<string, Sprite> map)
+        {
+            if (array == null || array.Length < 32 || array[0] == null)
+            {
+                var dict = new Dictionary<string, Sprite>();
+                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath(atlasPath))
+                {
+                    if (obj is Sprite s && s.name.StartsWith(prefix))
+                    {
+                        dict[s.name] = s;
+                        map[s.name] = s;
+                    }
+                }
+
+                if (dict.Count >= 32)
+                {
+                    array = new Sprite[32];
+                    string[] dirs = { "Down", "Left", "Right", "Up" };
+                    int idx = 0;
+                    for (int d = 0; d < 4; d++)
+                    {
+                        string dir = dirs[d];
+                        for (int f = 0; f < 4; f++)
+                        {
+                            dict.TryGetValue($"{prefix}_{dir}_Idle_{f}", out array[idx]);
+                            idx++;
+                        }
+                        for (int f = 0; f < 4; f++)
+                        {
+                            dict.TryGetValue($"{prefix}_{dir}_Walk_{f}", out array[idx]);
+                            idx++;
+                        }
+                    }
+                }
+            }
+        }
+#endif
 
         private void InitializeSpriteMaps()
         {
             hatSpriteMap.Clear();
             wingsSpriteMap.Clear();
             handsSpriteMap.Clear();
-            bodySpriteNameToIndex.Clear();
 
-            string[] directions = { "Down", "Left", "Right", "Up" };
-            int index = 0;
-            for (int r = 0; r < 4; r++)
-            {
-                string dir = directions[r];
-                for (int c = 0; c < 4; c++)
-                {
-                    bodySpriteNameToIndex[$"Ghost_{dir}_Idle_{c}"] = index++;
-                }
-                for (int c = 0; c < 4; c++)
-                {
-                    bodySpriteNameToIndex[$"Ghost_{dir}_Walk_{c}"] = index++;
-                }
-            }
+            PopulateMapFromList(hatSprites, "Hat_Witch", hatSpriteMap);
+            PopulateMapFromList(wingsSprites, "Wings_Moth", wingsSpriteMap);
+            PopulateMapFromList(handsSprites, "Hands", handsSpriteMap);
+        }
 
-            if (hatSprites != null)
+        private void PopulateMapFromList(Sprite[] sprites, string prefix, Dictionary<string, Sprite> map)
+        {
+            if (sprites == null) return;
+            foreach (var s in sprites)
             {
-                foreach (var s in hatSprites)
+                if (s != null && s.name.StartsWith(prefix))
                 {
-                    if (s != null) hatSpriteMap[s.name] = s;
-                }
-            }
-
-            if (wingsSprites != null)
-            {
-                foreach (var s in wingsSprites)
-                {
-                    if (s != null) wingsSpriteMap[s.name] = s;
-                }
-            }
-
-            if (handsSprites != null)
-            {
-                foreach (var s in handsSprites)
-                {
-                    if (s != null) handsSpriteMap[s.name] = s;
+                    map[s.name] = s;
                 }
             }
         }
 
         public void SyncCosmetics(string bodySpriteName)
         {
-            // 1. Try direct name conversion: Ghost_Down_Walk_1 -> Hat_Witch_Down_Walk_1
-            string targetHatName = bodySpriteName.Replace("Ghost_", "Hat_Witch_");
+            // 1. Hat Witch: Ghost_Down_Walk_1 -> Hat_Witch_Down_Walk_1
             if (hatRenderer != null && hatRenderer.enabled)
             {
+                string targetHatName = bodySpriteName.Replace("Ghost_", "Hat_Witch_");
                 if (hatSpriteMap.TryGetValue(targetHatName, out Sprite matchedHat))
                 {
                     hatRenderer.sprite = matchedHat;
                 }
-                else if (bodySpriteNameToIndex.TryGetValue(bodySpriteName, out int idx) && hatSprites != null && idx >= 0 && idx < hatSprites.Length)
-                {
-                    if (hatSprites[idx] != null) hatRenderer.sprite = hatSprites[idx];
-                }
             }
 
-            // 2. Wings conversion: Ghost_Down_Walk_1 -> Wings_Moth_Down_Walk_1
-            string targetWingsName = bodySpriteName.Replace("Ghost_", "Wings_Moth_");
+            // 2. Wings Moth: Ghost_Down_Walk_1 -> Wings_Moth_Down_Walk_1
             if (wingsRenderer != null && wingsRenderer.enabled)
             {
+                string targetWingsName = bodySpriteName.Replace("Ghost_", "Wings_Moth_");
                 if (wingsSpriteMap.TryGetValue(targetWingsName, out Sprite matchedWings))
                 {
                     wingsRenderer.sprite = matchedWings;
                 }
-                else if (bodySpriteNameToIndex.TryGetValue(bodySpriteName, out int idx) && wingsSprites != null && idx >= 0 && idx < wingsSprites.Length)
-                {
-                    if (wingsSprites[idx] != null) wingsRenderer.sprite = wingsSprites[idx];
-                }
             }
 
-            // 3. Hands conversion: Ghost_Down_Walk_1 -> Hands_Down_Walk_1
-            string targetHandsName = bodySpriteName.Replace("Ghost_", "Hands_");
+            // 3. Cute Hands: Ghost_Down_Walk_1 -> Hands_Down_Walk_1
             if (handsRenderer != null && handsRenderer.enabled)
             {
+                string targetHandsName = bodySpriteName.Replace("Ghost_", "Hands_");
                 if (handsSpriteMap.TryGetValue(targetHandsName, out Sprite matchedHands))
                 {
                     handsRenderer.sprite = matchedHands;
-                }
-                else if (bodySpriteNameToIndex.TryGetValue(bodySpriteName, out int idx) && handsSprites != null && idx >= 0 && idx < handsSprites.Length)
-                {
-                    if (handsSprites[idx] != null) handsRenderer.sprite = handsSprites[idx];
                 }
             }
         }

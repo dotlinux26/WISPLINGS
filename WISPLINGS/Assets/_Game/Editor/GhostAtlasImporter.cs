@@ -37,9 +37,9 @@ namespace GhostSurvival.Editor
 
         private static void AutoRunSetupOnce()
         {
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v5", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v7", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v5", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v7", true);
                 SetupAll();
             }
         }
@@ -345,6 +345,7 @@ namespace GhostSurvival.Editor
             AnimatorController stalkerCtrl = AnimatorController.CreateAnimatorControllerAtPath(stalkerCtrlPath);
             stalkerCtrl.parameters = new AnimatorControllerParameter[0];
             stalkerCtrl.AddParameter("Direction", AnimatorControllerParameterType.Int);
+            stalkerCtrl.AddParameter("IsChasing", AnimatorControllerParameterType.Bool);
 
             var stalkerSm = stalkerCtrl.layers[0].stateMachine;
             AnimatorState[] chaseStates = new AnimatorState[4];
@@ -389,10 +390,10 @@ namespace GhostSurvival.Editor
         {
             EnsureDirectory(PrefabsDir);
 
-            var ghostSprites = LoadSpritesList($"{SpritesDir}/ghost_main_8x4.png");
-            var hatSprites = LoadSpritesList($"{SpritesDir}/cosmetic_hat_witch_8x4.png");
-            var wingsSprites = LoadSpritesList($"{SpritesDir}/cosmetic_wings_moth_8x4.png");
-            var handsSprites = LoadSpritesList($"{SpritesDir}/cosmetic_hands_8x4.png");
+            var ghostSprites = LoadOrderedSpritesList($"{SpritesDir}/ghost_main_8x4.png", "Ghost");
+            var hatSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_hat_witch_8x4.png", "Hat_Witch");
+            var wingsSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_wings_moth_8x4.png", "Wings_Moth");
+            var handsSprites = LoadOrderedSpritesList($"{SpritesDir}/cosmetic_hands_8x4.png", "Hands");
             var stalkerSprites = LoadSpritesList($"{SpritesDir}/shade_stalker_4x4.png");
             var soulSprites = LoadSpritesList($"{SpritesDir}/soul_collectible_6x1.png");
 
@@ -758,6 +759,39 @@ namespace GhostSurvival.Editor
                 if (asset is Sprite sprite)
                 {
                     list.Add(sprite);
+                }
+            }
+            return list;
+        }
+
+        private static List<Sprite> LoadOrderedSpritesList(string atlasPath, string prefix)
+        {
+            Dictionary<string, Sprite> dict = new Dictionary<string, Sprite>();
+            Object[] assets = AssetDatabase.LoadAllAssetsAtPath(atlasPath);
+            foreach (var asset in assets)
+            {
+                if (asset is Sprite s && s.name.StartsWith(prefix))
+                {
+                    dict[s.name] = s;
+                }
+            }
+
+            string[] dirs = { "Down", "Left", "Right", "Up" };
+            List<Sprite> list = new List<Sprite>(32);
+            for (int d = 0; d < 4; d++)
+            {
+                string dir = dirs[d];
+                for (int f = 0; f < 4; f++)
+                {
+                    string name = $"{prefix}_{dir}_Idle_{f}";
+                    if (dict.TryGetValue(name, out Sprite s)) list.Add(s);
+                    else Debug.LogWarning($"[W1SPL1NGS] Missing sprite {name}");
+                }
+                for (int f = 0; f < 4; f++)
+                {
+                    string name = $"{prefix}_{dir}_Walk_{f}";
+                    if (dict.TryGetValue(name, out Sprite s)) list.Add(s);
+                    else Debug.LogWarning($"[W1SPL1NGS] Missing sprite {name}");
                 }
             }
             return list;

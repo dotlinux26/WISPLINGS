@@ -9,6 +9,7 @@ namespace GhostSurvival.Animation
     /// Drives sprite playback directly in C# for instant, zero-delay responsiveness,
     /// and immediately synchronizes Hat, Wings, and Hands on the exact same frame.
     /// Disables Animator conflict so there is zero stutter or lag.
+    /// Guarantees exact directional frame mapping via dictionary and canonical 32-element array.
     /// </summary>
     public class GhostAnimator : MonoBehaviour
     {
@@ -31,6 +32,8 @@ namespace GhostSurvival.Animation
         private bool currentIsMoving = false;
         private float frameTimer = 0f;
         private int currentFrame = 0;
+
+        private readonly Dictionary<string, Sprite> spriteMap = new Dictionary<string, Sprite>();
 
         public GhostDirection CurrentDirection => currentDirection;
         public bool CurrentIsMoving => currentIsMoving;
@@ -76,11 +79,12 @@ namespace GhostSurvival.Animation
             }
 
             EnsureSpritesLoaded();
+            BuildSpriteMap();
         }
 
         private void Start()
         {
-            // Immediately apply frame 0 of Idle_Down on game start
+            // Immediately apply frame 0 of current state on start
             ApplyCurrentFrameImmediate();
         }
 
@@ -91,7 +95,7 @@ namespace GhostSurvival.Animation
 
         private void UpdateSpritePlayback()
         {
-            if (bodySprites == null || bodySprites.Length < 32 || bodyRenderer == null) return;
+            if (bodyRenderer == null) return;
 
             float targetFps = currentIsMoving ? walkFps : idleFps;
             frameTimer += Time.deltaTime;
@@ -122,21 +126,87 @@ namespace GhostSurvival.Animation
 
         private void ApplyCurrentFrameImmediate()
         {
-            if (bodySprites == null || bodySprites.Length < 32 || bodyRenderer == null) return;
+            if (bodyRenderer == null) return;
 
-            int dirOffset = (int)currentDirection * 8;
-            int stateOffset = currentIsMoving ? 4 : 0;
-            int spriteIndex = dirOffset + stateOffset + currentFrame;
+            string dirStr = currentDirection.ToString();
+            string stateStr = currentIsMoving ? "Walk" : "Idle";
+            string targetFrameName = $"Ghost_{dirStr}_{stateStr}_{currentFrame}";
 
-            if (spriteIndex >= 0 && spriteIndex < bodySprites.Length && bodySprites[spriteIndex] != null)
+            if (!spriteMap.TryGetValue(targetFrameName, out Sprite nextSprite))
             {
-                Sprite nextSprite = bodySprites[spriteIndex];
+                // Fallback to array index
+                int dirOffset = (int)currentDirection * 8;
+                int stateOffset = currentIsMoving ? 4 : 0;
+                int spriteIndex = dirOffset + stateOffset + currentFrame;
+                if (bodySprites != null && spriteIndex >= 0 && spriteIndex < bodySprites.Length)
+                {
+                    nextSprite = bodySprites[spriteIndex];
+                }
+            }
+
+            if (nextSprite != null)
+            {
                 bodyRenderer.sprite = nextSprite;
 
                 // Instantly update Hat, Wings, and Hands on the exact same CPU frame
                 if (cosmeticSynchronizer != null)
                 {
-                    cosmeticSynchronizer.SyncCosmetics(nextSprite.name);
+                    cosmeticSynchronizer.SyncCosmetics(targetFrameName);
+                }
+            }
+        }
+
+        private void BuildSpriteMap()
+        {
+            spriteMap.Clear();
+
+            // Populate dictionary from serialized bodySprites array
+            if (bodySprites != null)
+            {
+                foreach (var s in bodySprites)
+                {
+                    if (s != null && s.name.StartsWith("Ghost_"))
+                    {
+                        spriteMap[s.name] = s;
+                    }
+                }
+            }
+
+#if UNITY_EDITOR
+            if (spriteMap.Count < 32)
+            {
+                foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/ghost_main_8x4.png"))
+                {
+                    if (obj is Sprite s && s.name.StartsWith("Ghost_"))
+                    {
+                        spriteMap[s.name] = s;
+                    }
+                }
+            }
+#endif
+
+            // Rebuild canonical 32-element bodySprites array
+            if (bodySprites == null || bodySprites.Length != 32)
+            {
+                bodySprites = new Sprite[32];
+            }
+
+            string[] dirs = { "Down", "Left", "Right", "Up" };
+            int idx = 0;
+            for (int d = 0; d < 4; d++)
+            {
+                string dir = dirs[d];
+                for (int f = 0; f < 4; f++)
+                {
+                    string name = $"Ghost_{dir}_Idle_{f}";
+                    if (spriteMap.TryGetValue(name, out Sprite s)) bodySprites[idx] = s;
+                    idx++;
+                }
+                for (int f = 0; f < 4; f++)
+                {
+                    string name = $"Ghost_{dir}_Walk_{f}";
+                    if (spriteMap.TryGetValue(name, out Sprite s)) bodySprites[idx] = s;
+                    idx++;
                 }
             }
         }
@@ -144,16 +214,36 @@ namespace GhostSurvival.Animation
         private void EnsureSpritesLoaded()
         {
 #if UNITY_EDITOR
-            if (bodySprites == null || bodySprites.Length == 0 || bodySprites[0] == null)
+            if (bodySprites == null || bodySprites.Length < 32 || bodySprites[0] == null)
             {
-                var loaded = new List<Sprite>();
+                var dict = new Dictionary<string, Sprite>();
                 foreach (var obj in UnityEditor.AssetDatabase.LoadAllAssetsAtPath("Assets/_Game/Art/Sprites/ghost_main_8x4.png"))
                 {
-                    if (obj is Sprite s) loaded.Add(s);
+                    if (obj is Sprite s && s.name.StartsWith("Ghost_"))
+                    {
+                        dict[s.name] = s;
+                    }
                 }
-                if (loaded.Count >= 32)
+
+                if (dict.Count >= 32)
                 {
-                    bodySprites = loaded.ToArray();
+                    bodySprites = new Sprite[32];
+                    string[] dirs = { "Down", "Left", "Right", "Up" };
+                    int idx = 0;
+                    for (int d = 0; d < 4; d++)
+                    {
+                        string dir = dirs[d];
+                        for (int f = 0; f < 4; f++)
+                        {
+                            dict.TryGetValue($"Ghost_{dir}_Idle_{f}", out bodySprites[idx]);
+                            idx++;
+                        }
+                        for (int f = 0; f < 4; f++)
+                        {
+                            dict.TryGetValue($"Ghost_{dir}_Walk_{f}", out bodySprites[idx]);
+                            idx++;
+                        }
+                    }
                 }
             }
 #endif

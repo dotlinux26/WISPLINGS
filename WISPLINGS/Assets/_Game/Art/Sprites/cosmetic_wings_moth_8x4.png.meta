@@ -3,198 +3,6 @@ guid: 558cd8928f1a41142a34d88500f96527
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 3707989455946689764
-    second: cosmetic_wings_moth_8x4_0
-  - first:
-      213: 584261015289496521
-    second: cosmetic_wings_moth_8x4_1
-  - first:
-      213: -8877759436383512753
-    second: cosmetic_wings_moth_8x4_2
-  - first:
-      213: -5925520122615081157
-    second: cosmetic_wings_moth_8x4_3
-  - first:
-      213: -7293259331731284341
-    second: cosmetic_wings_moth_8x4_4
-  - first:
-      213: 1431421844673367007
-    second: cosmetic_wings_moth_8x4_5
-  - first:
-      213: -2773398602163306045
-    second: cosmetic_wings_moth_8x4_6
-  - first:
-      213: -6178104879353042879
-    second: cosmetic_wings_moth_8x4_7
-  - first:
-      213: 4404835232297618165
-    second: cosmetic_wings_moth_8x4_8
-  - first:
-      213: 6740144827123671964
-    second: cosmetic_wings_moth_8x4_9
-  - first:
-      213: -3623313773669227880
-    second: cosmetic_wings_moth_8x4_10
-  - first:
-      213: 7826651591231679823
-    second: cosmetic_wings_moth_8x4_11
-  - first:
-      213: 2640779007216331253
-    second: cosmetic_wings_moth_8x4_12
-  - first:
-      213: 3693569450314009171
-    second: cosmetic_wings_moth_8x4_13
-  - first:
-      213: -4633851422112467629
-    second: cosmetic_wings_moth_8x4_14
-  - first:
-      213: -7523208843637388826
-    second: cosmetic_wings_moth_8x4_15
-  - first:
-      213: 1669554649413500918
-    second: cosmetic_wings_moth_8x4_16
-  - first:
-      213: 4663866923733014267
-    second: cosmetic_wings_moth_8x4_17
-  - first:
-      213: 5307226071433801839
-    second: cosmetic_wings_moth_8x4_18
-  - first:
-      213: -8740189826794934726
-    second: cosmetic_wings_moth_8x4_19
-  - first:
-      213: 4369640379155153303
-    second: cosmetic_wings_moth_8x4_20
-  - first:
-      213: 4694830293251499067
-    second: cosmetic_wings_moth_8x4_21
-  - first:
-      213: 5927088121836524691
-    second: cosmetic_wings_moth_8x4_22
-  - first:
-      213: -288444532778512869
-    second: cosmetic_wings_moth_8x4_23
-  - first:
-      213: -4573380563887744498
-    second: cosmetic_wings_moth_8x4_24
-  - first:
-      213: -5584986542157705484
-    second: cosmetic_wings_moth_8x4_25
-  - first:
-      213: -6620333103531592384
-    second: cosmetic_wings_moth_8x4_26
-  - first:
-      213: -8784551804701071493
-    second: cosmetic_wings_moth_8x4_27
-  - first:
-      213: 5870381669898064425
-    second: cosmetic_wings_moth_8x4_28
-  - first:
-      213: -1516215363056803476
-    second: cosmetic_wings_moth_8x4_29
-  - first:
-      213: 903346786305675025
-    second: cosmetic_wings_moth_8x4_30
-  - first:
-      213: 5930581274936238300
-    second: cosmetic_wings_moth_8x4_31
-  - first:
-      213: -5474578305954063307
-    second: cosmetic_wings_moth_8x4_32
-  - first:
-      213: -6582341672414744098
-    second: cosmetic_wings_moth_8x4_33
-  - first:
-      213: -6703780030756348205
-    second: cosmetic_wings_moth_8x4_34
-  - first:
-      213: -6417353427878994374
-    second: cosmetic_wings_moth_8x4_35
-  - first:
-      213: -2172136729164094066
-    second: cosmetic_wings_moth_8x4_36
-  - first:
-      213: -1699707444231250456
-    second: cosmetic_wings_moth_8x4_37
-  - first:
-      213: -9195698926253400530
-    second: cosmetic_wings_moth_8x4_38
-  - first:
-      213: -8017939133067688338
-    second: cosmetic_wings_moth_8x4_39
-  - first:
-      213: -4984729115843449886
-    second: cosmetic_wings_moth_8x4_40
-  - first:
-      213: 3539534978183349268
-    second: cosmetic_wings_moth_8x4_41
-  - first:
-      213: 2059278158468903221
-    second: cosmetic_wings_moth_8x4_42
-  - first:
-      213: -4962532180573114673
-    second: cosmetic_wings_moth_8x4_43
-  - first:
-      213: 4798484464093285030
-    second: cosmetic_wings_moth_8x4_44
-  - first:
-      213: 7905162652645829697
-    second: cosmetic_wings_moth_8x4_45
-  - first:
-      213: -6632230936446922426
-    second: cosmetic_wings_moth_8x4_46
-  - first:
-      213: 2302784824252858586
-    second: cosmetic_wings_moth_8x4_47
-  - first:
-      213: 2354783565435391305
-    second: cosmetic_wings_moth_8x4_48
-  - first:
-      213: 5292703190820443703
-    second: cosmetic_wings_moth_8x4_49
-  - first:
-      213: 1721304044021871665
-    second: cosmetic_wings_moth_8x4_50
-  - first:
-      213: -3704677928916749762
-    second: cosmetic_wings_moth_8x4_51
-  - first:
-      213: 1677410092562662171
-    second: cosmetic_wings_moth_8x4_52
-  - first:
-      213: -8130239328486295860
-    second: cosmetic_wings_moth_8x4_53
-  - first:
-      213: -3994252410418394215
-    second: cosmetic_wings_moth_8x4_54
-  - first:
-      213: -4177537011526692411
-    second: cosmetic_wings_moth_8x4_55
-  - first:
-      213: -3663853034642878273
-    second: cosmetic_wings_moth_8x4_56
-  - first:
-      213: 6767898885112938257
-    second: cosmetic_wings_moth_8x4_57
-  - first:
-      213: -3195041127959347195
-    second: cosmetic_wings_moth_8x4_58
-  - first:
-      213: -2646935589319556639
-    second: cosmetic_wings_moth_8x4_59
-  - first:
-      213: 5058513524473261283
-    second: cosmetic_wings_moth_8x4_60
-  - first:
-      213: 442067389225350122
-    second: cosmetic_wings_moth_8x4_61
-  - first:
-      213: 853046384470395870
-    second: cosmetic_wings_moth_8x4_62
-  - first:
-      213: 9076735512666207123
-    second: cosmetic_wings_moth_8x4_63
-  - first:
       213: -7074799173049986982
     second: Wings_Moth_Down_Idle_0
   - first:
@@ -345,7 +153,7 @@ TextureImporter:
   spriteTessellationDetail: -1
   spriteGeometrySubdivision: -1
   textureType: 8
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -353,9 +161,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -375,7 +183,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -388,7 +196,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1149,70 +957,6 @@ TextureImporter:
       Wings_Moth_Up_Walk_1: 1481190428809808766
       Wings_Moth_Up_Walk_2: 559038610906167122
       Wings_Moth_Up_Walk_3: -1344420333152116066
-      cosmetic_wings_moth_8x4_0: 3707989455946689764
-      cosmetic_wings_moth_8x4_1: 584261015289496521
-      cosmetic_wings_moth_8x4_10: -3623313773669227880
-      cosmetic_wings_moth_8x4_11: 7826651591231679823
-      cosmetic_wings_moth_8x4_12: 2640779007216331253
-      cosmetic_wings_moth_8x4_13: 3693569450314009171
-      cosmetic_wings_moth_8x4_14: -4633851422112467629
-      cosmetic_wings_moth_8x4_15: -7523208843637388826
-      cosmetic_wings_moth_8x4_16: 1669554649413500918
-      cosmetic_wings_moth_8x4_17: 4663866923733014267
-      cosmetic_wings_moth_8x4_18: 5307226071433801839
-      cosmetic_wings_moth_8x4_19: -8740189826794934726
-      cosmetic_wings_moth_8x4_2: -8877759436383512753
-      cosmetic_wings_moth_8x4_20: 4369640379155153303
-      cosmetic_wings_moth_8x4_21: 4694830293251499067
-      cosmetic_wings_moth_8x4_22: 5927088121836524691
-      cosmetic_wings_moth_8x4_23: -288444532778512869
-      cosmetic_wings_moth_8x4_24: -4573380563887744498
-      cosmetic_wings_moth_8x4_25: -5584986542157705484
-      cosmetic_wings_moth_8x4_26: -6620333103531592384
-      cosmetic_wings_moth_8x4_27: -8784551804701071493
-      cosmetic_wings_moth_8x4_28: 5870381669898064425
-      cosmetic_wings_moth_8x4_29: -1516215363056803476
-      cosmetic_wings_moth_8x4_3: -5925520122615081157
-      cosmetic_wings_moth_8x4_30: 903346786305675025
-      cosmetic_wings_moth_8x4_31: 5930581274936238300
-      cosmetic_wings_moth_8x4_32: -5474578305954063307
-      cosmetic_wings_moth_8x4_33: -6582341672414744098
-      cosmetic_wings_moth_8x4_34: -6703780030756348205
-      cosmetic_wings_moth_8x4_35: -6417353427878994374
-      cosmetic_wings_moth_8x4_36: -2172136729164094066
-      cosmetic_wings_moth_8x4_37: -1699707444231250456
-      cosmetic_wings_moth_8x4_38: -9195698926253400530
-      cosmetic_wings_moth_8x4_39: -8017939133067688338
-      cosmetic_wings_moth_8x4_4: -7293259331731284341
-      cosmetic_wings_moth_8x4_40: -4984729115843449886
-      cosmetic_wings_moth_8x4_41: 3539534978183349268
-      cosmetic_wings_moth_8x4_42: 2059278158468903221
-      cosmetic_wings_moth_8x4_43: -4962532180573114673
-      cosmetic_wings_moth_8x4_44: 4798484464093285030
-      cosmetic_wings_moth_8x4_45: 7905162652645829697
-      cosmetic_wings_moth_8x4_46: -6632230936446922426
-      cosmetic_wings_moth_8x4_47: 2302784824252858586
-      cosmetic_wings_moth_8x4_48: 2354783565435391305
-      cosmetic_wings_moth_8x4_49: 5292703190820443703
-      cosmetic_wings_moth_8x4_5: 1431421844673367007
-      cosmetic_wings_moth_8x4_50: 1721304044021871665
-      cosmetic_wings_moth_8x4_51: -3704677928916749762
-      cosmetic_wings_moth_8x4_52: 1677410092562662171
-      cosmetic_wings_moth_8x4_53: -8130239328486295860
-      cosmetic_wings_moth_8x4_54: -3994252410418394215
-      cosmetic_wings_moth_8x4_55: -4177537011526692411
-      cosmetic_wings_moth_8x4_56: -3663853034642878273
-      cosmetic_wings_moth_8x4_57: 6767898885112938257
-      cosmetic_wings_moth_8x4_58: -3195041127959347195
-      cosmetic_wings_moth_8x4_59: -2646935589319556639
-      cosmetic_wings_moth_8x4_6: -2773398602163306045
-      cosmetic_wings_moth_8x4_60: 5058513524473261283
-      cosmetic_wings_moth_8x4_61: 442067389225350122
-      cosmetic_wings_moth_8x4_62: 853046384470395870
-      cosmetic_wings_moth_8x4_63: 9076735512666207123
-      cosmetic_wings_moth_8x4_7: -6178104879353042879
-      cosmetic_wings_moth_8x4_8: 4404835232297618165
-      cosmetic_wings_moth_8x4_9: 6740144827123671964
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

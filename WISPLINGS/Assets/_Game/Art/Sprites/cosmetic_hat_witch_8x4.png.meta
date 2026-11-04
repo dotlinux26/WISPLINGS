@@ -3,102 +3,6 @@ guid: b6d1f58be3c0b9a44a480f4858252a7c
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: 5440857714622984877
-    second: cosmetic_hat_witch_8x4_0
-  - first:
-      213: -4386287983324451623
-    second: cosmetic_hat_witch_8x4_1
-  - first:
-      213: 6521967704216289623
-    second: cosmetic_hat_witch_8x4_2
-  - first:
-      213: 888720716219116383
-    second: cosmetic_hat_witch_8x4_3
-  - first:
-      213: -9172630022372053288
-    second: cosmetic_hat_witch_8x4_4
-  - first:
-      213: 5103875767234352954
-    second: cosmetic_hat_witch_8x4_5
-  - first:
-      213: -6823520852993976673
-    second: cosmetic_hat_witch_8x4_6
-  - first:
-      213: -7934897514309804355
-    second: cosmetic_hat_witch_8x4_7
-  - first:
-      213: 7619190806175468960
-    second: cosmetic_hat_witch_8x4_8
-  - first:
-      213: -1631245164010900110
-    second: cosmetic_hat_witch_8x4_9
-  - first:
-      213: 333297386632777183
-    second: cosmetic_hat_witch_8x4_10
-  - first:
-      213: -4901999896950711555
-    second: cosmetic_hat_witch_8x4_11
-  - first:
-      213: -7573615532696483998
-    second: cosmetic_hat_witch_8x4_12
-  - first:
-      213: 6373414638958202951
-    second: cosmetic_hat_witch_8x4_13
-  - first:
-      213: 2162770581508097558
-    second: cosmetic_hat_witch_8x4_14
-  - first:
-      213: -1474382963464209541
-    second: cosmetic_hat_witch_8x4_15
-  - first:
-      213: -8791128521807664418
-    second: cosmetic_hat_witch_8x4_16
-  - first:
-      213: -5335148868875854445
-    second: cosmetic_hat_witch_8x4_17
-  - first:
-      213: -7751184563959540014
-    second: cosmetic_hat_witch_8x4_18
-  - first:
-      213: 5500407103172120429
-    second: cosmetic_hat_witch_8x4_19
-  - first:
-      213: 3210301146144072942
-    second: cosmetic_hat_witch_8x4_20
-  - first:
-      213: 4840661554747025982
-    second: cosmetic_hat_witch_8x4_21
-  - first:
-      213: -5831948960898728047
-    second: cosmetic_hat_witch_8x4_22
-  - first:
-      213: -4979559729128776339
-    second: cosmetic_hat_witch_8x4_23
-  - first:
-      213: -1614556674512356531
-    second: cosmetic_hat_witch_8x4_24
-  - first:
-      213: 2604884226817419361
-    second: cosmetic_hat_witch_8x4_25
-  - first:
-      213: -366532516674233101
-    second: cosmetic_hat_witch_8x4_26
-  - first:
-      213: -5707321670979787381
-    second: cosmetic_hat_witch_8x4_27
-  - first:
-      213: 2429833811224273707
-    second: cosmetic_hat_witch_8x4_28
-  - first:
-      213: 1839663626020069229
-    second: cosmetic_hat_witch_8x4_29
-  - first:
-      213: 3450364666929847618
-    second: cosmetic_hat_witch_8x4_30
-  - first:
-      213: 5931590921123218490
-    second: cosmetic_hat_witch_8x4_31
-  - first:
       213: 7117874583068459947
     second: Hat_Witch_Down_Idle_0
   - first:
@@ -249,7 +153,7 @@ TextureImporter:
   spriteTessellationDetail: -1
   spriteGeometrySubdivision: -1
   textureType: 8
-  textureShape: 1
+  textureShape: 2
   singleChannelComponent: 0
   flipbookRows: 1
   flipbookColumns: 1
@@ -257,9 +161,9 @@ TextureImporter:
   compressionQualitySet: 0
   textureFormatSet: 0
   ignorePngGamma: 0
-  applyGammaDecoding: 0
+  applyGammaDecoding: 1
   swizzle: 50462976
-  cookieLightType: 0
+  cookieLightType: 2
   platformSettings:
   - serializedVersion: 4
     buildTarget: DefaultTexturePlatform
@@ -279,7 +183,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -292,7 +196,7 @@ TextureImporter:
     maxTextureSize: 2048
     resizeAlgorithm: 0
     textureFormat: -1
-    textureCompression: 1
+    textureCompression: 0
     compressionQuality: 50
     crunchedCompression: 0
     allowsAlphaSplitting: 0
@@ -1053,38 +957,6 @@ TextureImporter:
       Hat_Witch_Up_Walk_1: 2407940820702401131
       Hat_Witch_Up_Walk_2: -1203662999286902182
       Hat_Witch_Up_Walk_3: -7296669645191605964
-      cosmetic_hat_witch_8x4_0: 5440857714622984877
-      cosmetic_hat_witch_8x4_1: -4386287983324451623
-      cosmetic_hat_witch_8x4_10: 333297386632777183
-      cosmetic_hat_witch_8x4_11: -4901999896950711555
-      cosmetic_hat_witch_8x4_12: -7573615532696483998
-      cosmetic_hat_witch_8x4_13: 6373414638958202951
-      cosmetic_hat_witch_8x4_14: 2162770581508097558
-      cosmetic_hat_witch_8x4_15: -1474382963464209541
-      cosmetic_hat_witch_8x4_16: -8791128521807664418
-      cosmetic_hat_witch_8x4_17: -5335148868875854445
-      cosmetic_hat_witch_8x4_18: -7751184563959540014
-      cosmetic_hat_witch_8x4_19: 5500407103172120429
-      cosmetic_hat_witch_8x4_2: 6521967704216289623
-      cosmetic_hat_witch_8x4_20: 3210301146144072942
-      cosmetic_hat_witch_8x4_21: 4840661554747025982
-      cosmetic_hat_witch_8x4_22: -5831948960898728047
-      cosmetic_hat_witch_8x4_23: -4979559729128776339
-      cosmetic_hat_witch_8x4_24: -1614556674512356531
-      cosmetic_hat_witch_8x4_25: 2604884226817419361
-      cosmetic_hat_witch_8x4_26: -366532516674233101
-      cosmetic_hat_witch_8x4_27: -5707321670979787381
-      cosmetic_hat_witch_8x4_28: 2429833811224273707
-      cosmetic_hat_witch_8x4_29: 1839663626020069229
-      cosmetic_hat_witch_8x4_3: 888720716219116383
-      cosmetic_hat_witch_8x4_30: 3450364666929847618
-      cosmetic_hat_witch_8x4_31: 5931590921123218490
-      cosmetic_hat_witch_8x4_4: -9172630022372053288
-      cosmetic_hat_witch_8x4_5: 5103875767234352954
-      cosmetic_hat_witch_8x4_6: -6823520852993976673
-      cosmetic_hat_witch_8x4_7: -7934897514309804355
-      cosmetic_hat_witch_8x4_8: 7619190806175468960
-      cosmetic_hat_witch_8x4_9: -1631245164010900110
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
