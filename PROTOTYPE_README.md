@@ -97,3 +97,4 @@ Bản prototype này đã hiện thực hóa toàn bộ art direction, animation
 * **Single Silhouette:** Nhân vật giữ nguyên một hình dáng duy nhất, không biến dạng hay thay đổi tỷ lệ khi đổi trang bị.
 * **Ngoại trang vĩnh viễn:** Mũ và cánh là dữ liệu mở khóa của Account (`unlocked_cosmetic_ids`), tuyệt đối không phải là item rơi rớt trong chuyến thám hiểm.
 * **Độc lập Offline/Online:** Cấu trúc controller và event thu thập được thiết kế tách bạch, sẵn sàng để cắm Netcode / Server Authority ở các mốc phát triển tiếp theo.
+

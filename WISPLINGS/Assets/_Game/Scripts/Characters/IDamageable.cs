@@ -10,3 +10,4 @@ namespace GhostSurvival.Characters
         bool IsAlive { get; }
     }
 }
+

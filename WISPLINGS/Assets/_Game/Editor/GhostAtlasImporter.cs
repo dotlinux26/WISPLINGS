@@ -23,6 +23,7 @@ namespace GhostSurvival.Editor
     public static class GhostAtlasImporter
     {
         private const string SpritesDir = "Assets/_Game/Art/Sprites";
+        private const string MaterialsDir = "Assets/_Game/Art/Materials";
         private const string AnimationsDir = "Assets/_Game/Animations";
         private const string PrefabsDir = "Assets/_Game/Prefabs";
         private const string ScenesDir = "Assets/_Game/Scenes";
@@ -34,9 +35,9 @@ namespace GhostSurvival.Editor
 
         private static void AutoRunSetupOnce()
         {
-            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted", false))
+            if (!SessionState.GetBool("W1SPL1NGS_AutoSetupExecuted_v3", false))
             {
-                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted", true);
+                SessionState.SetBool("W1SPL1NGS_AutoSetupExecuted_v3", true);
                 SetupAll();
             }
         }
@@ -44,7 +45,8 @@ namespace GhostSurvival.Editor
         [MenuItem("Tools/W1SPL1NGS/1. Setup All (Slice, Clips, Prefabs, Scene)")]
         public static void SetupAll()
         {
-            Debug.Log("[W1SPL1NGS] Starting complete prototype setup...");
+            Debug.Log("[W1SPL1NGS] Starting complete prototype setup v3...");
+            EnsureMaterials();
             SliceAllAtlases();
 
             AssetDatabase.SaveAssets();
@@ -57,7 +59,32 @@ namespace GhostSurvival.Editor
 
             AssetDatabase.SaveAssets();
             AssetDatabase.Refresh(ImportAssetOptions.ForceSynchronousImport);
-            Debug.Log("[W1SPL1NGS] Complete prototype setup finished successfully!");
+            Debug.Log("[W1SPL1NGS] Complete prototype setup v3 finished successfully!");
+        }
+
+        public static Material GetOrCreateParticleMaterial()
+        {
+            EnsureDirectory(MaterialsDir);
+            string matPath = $"{MaterialsDir}/M_URP_Particle.mat";
+            Material mat = AssetDatabase.LoadAssetAtPath<Material>(matPath);
+            if (mat == null)
+            {
+                Shader shader = Shader.Find("Universal Render Pipeline/Particles/Unlit");
+                if (shader == null) shader = Shader.Find("Universal Render Pipeline/2D/Sprite-Unlit-Default");
+                if (shader == null) shader = Shader.Find("Universal Render Pipeline/Unlit");
+                if (shader == null) shader = Shader.Find("Sprites/Default");
+
+                mat = new Material(shader);
+                if (mat.HasProperty("_Surface")) mat.SetFloat("_Surface", 1);
+                if (mat.HasProperty("_Blend")) mat.SetFloat("_Blend", 0);
+                AssetDatabase.CreateAsset(mat, matPath);
+            }
+            return mat;
+        }
+
+        private static void EnsureMaterials()
+        {
+            GetOrCreateParticleMaterial();
         }
 
         [MenuItem("Tools/W1SPL1NGS/2. Slice Atlases Only")]
@@ -95,7 +122,6 @@ namespace GhostSurvival.Editor
 
             for (int r = 0; r < rows; r++)
             {
-                // In image coordinates, row 0 is top. In Unity texture coordinates, y=0 is bottom.
                 int unityY = totalH - (r + 1) * cellH;
                 string dir = (rows == 4) ? directions[r] : "Hover";
 
@@ -106,7 +132,6 @@ namespace GhostSurvival.Editor
 
                     if (isGhostLayout)
                     {
-                        // Cols 0..3: Idle, Cols 4..7: Walk
                         string animType = (c < 4) ? "Idle" : "Walk";
                         int frameIdx = (c < 4) ? c : (c - 4);
                         frameName = $"{prefix}_{dir}_{animType}_{frameIdx}";
@@ -138,7 +163,6 @@ namespace GhostSurvival.Editor
             importer.spritesheet = metas.ToArray();
             EditorUtility.SetDirty(importer);
             importer.SaveAndReimport();
-            Debug.Log($"[W1SPL1NGS] Sliced {assetPath}: {metas.Count} frames generated.");
         }
 
         [MenuItem("Tools/W1SPL1NGS/3. Create Animation Clips")]
@@ -146,31 +170,30 @@ namespace GhostSurvival.Editor
         {
             EnsureDirectory(AnimationsDir);
 
-            // 1. Ghost Animation Clips (8 clips: 4 Idle + 4 Walk)
+            // Frame rate reduced to 6 FPS for soft, calm and floaty ghost animation
+            const float ghostFps = 6f;
+
             string[] directions = { "Down", "Left", "Right", "Up" };
             string ghostAtlasPath = $"{SpritesDir}/ghost_main_8x4.png";
             Dictionary<string, Sprite> ghostSprites = LoadSprites(ghostAtlasPath);
 
             foreach (var dir in directions)
             {
-                // Idle clip (4 frames, 8 fps)
                 Sprite[] idleFrames = new Sprite[4];
                 for (int i = 0; i < 4; i++)
                 {
                     ghostSprites.TryGetValue($"Ghost_{dir}_Idle_{i}", out idleFrames[i]);
                 }
-                BuildSpriteClip($"{AnimationsDir}/Ghost_Idle_{dir}.anim", idleFrames, 8, true);
+                BuildSpriteClip($"{AnimationsDir}/Ghost_Idle_{dir}.anim", idleFrames, ghostFps, true);
 
-                // Walk clip (4 frames, 8 fps)
                 Sprite[] walkFrames = new Sprite[4];
                 for (int i = 0; i < 4; i++)
                 {
                     ghostSprites.TryGetValue($"Ghost_{dir}_Walk_{i}", out walkFrames[i]);
                 }
-                BuildSpriteClip($"{AnimationsDir}/Ghost_Walk_{dir}.anim", walkFrames, 8, true);
+                BuildSpriteClip($"{AnimationsDir}/Ghost_Walk_{dir}.anim", walkFrames, ghostFps, true);
             }
 
-            // 2. Shade Stalker Clips (4 clips: Chase Down, Left, Right, Up)
             string stalkerAtlasPath = $"{SpritesDir}/shade_stalker_4x4.png";
             Dictionary<string, Sprite> stalkerSprites = LoadSprites(stalkerAtlasPath);
 
@@ -181,10 +204,9 @@ namespace GhostSurvival.Editor
                 {
                     stalkerSprites.TryGetValue($"Stalker_{dir}_Chase_{i}", out chaseFrames[i]);
                 }
-                BuildSpriteClip($"{AnimationsDir}/Stalker_Chase_{dir}.anim", chaseFrames, 8, true);
+                BuildSpriteClip($"{AnimationsDir}/Stalker_Chase_{dir}.anim", chaseFrames, 6f, true);
             }
 
-            // 3. Soul Collectible Clip (1 clip: HoverPulse, 6 frames)
             string soulAtlasPath = $"{SpritesDir}/soul_collectible_6x1.png";
             Dictionary<string, Sprite> soulSprites = LoadSprites(soulAtlasPath);
             Sprite[] hoverFrames = new Sprite[6];
@@ -192,9 +214,9 @@ namespace GhostSurvival.Editor
             {
                 soulSprites.TryGetValue($"Soul_Hover_{i}", out hoverFrames[i]);
             }
-            BuildSpriteClip($"{AnimationsDir}/Soul_Hover.anim", hoverFrames, 8, true);
+            BuildSpriteClip($"{AnimationsDir}/Soul_Hover.anim", hoverFrames, 6f, true);
 
-            Debug.Log("[W1SPL1NGS] All 13 animation clips generated successfully.");
+            Debug.Log("[W1SPL1NGS] Animation clips regenerated at relaxed frame rate (6 FPS).");
         }
 
         private static void BuildSpriteClip(string clipPath, Sprite[] sprites, float frameRate, bool loop)
@@ -210,7 +232,7 @@ namespace GhostSurvival.Editor
             EditorCurveBinding binding = new EditorCurveBinding
             {
                 type = typeof(SpriteRenderer),
-                path = "",
+                path = "VisualRoot/BodyRenderer",
                 propertyName = "m_Sprite"
             };
 
@@ -238,7 +260,6 @@ namespace GhostSurvival.Editor
         {
             EnsureDirectory(AnimationsDir);
 
-            // 1. Ghost Controller
             string ghostCtrlPath = $"{AnimationsDir}/GhostAnimatorController.controller";
             AnimatorController ghostCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(ghostCtrlPath);
             if (ghostCtrl == null)
@@ -296,7 +317,6 @@ namespace GhostSurvival.Editor
                 walkTrans.AddCondition(AnimatorConditionMode.If, 0, "IsMoving");
             }
 
-            // 2. Shade Stalker Controller
             string stalkerCtrlPath = $"{AnimationsDir}/ShadeStalkerController.controller";
             AnimatorController stalkerCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(stalkerCtrlPath);
             if (stalkerCtrl == null)
@@ -331,7 +351,6 @@ namespace GhostSurvival.Editor
                 trans.AddCondition(AnimatorConditionMode.Equals, d, "Direction");
             }
 
-            // 3. Soul Controller
             string soulCtrlPath = $"{AnimationsDir}/SoulController.controller";
             AnimatorController soulCtrl = AssetDatabase.LoadAssetAtPath<AnimatorController>(soulCtrlPath);
             if (soulCtrl == null)
@@ -352,7 +371,6 @@ namespace GhostSurvival.Editor
             EditorUtility.SetDirty(ghostCtrl);
             EditorUtility.SetDirty(stalkerCtrl);
             EditorUtility.SetDirty(soulCtrl);
-            Debug.Log("[W1SPL1NGS] Animator controllers created and wired.");
         }
 
         private static bool HasParameter(AnimatorController ctrl, string paramName)
@@ -369,7 +387,8 @@ namespace GhostSurvival.Editor
         {
             EnsureDirectory(PrefabsDir);
 
-            // Load sprites
+            Material particleMat = GetOrCreateParticleMaterial();
+
             var ghostSprites = LoadSpritesList($"{SpritesDir}/ghost_main_8x4.png");
             var hatSprites = LoadSpritesList($"{SpritesDir}/cosmetic_hat_witch_8x4.png");
             var wingsSprites = LoadSpritesList($"{SpritesDir}/cosmetic_wings_moth_8x4.png");
@@ -380,9 +399,16 @@ namespace GhostSurvival.Editor
             var stalkerCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"{AnimationsDir}/ShadeStalkerController.controller");
             var soulCtrl = AssetDatabase.LoadAssetAtPath<RuntimeAnimatorController>($"{AnimationsDir}/SoulController.controller");
 
-            // 1. GhostPlayer Prefab Hierarchy
+            // 1. GhostPlayer Prefab
+            // GhostPlayer
+            // └── VisualRoot (Bobs and breathes with hover effect, moving body, hat, wings in perfect unison)
+            //     ├── Shadow
+            //     ├── WingsRenderer
+            //     ├── BodyRenderer
+            //     ├── HatRenderer (Positioned higher, above the eyes)
+            //     └── EffectRenderer (URP particle material)
             GameObject ghostRoot = new GameObject("GhostPlayer");
-            var sortingGroup = ghostRoot.AddComponent<SortingGroup>();
+            ghostRoot.AddComponent<SortingGroup>();
             var controller = ghostRoot.AddComponent<GhostController>();
             var ghostAnim = ghostRoot.AddComponent<GhostAnimator>();
             var loadout = ghostRoot.AddComponent<CosmeticLoadout>();
@@ -390,51 +416,57 @@ namespace GhostSurvival.Editor
             var col2d = ghostRoot.AddComponent<CircleCollider2D>();
             col2d.radius = 0.35f;
             col2d.offset = new Vector2(0f, 0.15f);
+            var ghostAnimatorComp = ghostRoot.AddComponent<Animator>();
+            ghostAnimatorComp.runtimeAnimatorController = ghostCtrl;
+
+            // VisualRoot
+            GameObject visualRootGo = new GameObject("VisualRoot");
+            visualRootGo.transform.SetParent(ghostRoot.transform, false);
 
             // Shadow
             GameObject shadowGo = new GameObject("Shadow");
-            shadowGo.transform.SetParent(ghostRoot.transform, false);
-            shadowGo.transform.localPosition = new Vector3(0f, 0f, 0f);
+            shadowGo.transform.SetParent(visualRootGo.transform, false);
+            shadowGo.transform.localPosition = Vector3.zero;
             var shadowSr = shadowGo.AddComponent<SpriteRenderer>();
             shadowSr.sortingOrder = -20;
             shadowSr.color = new Color(0f, 0f, 0f, 0.45f);
 
             // WingsRenderer (Sorting Order -10)
             GameObject wingsGo = new GameObject("WingsRenderer");
-            wingsGo.transform.SetParent(ghostRoot.transform, false);
+            wingsGo.transform.SetParent(visualRootGo.transform, false);
+            wingsGo.transform.localPosition = new Vector3(0f, 0.05f, 0f);
             var wingsSr = wingsGo.AddComponent<SpriteRenderer>();
             wingsSr.sortingOrder = -10;
             if (wingsSprites.Count > 0) wingsSr.sprite = wingsSprites[0];
 
             // BodyRenderer (Sorting Order 0)
             GameObject bodyGo = new GameObject("BodyRenderer");
-            bodyGo.transform.SetParent(ghostRoot.transform, false);
+            bodyGo.transform.SetParent(visualRootGo.transform, false);
             var bodySr = bodyGo.AddComponent<SpriteRenderer>();
             bodySr.sortingOrder = 0;
             if (ghostSprites.Count > 0) bodySr.sprite = ghostSprites[0];
-            var bodyAnimator = bodyGo.AddComponent<Animator>();
-            bodyAnimator.runtimeAnimatorController = ghostCtrl;
 
-            // HatRenderer (Sorting Order +10)
+            // HatRenderer (Sorting Order +10) - Positioned higher (y = 0.22)
             GameObject hatGo = new GameObject("HatRenderer");
-            hatGo.transform.SetParent(ghostRoot.transform, false);
+            hatGo.transform.SetParent(visualRootGo.transform, false);
+            hatGo.transform.localPosition = new Vector3(0f, 0.22f, 0f);
             var hatSr = hatGo.AddComponent<SpriteRenderer>();
             hatSr.sortingOrder = 10;
             if (hatSprites.Count > 0) hatSr.sprite = hatSprites[0];
 
-            // EffectRenderer (Sorting Order +15)
+            // EffectRenderer (Sorting Order +15) with URP particle material
             GameObject effectGo = new GameObject("EffectRenderer");
-            effectGo.transform.SetParent(ghostRoot.transform, false);
+            effectGo.transform.SetParent(visualRootGo.transform, false);
             effectGo.transform.localPosition = new Vector3(0.3f, 0.3f, 0f);
-            CreateWispParticleSystem(effectGo);
+            CreateWispParticleSystem(effectGo, particleMat);
 
-            // Wire components via SerializedObject
+            // Wire components
             var soController = new SerializedObject(controller);
-            soController.FindProperty("visualRoot").objectReferenceValue = bodyGo.transform;
+            soController.FindProperty("visualRoot").objectReferenceValue = visualRootGo.transform;
             soController.ApplyModifiedProperties();
 
             var soGhostAnim = new SerializedObject(ghostAnim);
-            soGhostAnim.FindProperty("animator").objectReferenceValue = bodyAnimator;
+            soGhostAnim.FindProperty("animator").objectReferenceValue = ghostAnimatorComp;
             soGhostAnim.FindProperty("bodyRenderer").objectReferenceValue = bodySr;
             soGhostAnim.ApplyModifiedProperties();
 
@@ -443,11 +475,27 @@ namespace GhostSurvival.Editor
             soLoadout.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
             soLoadout.ApplyModifiedProperties();
 
+            // Wire and serialize all 32 sprite lookups for Hat and Wings into CosmeticSynchronizer
             var soSyncer = new SerializedObject(syncer);
             soSyncer.FindProperty("bodyRenderer").objectReferenceValue = bodySr;
             soSyncer.FindProperty("hatRenderer").objectReferenceValue = hatSr;
             soSyncer.FindProperty("wingsRenderer").objectReferenceValue = wingsSr;
-            syncer.SetLookups(hatSprites.ToArray(), wingsSprites.ToArray());
+            soSyncer.FindProperty("hatOffset").vector3Value = new Vector3(0f, 0.22f, 0f);
+            soSyncer.FindProperty("wingsOffset").vector3Value = new Vector3(0f, 0.05f, 0f);
+
+            var propHats = soSyncer.FindProperty("hatSprites");
+            propHats.arraySize = hatSprites.Count;
+            for (int i = 0; i < hatSprites.Count; i++)
+            {
+                propHats.GetArrayElementAtIndex(i).objectReferenceValue = hatSprites[i];
+            }
+
+            var propWings = soSyncer.FindProperty("wingsSprites");
+            propWings.arraySize = wingsSprites.Count;
+            for (int i = 0; i < wingsSprites.Count; i++)
+            {
+                propWings.GetArrayElementAtIndex(i).objectReferenceValue = wingsSprites[i];
+            }
             soSyncer.ApplyModifiedProperties();
 
             PrefabUtility.SaveAsPrefabAsset(ghostRoot, $"{PrefabsDir}/GhostPlayer.prefab");
@@ -495,15 +543,15 @@ namespace GhostSurvival.Editor
 
             GameObject soulAura = new GameObject("GlowAura");
             soulAura.transform.SetParent(soulGo.transform, false);
-            CreateGlowParticleSystem(soulAura, new Color(0.75f, 0.91f, 1f, 0.4f));
+            CreateGlowParticleSystem(soulAura, new Color(0.75f, 0.91f, 1f, 0.4f), particleMat);
 
             PrefabUtility.SaveAsPrefabAsset(soulGo, $"{PrefabsDir}/SoulCollectible.prefab");
             GameObject.DestroyImmediate(soulGo);
 
-            Debug.Log("[W1SPL1NGS] Prefabs (GhostPlayer, ShadeStalker, SoulCollectible) created.");
+            Debug.Log("[W1SPL1NGS] Prefabs regenerated with unified VisualRoot, synchronized 32 frames for hat/wings, and URP materials.");
         }
 
-        private static ParticleSystem CreateWispParticleSystem(GameObject parent)
+        private static ParticleSystem CreateWispParticleSystem(GameObject parent, Material particleMat)
         {
             var ps = parent.AddComponent<ParticleSystem>();
             var main = ps.main;
@@ -541,11 +589,12 @@ namespace GhostSurvival.Editor
 
             var psr = parent.GetComponent<ParticleSystemRenderer>();
             psr.sortingOrder = 15;
+            if (particleMat != null) psr.material = particleMat;
 
             return ps;
         }
 
-        private static ParticleSystem CreateGlowParticleSystem(GameObject parent, Color color)
+        private static ParticleSystem CreateGlowParticleSystem(GameObject parent, Color color, Material particleMat)
         {
             var ps = parent.AddComponent<ParticleSystem>();
             var main = ps.main;
@@ -568,6 +617,8 @@ namespace GhostSurvival.Editor
 
             var psr = parent.GetComponent<ParticleSystemRenderer>();
             psr.sortingOrder = 4;
+            if (particleMat != null) psr.material = particleMat;
+
             return ps;
         }
 
@@ -577,37 +628,30 @@ namespace GhostSurvival.Editor
             EnsureDirectory(ScenesDir);
             string scenePath = $"{ScenesDir}/ArtSandbox.unity";
 
+            Material particleMat = GetOrCreateParticleMaterial();
+
             var scene = UnityEditor.SceneManagement.EditorSceneManager.NewScene(
                 UnityEditor.SceneManagement.NewSceneSetup.EmptyScene,
                 UnityEditor.SceneManagement.NewSceneMode.Single
             );
 
-            // 1. Camera
+            // 1. Camera with smooth follow & Zoom support (Scrollwheel, I, O)
             GameObject camGo = new GameObject("Main Camera");
             camGo.tag = "MainCamera";
             var cam = camGo.AddComponent<Camera>();
             cam.orthographic = true;
-            cam.orthographicSize = 4.5f;
-            cam.backgroundColor = new Color(0.06f, 0.06f, 0.08f, 1f);
+            cam.orthographicSize = 4.0f;
+            cam.backgroundColor = new Color(0.08f, 0.08f, 0.10f, 1f);
             cam.clearFlags = CameraClearFlags.SolidColor;
             camGo.transform.position = new Vector3(0f, 0f, -10f);
             camGo.AddComponent<AudioListener>();
             var camFollow = camGo.AddComponent<CameraFollow>();
 
-            // 2. Grayscale Ground
+            // 2. Clean Environment Ground Marker (2D, no broken 3D Quad mesh)
             GameObject groundGo = new GameObject("Environment_Ground");
             groundGo.AddComponent<SandboxGround>();
-            GameObject quad = GameObject.CreatePrimitive(PrimitiveType.Quad);
-            quad.name = "GroundQuad";
-            quad.transform.SetParent(groundGo.transform, false);
-            quad.transform.localScale = new Vector3(40f, 40f, 1f);
-            quad.transform.localPosition = new Vector3(0f, 0f, 1f);
-            var mr = quad.GetComponent<MeshRenderer>();
-            mr.material = new Material(Shader.Find("Sprites/Default"));
-            mr.material.color = new Color(0.08f, 0.08f, 0.10f, 1f);
-            GameObject.DestroyImmediate(quad.GetComponent<Collider>());
 
-            // 3. Subtle Fog System
+            // 3. Subtle Fog System with valid URP particle material
             GameObject fogGo = new GameObject("Environment_Fog");
             var fogPs = fogGo.AddComponent<ParticleSystem>();
             var fMain = fogPs.main;
@@ -627,6 +671,7 @@ namespace GhostSurvival.Editor
             fNoise.strength = 0.3f;
             var fpsr = fogGo.GetComponent<ParticleSystemRenderer>();
             fpsr.sortingOrder = 20;
+            if (particleMat != null) fpsr.material = particleMat;
 
             // 4. Instantiate Player
             GameObject playerPrefab = AssetDatabase.LoadAssetAtPath<GameObject>($"{PrefabsDir}/GhostPlayer.prefab");
@@ -660,7 +705,7 @@ namespace GhostSurvival.Editor
             }
 
             UnityEditor.SceneManagement.EditorSceneManager.SaveScene(scene, scenePath);
-            Debug.Log($"[W1SPL1NGS] ArtSandbox scene built and saved at {scenePath}");
+            Debug.Log($"[W1SPL1NGS] ArtSandbox scene rebuilt and saved at {scenePath}");
         }
 
         private static Dictionary<string, Sprite> LoadSprites(string atlasPath)

@@ -24,8 +24,8 @@ namespace GhostSurvival.Characters
         [Tooltip("Enable subtle vertical hovering without conflicting with authored walk/idle frames.")]
         [SerializeField] private bool enableSubtleHover = true;
 
-        [SerializeField] private float hoverFrequency = 2.0f;
-        [SerializeField] private float hoverAmplitude = 0.04f;
+        [SerializeField] private float hoverFrequency = 1.2f;
+        [SerializeField] private float hoverAmplitude = 0.025f;
         [SerializeField] private Transform visualRoot;
 
         [Header("Health / Stats")]
@@ -63,7 +63,6 @@ namespace GhostSurvival.Characters
 
             if (visualRoot == null)
             {
-                // Default to first child or this transform if visualRoot not set
                 visualRoot = transform.childCount > 0 ? transform.GetChild(0) : transform;
             }
 
@@ -79,7 +78,6 @@ namespace GhostSurvival.Characters
             UpdateFacingDirection();
             UpdateHoverEffect();
 
-            // Inform animator
             if (ghostAnimator != null)
             {
                 ghostAnimator.UpdateAnimationState(facingDirection, isMoving);
@@ -88,7 +86,6 @@ namespace GhostSurvival.Characters
 
         private void FixedUpdate()
         {
-            // Smooth velocity towards target move input * speed
             Vector2 targetVelocity = moveInput * moveSpeed;
             currentVelocity = Vector2.MoveTowards(currentVelocity, targetVelocity, acceleration * Time.fixedDeltaTime);
 
@@ -133,7 +130,6 @@ namespace GhostSurvival.Characters
         {
             if (!isMoving) return;
 
-            // Prioritize primary input axis to determine 4-way direction
             if (Mathf.Abs(moveInput.x) > Mathf.Abs(moveInput.y))
             {
                 facingDirection = moveInput.x > 0 ? GhostDirection.Right : GhostDirection.Left;

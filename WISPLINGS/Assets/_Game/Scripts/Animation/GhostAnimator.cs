@@ -4,13 +4,18 @@ namespace GhostSurvival.Animation
 {
     /// <summary>
     /// Updates Animator states and parameters for 4-direction idle and walk.
-    /// Exposes directional events so cosmetics remain frame-locked with the body.
+    /// Exposes animation speed so floating/walking pace can be tuned to be soft and relaxed.
     /// </summary>
     public class GhostAnimator : MonoBehaviour
     {
         [Header("Animator Reference")]
         [SerializeField] private Animator animator;
         [SerializeField] private SpriteRenderer bodyRenderer;
+
+        [Header("Animation Pace Settings")]
+        [Tooltip("Pace multiplier for the ghost animations. Lower values create a calmer, softer floating rhythm.")]
+        [Range(0.2f, 2.0f)]
+        [SerializeField] private float animationSpeed = 0.65f;
 
         // Hash IDs for fast Animator parameter updates
         private static readonly int ParamDirection = Animator.StringToHash("Direction");
@@ -22,6 +27,15 @@ namespace GhostSurvival.Animation
         public GhostDirection CurrentDirection => currentDirection;
         public bool CurrentIsMoving => currentIsMoving;
         public SpriteRenderer BodyRenderer => bodyRenderer;
+        public float AnimationSpeed
+        {
+            get => animationSpeed;
+            set
+            {
+                animationSpeed = value;
+                if (animator != null) animator.speed = animationSpeed;
+            }
+        }
 
         private void Awake()
         {
@@ -32,7 +46,6 @@ namespace GhostSurvival.Animation
 
             if (bodyRenderer == null)
             {
-                // Find renderer named BodyRenderer or first SpriteRenderer in children
                 var renderers = GetComponentsInChildren<SpriteRenderer>();
                 foreach (var r in renderers)
                 {
@@ -49,6 +62,24 @@ namespace GhostSurvival.Animation
             }
         }
 
+        private void Start()
+        {
+            ApplyAnimationSpeed();
+        }
+
+        private void OnValidate()
+        {
+            ApplyAnimationSpeed();
+        }
+
+        public void ApplyAnimationSpeed()
+        {
+            if (animator != null)
+            {
+                animator.speed = animationSpeed;
+            }
+        }
+
         public void UpdateAnimationState(GhostDirection direction, bool isMoving)
         {
             currentDirection = direction;
@@ -58,6 +89,7 @@ namespace GhostSurvival.Animation
             {
                 animator.SetInteger(ParamDirection, (int)direction);
                 animator.SetBool(ParamIsMoving, isMoving);
+                animator.speed = animationSpeed;
             }
         }
     }

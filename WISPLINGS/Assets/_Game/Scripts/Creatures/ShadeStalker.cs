@@ -181,3 +181,4 @@ namespace GhostSurvival.Creatures
         }
     }
 }
+

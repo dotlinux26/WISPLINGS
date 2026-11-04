@@ -15,3 +15,4 @@ namespace GhostSurvival.Animation
         Up = 3
     }
 }
+

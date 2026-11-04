@@ -58,8 +58,7 @@ namespace GhostSurvival.Cosmetics
                     ToggleWings();
                 }
             }
-#endif
-            // Legacy input fallback
+#elif ENABLE_LEGACY_INPUT_MANAGER
             if (Input.GetKeyDown(KeyCode.H))
             {
                 ToggleHat();
@@ -68,6 +67,7 @@ namespace GhostSurvival.Cosmetics
             {
                 ToggleWings();
             }
+#endif
         }
 
         public void ApplyEquippedCosmetics()
